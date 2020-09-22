@@ -17,21 +17,21 @@ input {
    margin-bottom: 1em;
 }
 
-.text-container:first-of-type {
+.text-container:hover > p {
+   font-weight: bold;
+}
+
+.text-container-01 {
    color: #660000;            /* red */
    background-color: #ffcccc; /* red */
 }
 
-.text-container:nth-of-type(2) {
+.text-container-02 {
    color: #006600;            /* green */
-   background-color: #ddffdd; /* red */
+   background-color: #ddffdd; /* green */
 }
 
-.text-container:nth-of-type(3) {
+.text-container-03 {
    color: #000066;            /* blue */
-   background-color: #ddddff; /* red */
-}
-
-.text-container:hover > p {
-   font-weight: bold;
+   background-color: #ddddff; /* blue */
 }

@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../assets/css/team.css">
+  <!-- stretch 03 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- 
    - NOTE:
    - The assignment requires a JavaScript file in the <head>. I put it at the bottom of the page,
@@ -13,31 +15,54 @@
    -->
   <title>02 Teach: Team Activity</title>
 </head>
-<body>
+<body class="container">
   <h1>02 Teach: Team Activity</h1>
 
-  <div id="js-div-01" class="text-container">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-  </div>
-  
-  <form name="colors" action="">
-    <label for="bg">Enter desired background color (hex values only):</label><br />
-    <input name="bg" type="text" maxlength="6" pattern="\d|[A-F, a-f]" required><br />
-    <button id="js-set-color">Change Color(s)</button>
-  </form>
+  <div class="row">
+    <div class="col-lg">
+      <div id="js-div-01" class="text-container text-container-01">
+        <p>Lorem ipsum</p>
+      </div>
+      
+      <form name="colorOne" action="">
+        <label for="bg1">Enter desired background color (hex values only):</label><br />
+        <input name="bg1" type="text" maxlength="6" pattern="\d|[A-F, a-f]" required><br />
+        <button id="js-set-color-one">Change Color</button>
+      </form>
+    </div>
 
-  <!-- <p id="js-error"></p> -->
-  
-  <div class="text-container">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+    <div class="col-lg">
+      <div id="js-div-02" class="text-container text-container-02">
+        <p>Lorem ipsum</p>
+      </div>
+      
+      <form name="colorTwo" action="">
+        <label for="bg2">Enter desired background color (hex values only):</label><br />
+        <input name="bg2" type="text" maxlength="6"><br />
+        <button id="js-set-color-two">Change Color with jQuery</button>
+      </form>
+    </div>
+
+
+    <div class="col-lg">
+      <div id="js-div-03" class="text-container text-container-03">
+        <p>Lorem ipsum</p>
+      </div>
+      
+      <form name="colorThree" action="">
+        <label for="bg3">Enter desired background color (hex values only):</label><br />
+        <input name="bg3" type="text" maxlength="6"><br />
+        <button id="js-set-color-three">Change Color with jQuery UI</button>
+      </form>
+    </div>
   </div>
-  
-  <div class="text-container">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-  </div>
-  
+
   <button id="js-click-me-button">Click Me</button>
-  
+  <!-- stretch 01 -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- stretch 02 -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
   <script src="../assets/js/team.js"></script>
 </body>
 </html>
