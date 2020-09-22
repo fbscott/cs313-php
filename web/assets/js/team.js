@@ -18,7 +18,7 @@ TTA.divThree         = document.getElementById('js-div-03');
 
 // event listeners
 TTA.clickMeButton.addEventListener('click', e => {
-    TTA.alertOnClick(e);
+    TTA.alertOnClick(e, 'Clicked!');
 });
 
 TTA.colorButtonOne.addEventListener('click', e => {
@@ -44,13 +44,14 @@ $(TTA.colorButtonThree).on('click', e => {
 /******************************************************************************
  * ALERT ON CLICK
  * Alert the user when button is clicked.
- * @param  {Event} e - button click
+ * @param  {Event}  e       - button click
+ * @param  {String} message - verbiage to pass to alert()
  *****************************************************************************/
-TTA.alertOnClick = e => {
+TTA.alertOnClick = (e, message) => {
     // keep page from refreshing
     e.preventDefault();
     // call alert message
-    alert('Clicked!');
+    alert(message);
 };
 
 /******************************************************************************
@@ -72,7 +73,7 @@ TTA.styleEl = (el, color) => {
 /******************************************************************************
  * CHANGE DIV BACKGROUND COLOR
  * Receives an event, DOM element, and user-defined hex color value (minus the
- * '#'). Calls TTA.styleEl to apply the appropriate background CSS.
+ * '#'). Calls TTA.styleEl() to apply the appropriate background CSS.
  * @param  {Event}  e     - button click
  * @param  {DOM}    el    - DOM element to be styled
  * @param  {String} input - user-defined hex value
