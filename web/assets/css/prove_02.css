@@ -1,0 +1,93 @@
+/*****************************************************************************
+ * container
+ ****************************************************************************/
+/* for keeping the footer at the bottom of the page */
+#page-container {
+   position: relative;
+   min-height: 100vh;
+}
+
+/* for keeping the footer at the bottom of the page */
+#content-wrapper { padding-bottom: 5.5rem; }
+
+/*****************************************************************************
+ * navigation
+ ****************************************************************************/
+ul.navigation-secondary li a:link,
+ul.navigation-secondary li a:visited {
+   margin-top: 5px;
+   margin-bottom: 5px;
+   text-decoration: none;
+   color: #444444;
+   background-color: #ebebeb;
+   border-radius: 5px;
+   width: 200px;
+   padding: 8px 10px;
+   position: relative;
+   /*
+   Transition shorthand. Same as doing the following:
+    - transition-property: width;
+    - transition-duration: 300ms;
+    - transition-timing-function: ease-out;
+    And then again for other properties (background-color, color, etc.);
+    */
+   transition: width 300ms ease-out,
+               color 300ms,
+               background-color 300ms;
+}
+
+ul.navigation-secondary li a span.caret {
+   color: #444444;
+   position: absolute;
+   padding-right: 10px;
+   right: 0;
+   visibility: hidden;
+   opacity: 0%;
+   transition: opacity 300ms;
+   transition-delay: 500ms;
+}
+
+ul.navigation-secondary li a span.caret span {
+   font-style: italic;
+   font-weight: bold;
+}
+
+ul.navigation-secondary li a:hover {
+   width: 225px;
+   color: #ebebeb;
+   background-color: #444444;
+}
+
+ul.navigation-secondary li a:hover span.caret {
+   visibility: visible;
+   opacity: 100%;
+   background-color: #fcb017;
+   padding: 8px 10px;
+   border-radius: 0px 5px 5px 0px;
+   top: 0px;
+}
+
+#profile-head-container img { margin: 1em 0; }
+
+/*****************************************************************************
+ * padding and margin
+ ****************************************************************************/
+.text-center { text-align: center; }
+
+.margin-small { margin: 2em 0; }
+
+.margin-medium { margin: 4em 0; }
+
+.margin-large { margin: 6em 0; }
+
+.margin-top-small { margin-top: 2rem; }
+
+.margin-top-medium { margin-top: 4rem; }
+
+.margin-top-large { margin-top: 6rem; }
+
+.margin-bottom-small { margin-bottom: 2rem; }
+
+.margin-bottom-medium { margin-bottom: 4rem; }
+
+.margin-bottom-large { margin-bottom: 6rem; }
