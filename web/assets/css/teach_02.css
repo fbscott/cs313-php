@@ -1,0 +1,37 @@
+p {
+   line-height: 1.5;
+}
+
+form {
+   margin-bottom: 1em;
+}
+
+input {
+   display: inline-block;
+   margin-bottom: 1em;
+}
+
+.text-container {
+   font-size: 1.1em;
+   padding: 1em 2em;
+   margin-bottom: 1em;
+}
+
+.text-container:hover > p {
+   font-weight: bold;
+}
+
+.text-container-01 {
+   color: #660000;            /* red */
+   background-color: #ffcccc; /* red */
+}
+
+.text-container-02 {
+   color: #006600;            /* green */
+   background-color: #ddffdd; /* green */
+}
+
+.text-container-03 {
+   color: #000066;            /* blue */
+   background-color: #ddddff; /* blue */
+}
