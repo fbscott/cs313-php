@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../assets/css/_reset.css">
+   <link rel="stylesheet" href="../assets/css/_base.css">
+   <link rel="stylesheet" href="../assets/css/_grid.css">
+   <title>02 Teach: Team Activity</title>
+</head>
+<body>
+   <div class="row">
+      <div class="column">
+         <h1>02 Teach: Team Activity</h1>
+      </div>
+   </div>
+   <div class="row">
+      <div class="column">
+         <!---------------------- team activity ---------------------->
+         <form name="student" action="./teach_03_result.php" method="post">
+            <strong>Name:</strong><br />
+            <input name="name" type="text" /><br />
+
+            <strong>Email:</strong><br />
+            <input name="email" type="text" /><br />
+
+            <strong>Major:</strong><br /><br />
+            <input type="radio" name="major" value="CS"> Computer Science<br />
+            <input type="radio" name="major" value="WDD"> Web Design and Development<br />
+            <input type="radio" name="major" value="CIT"> Computer information Technology<br />
+            <input type="radio" name="major" value="CE"> Computer Engineering<br />
+
+            <strong>Continent(s) Visited:</strong><br /><br />
+            <input type="checkbox" name="continents[]" value="NA"> North America<br />
+            <input type="checkbox" name="continents[]" value="SA"> South America<br />
+            <input type="checkbox" name="continents[]" value="EU"> Europe<br />
+            <input type="checkbox" name="continents[]" value="AS"> Asia<br />
+            <input type="checkbox" name="continents[]" value="AT"> Australia<br />
+            <input type="checkbox" name="continents[]" value="AF"> Africa<br />
+            <input type="checkbox" name="continents[]" value="AN"> Antarctica<br />
+            
+            <strong>Comment:</strong><br />
+            <textarea name="comment" rows="5" cols="40"></textarea><br /><br />
+            <input type="submit" value="Submit">
+         </form>
+         <!---------------------- team activity ---------------------->
+      </div>
+   </div>
+</body>
+</html>
