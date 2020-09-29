@@ -1,3 +1,18 @@
+<?php 
+// source: https://stackoverflow.com/questions/37954031/how-to-create-an-array-of-objects-in-php-dynamically
+// associative array
+$majorsArr = array(
+   "Computer Science"                => "CS",
+   "Web Design and Development"      => "WDD",
+   "Computer information Technology" => "CIT",
+   "Computer Engineering"            => "CE"
+);
+
+// cast as object
+$majorsObj = (object) $majorsArr;
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,10 +40,21 @@
             <input name="email" type="text" /><br />
 
             <strong>Major:</strong><br /><br />
+
+            <!-- core requirement -->
+            <!-- 
             <input type="radio" name="major" value="CS"> Computer Science<br />
             <input type="radio" name="major" value="WDD"> Web Design and Development<br />
             <input type="radio" name="major" value="CIT"> Computer information Technology<br />
             <input type="radio" name="major" value="CE"> Computer Engineering<br />
+             -->
+
+            <!-- stretch challenge -->
+            <?php 
+               foreach ($majorsArr as $key => $value) {
+                  echo '<input type="radio" name="major" value="' . $value . '"> ' . $key . '<br />';
+               }
+             ?>
 
             <strong>Continent(s) Visited:</strong><br /><br />
             <input type="checkbox" name="continents[]" value="NA"> North America<br />
@@ -38,7 +64,7 @@
             <input type="checkbox" name="continents[]" value="AT"> Australia<br />
             <input type="checkbox" name="continents[]" value="AF"> Africa<br />
             <input type="checkbox" name="continents[]" value="AN"> Antarctica<br />
-            
+
             <strong>Comment:</strong><br />
             <textarea name="comment" rows="5" cols="40"></textarea><br /><br />
             <input type="submit" value="Submit">

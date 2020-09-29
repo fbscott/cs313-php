@@ -1,21 +1,31 @@
 <?php 
+   $name = $email = $comment = "";
 
-$name = $email = $comment = "";
+   if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $name       = test_input($_POST["name"]);
+      $email      = test_input($_POST["email"]);
+      $major      = $_POST["major"];
+      $comment    = test_input($_POST["comment"]);
+   }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   $name       = test_input($_POST["name"]);
-   $email      = test_input($_POST["email"]);
-   $major      = $_POST["major"];
-   $comment    = test_input($_POST["comment"]);
-}
+   function test_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+   }
 
-function test_input($data) {
-   $data = trim($data);
-   $data = stripslashes($data);
-   $data = htmlspecialchars($data);
-   return $data;
-}
+   $continents = $_POST["continents"];
 
+   $continentAbbrsArr = array(
+      "North America" => "NA",
+      "South America" => "SA",
+      "Europe"        => "EU",
+      "Asia"          => "AS",
+      "Australia"     => "AT",
+      "Africa"        => "AF",
+      "Antarctica"    => "AN"
+   );
  ?>
 
 <!DOCTYPE html>
@@ -43,9 +53,13 @@ function test_input($data) {
          <p>Continents Visited:</p>
          <ul>
          <?php 
-            $continents = $_POST["continents"];
-
-            foreach ($continents as $continent) { echo '<li>&ndash; ' . $continent . '</li>'; }
+            foreach ($continents as $continent) {
+               // core requirement
+               // echo '<li>&ndash; ' . $continent . '</li>';
+               
+               // stretch challenge
+               echo '<li>&ndash; ' . array_search($continent, $continentAbbrsArr) . '</li>';
+            }
           ?>
          </ul>
          <p>Comment: <?php echo $comment; ?></p>
