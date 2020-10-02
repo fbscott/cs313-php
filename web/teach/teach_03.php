@@ -21,25 +21,25 @@ $majorsObj = (object) $majorsArr;
    <link rel="stylesheet" href="../assets/css/_reset.css">
    <link rel="stylesheet" href="../assets/css/_base.css">
    <link rel="stylesheet" href="../assets/css/_grid.css">
-   <title>02 Teach: Team Activity</title>
+   <title>03 Teach: Team Activity</title>
 </head>
 <body>
    <div class="row">
       <div class="column">
-         <h1>02 Teach: Team Activity</h1>
+         <h1>03 Teach: Team Activity</h1>
       </div>
    </div>
    <div class="row">
       <div class="column">
          <!---------------------- team activity ---------------------->
          <form name="student" action="./teach_03_result.php" method="post">
-            <strong>Name:</strong><br />
+            <label>Name:</label><br />
             <input name="name" type="text" /><br />
 
-            <strong>Email:</strong><br />
+            <label>Email:</label><br />
             <input name="email" type="text" /><br />
 
-            <strong>Major:</strong><br /><br />
+            <label>Major:</label><br /><br />
 
             <!-- core requirement -->
             <!-- 
@@ -56,7 +56,7 @@ $majorsObj = (object) $majorsArr;
                }
              ?>
 
-            <strong>Continent(s) Visited:</strong><br /><br />
+            <label>Continent(s) Visited:</label><br /><br />
             <input type="checkbox" name="continents[]" value="NA"> North America<br />
             <input type="checkbox" name="continents[]" value="SA"> South America<br />
             <input type="checkbox" name="continents[]" value="EU"> Europe<br />
@@ -65,7 +65,7 @@ $majorsObj = (object) $majorsArr;
             <input type="checkbox" name="continents[]" value="AF"> Africa<br />
             <input type="checkbox" name="continents[]" value="AN"> Antarctica<br />
 
-            <strong>Comment:</strong><br />
+            <label>Comment:</label><br />
             <textarea name="comment" rows="5" cols="40"></textarea><br /><br />
             <input type="submit" value="Submit">
          </form>

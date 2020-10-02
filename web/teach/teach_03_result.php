@@ -2,16 +2,17 @@
    $name = $email = $comment = "";
 
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $name       = test_input($_POST["name"]);
-      $email      = test_input($_POST["email"]);
-      $major      = $_POST["major"];
-      $comment    = test_input($_POST["comment"]);
+      $name    = test_input($_POST["name"]);
+      $email   = test_input($_POST["email"]);
+      $major   = $_POST["major"];
+      $comment = test_input($_POST["comment"]);
    }
 
    function test_input($data) {
       $data = trim($data);
       $data = stripslashes($data);
       $data = htmlspecialchars($data);
+      
       return $data;
    }
 
@@ -26,6 +27,16 @@
       "Africa"        => "AF",
       "Antarctica"    => "AN"
    );
+
+   $continentAbbrsArr2 = array(
+      "NA" => "North America",
+      "SA" => "South America",
+      "EU" => "Europe",
+      "AS" => "Asia",
+      "AT" => "Australia",
+      "AF" => "Africa",
+      "AN" => "Antarctica"
+   );
  ?>
 
 <!DOCTYPE html>
@@ -36,12 +47,12 @@
    <link rel="stylesheet" href="../assets/css/_reset.css">
    <link rel="stylesheet" href="../assets/css/_base.css">
    <link rel="stylesheet" href="../assets/css/_grid.css">
-   <title>02 Teach: Team Activity Result</title>
+   <title>03 Teach: Team Activity Result</title>
 </head>
 <body>
    <div class="row">
       <div class="column">
-         <h1>02 Teach: Team Activity Result</h1>
+         <h1>03 Teach: Team Activity Result</h1>
       </div>
    </div>
    <div class="row">
@@ -56,9 +67,16 @@
             foreach ($continents as $continent) {
                // core requirement
                // echo '<li>&ndash; ' . $continent . '</li>';
-               
+
                // stretch challenge
                echo '<li>&ndash; ' . array_search($continent, $continentAbbrsArr) . '</li>';
+            }
+          ?>
+         <?php 
+            foreach ($continents as $continent) {
+               // other way of doing it
+               $_continent = $continentAbbrsArr2[$continent];
+               echo '<li>&ndash; ' . $_continent . '</li>';
             }
           ?>
          </ul>
