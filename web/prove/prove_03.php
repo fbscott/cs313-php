@@ -25,10 +25,10 @@
       "Product 5" => null,
       "Product 6" => null
     );
-    $_SESSION['count'] = 0;
+    $_SESSION['count'];
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['qty_01']) && $_POST['qty_01'] > 0) {
-      $_SESSION['count'] = $_POST['qty_01'];
+      $_SESSION['count'] += $_POST['qty_01'];
       $_SESSION['cart']['Product 1'] = $_POST['qty_01'];
     }
 
@@ -39,7 +39,13 @@
          <h1>Prove 03</h1>
       </div>
       <div class="columns medium-6">
-        <p><a href="./cart_03.php"><?php echo 'Cart: ' . $_SESSION['count']; ?></a></p>
+        <p><a href="./cart_03.php">
+          <?php
+
+            echo 'Cart: ' . $_SESSION['count'];
+
+            ?>
+          </a></p>
       </div>
    </div>
 
@@ -61,7 +67,6 @@
               </div>
               <div class="columns small-3">
                 <select name="qty_01">
-                  <option value="0">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
