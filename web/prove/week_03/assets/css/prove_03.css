@@ -1,0 +1,80 @@
+/*********************************** product panels ***************************/
+ul#products {
+   display: grid;
+   grid-gap: 1rem;
+   grid-template-columns: auto;
+}
+
+ul#products li {
+   border: 1px solid #cccccc;
+   border-radius: 5px;
+   padding: 2rem;
+}
+
+.product-title {
+   font-size: 1.125rem;
+   font-weight: bold;
+   display: block;
+   text-align: center;
+   margin-bottom: 1rem;
+}
+/*********************************** end product panels ***********************/
+/*********************************** buttons **********************************/
+ul#products button {
+   border-radius: 5px;
+   position: relative;
+   background-color: #666666;
+   border: none;
+   color: #ffffff;
+   padding: 15px;
+   font-size: 1rem;
+   width: 100%;
+   transition-duration: 300ms;
+}
+
+ul#products button span.accent {
+   color: #666666;
+   right: 0;
+   visibility: hidden;
+   opacity: 0%;
+   transition: opacity 300ms;
+   transition-delay: 500ms;
+   height: 100%;
+}
+
+ul#products button span.accent span {
+   font-style: italic;
+   font-weight: bold;
+   transform: translate(-50%, -50%);
+   top: 50%;
+   left: 50%;
+   position: absolute;
+}
+
+ul#products button:hover {
+   background-color: #333333;
+   box-shadow: 0 5px 5px 0 rgba(0,0,0,0.25), 0 10px 10px -5px rgba(0,0,0,0.25);
+}
+
+ul#products button:hover span.accent {
+   visibility: visible;
+   opacity: 100%;
+   position: absolute;
+   background-color: #fcb017;
+   width: 20%;
+   border-radius: 0px 5px 5px 0px;
+   top: 0px;
+}
+/*********************************** end buttons ******************************/
+
+@media (min-width: 737px) {
+   ul#products {
+      grid-template-columns: auto auto;
+   }
+}
+
+@media (min-width: 850px) {
+   ul#products {
+      grid-template-columns: auto auto auto;
+   }
+}
