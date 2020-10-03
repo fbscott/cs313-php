@@ -1,13 +1,53 @@
 <?php 
+ session_start();
+
   if (isset($_POST['submit_1'])) {
-    session_start();
 
     // print_r($_SESSION);
 
     $_SESSION['count'] = htmlentities($_POST['qty_1']);
+ }
+ 
+ $_SESSION['products'] = array(
+   array(
+     'prod' => 'Product 1',
+     'amt'  => 14.99,
+     'qty'  => 0,
+     'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing.'
+   ),
+   array(
+     'prod' => 'Product 2',
+     'amt'  => 24.99,
+     'qty'  => 0,
+     'desc' => 'Suspendisse rhoncus, ex quis facilisis pulvinar.'
+   ),
+   array(
+     'prod' => 'Product 3',
+     'amt'  => 34.99,
+     'qty'  => 0,
+     'desc' => 'Nullam quis eleifend ipsum. Nulla facilisi.'
+   ),
+   array(
+     'prod' => 'Product 4',
+     'amt'  => 44.99,
+     'qty'  => 0,
+     'desc' => 'Vestibulum ante ipsum primis in faucibus orci.'
+   ),
+   array(
+     'prod' => 'Product 5',
+     'amt'  => 54.99,
+     'qty'  => 0,
+     'desc' => 'Ut fermentum eros eget sapien dapibus, sit amet.'
+   ),
+   array(
+     'prod' => 'Product 6',
+     'amt'  => 64.99,
+     'qty'  => 0,
+     'desc' => 'Fusce mattis pellentesque nibh et elementum.'
+   )
+ );
 
     // header('Location: cart.php');
-  }
  ?>
 
 <!DOCTYPE html>
@@ -24,44 +64,9 @@
 <body>
 
   <?php 
-    $products = array(
-      array(
-        'prod' => 'Product 1',
-        'amt'  => 15.99,
-        'qty'  => 0,
-        'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing.'
-      ),
-      array(
-        'prod' => 'Product 2',
-        'amt'  => 25.99,
-        'qty'  => 0,
-        'desc' => 'Suspendisse rhoncus, ex quis facilisis pulvinar.'
-      ),
-      array(
-        'prod' => 'Product 3',
-        'amt'  => 35.99,
-        'qty'  => 0,
-        'desc' => 'Nullam quis eleifend ipsum. Nulla facilisi.'
-      ),
-      array(
-        'prod' => 'Product 4',
-        'amt'  => 45.99,
-        'qty'  => 0,
-        'desc' => 'Vestibulum ante ipsum primis in faucibus orci.'
-      ),
-      array(
-        'prod' => 'Product 5',
-        'amt'  => 55.99,
-        'qty'  => 0,
-        'desc' => 'Ut fermentum eros eget sapien dapibus, sit amet.'
-      ),
-      array(
-        'prod' => 'Product 6',
-        'amt'  => 65.99,
-        'qty'  => 0,
-        'desc' => 'Fusce mattis pellentesque nibh et elementum.'
-      )
-    );
+    if (isset($_SESSION['products'])) {
+      $products = $_SESSION['products'];
+    }
 
     if (isset($_SESSION['count'])) {
       $count = $_SESSION['count'];
