@@ -1,3 +1,4 @@
+/*********************************** product panels ***************************/
 ul#products {
    display: grid;
    grid-gap: 1rem;
@@ -17,7 +18,7 @@ ul#products li {
    text-align: center;
    margin-bottom: 1rem;
 }
-
+/*********************************** end product panels ***********************/
 /*********************************** buttons **********************************/
 ul#products button {
    border-radius: 5px;
