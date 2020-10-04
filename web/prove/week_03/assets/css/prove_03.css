@@ -1,26 +1,60 @@
-/*********************************** product panels ***************************/
-ul#products {
+body { margin: 30px 0; }
+/*********************************** panels ***********************************/
+ul.panels {
    display: grid;
    grid-gap: 1rem;
    grid-template-columns: auto;
 }
 
-ul#products li {
+ul.panels li {
    border: 1px solid #cccccc;
    border-radius: 5px;
    padding: 2rem;
 }
 
-.product-title {
+ul#products li .product-title {
    font-size: 1.125rem;
    font-weight: bold;
    display: block;
-   text-align: center;
    margin-bottom: 1rem;
+   text-align: center;
 }
-/*********************************** end product panels ***********************/
+
+ul#cart li .product-title {
+   font-size: 1.5rem;
+   font-weight: bold;
+   display: block;
+   margin-bottom: 0.25rem;
+}
+
+ul#order li .product-title {
+   font-size: 1rem;
+   font-weight: bold;
+   display: block;
+   margin-bottom: 0.25rem;
+}
+
+ul#cart p,
+ul#order p {
+   margin: 0;
+}
+
+ul#order p {
+   font-size: 12px;
+}
+
+ul#cart p.right,
+ul#order p.right {
+   text-align: right;
+}
+
+ul#cart button.right {
+   float: right;
+}
+/*********************************** end cart panels **************************/
 /*********************************** buttons **********************************/
-ul#products button {
+button.product,
+a.button {
    border-radius: 5px;
    position: relative;
    background-color: #666666;
@@ -32,7 +66,13 @@ ul#products button {
    transition-duration: 300ms;
 }
 
-ul#products button span.accent {
+a.button {
+   text-decoration: none;
+   margin: 0 auto 30px 0;
+   text-align: center;
+}
+
+button.product span.accent {
    color: #666666;
    right: 0;
    visibility: hidden;
@@ -42,7 +82,7 @@ ul#products button span.accent {
    height: 100%;
 }
 
-ul#products button span.accent span {
+button.product span.accent span {
    font-style: italic;
    font-weight: bold;
    transform: translate(-50%, -50%);
@@ -51,12 +91,12 @@ ul#products button span.accent span {
    position: absolute;
 }
 
-ul#products button:hover {
+button.product:hover {
    background-color: #333333;
    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.25), 0 10px 10px -5px rgba(0,0,0,0.25);
 }
 
-ul#products button:hover span.accent {
+button.product:hover span.accent {
    visibility: visible;
    opacity: 100%;
    position: absolute;
@@ -66,7 +106,7 @@ ul#products button:hover span.accent {
    top: 0px;
 }
 /*********************************** end buttons ******************************/
-
+/*********************************** media queries ****************************/
 @media (min-width: 737px) {
    ul#products {
       grid-template-columns: auto auto;
@@ -78,3 +118,4 @@ ul#products button:hover span.accent {
       grid-template-columns: auto auto auto;
    }
 }
+/*********************************** end media queries ************************/
