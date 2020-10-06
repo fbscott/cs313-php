@@ -2,4 +2,4 @@
 
 Scott Currell's personal coursework
 
-Heroku demo site: https://infinite-fjord-13156.herokuapp.com/
+Heroku demo: https://infinite-fjord-13156.herokuapp.com/
