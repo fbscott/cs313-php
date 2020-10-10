@@ -1,6 +1,16 @@
 # create the database
 # CREATE DATABASE fuel;
 
+# delete public schema and all tables
+# DROP SCHEMA public CASCADE;
+# create public schema
+# CREATE SCHEMA public;
+
+DROP TABLE IF EXISTS public.ledger;
+DROP TABLE IF EXISTS public.filler;
+DROP TABLE IF EXISTS public.vehicle;
+DROP TABLE IF EXISTS public.fillUp;
+
 CREATE TABLE public.filler (
    id SERIAL NOT NULL PRIMARY KEY,
    username VARCHAR(80) NOT NULL UNIQUE,
