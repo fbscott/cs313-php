@@ -90,7 +90,7 @@
           echo '<td>' . $row['f_date']         . '</td>';
           echo '<td>' . $row['mileage']        . '</td>';
           echo '<td>' . $row['gallons']        . '</td>';
-          echo '<td>' . $row['pricePerGallon'] . '</td>';
+          echo '<td>' . $row['pricepergallon'] . '</td>';
           echo '<td> -- </td>';
           echo '<td> -- </td>';
           echo '<td> -- </td>';
