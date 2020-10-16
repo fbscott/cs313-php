@@ -47,12 +47,12 @@
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
       <label for="user">User</label>
       <select name="user" id="user">
+        <option value="" selected="true" disabled> -- </option>
         <?php 
           foreach ($db->query('SELECT * FROM filler') as $row) {
          ?>
          <option value="<?php echo $row['first']; ?>"><?php echo $row['first']; ?></option>
         <?php } ?>
-        <option value=""></option>
       </select>
     </form>
   </div>
