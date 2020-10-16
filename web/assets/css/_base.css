@@ -26,12 +26,13 @@ h4, h5, h6, p, a {
 
 p { display: block; }
 
+table { margin-bottom: 3rem; }
+
 th, td {
    text-align: center;
    padding: 0.625rem;
    border: 1px solid #cccccc;
    min-width: 7.813rem;
-   max-width: 7.813rem;
 }
 
 input, select {

@@ -81,7 +81,8 @@
 
 <div class="row">
   <div class="column">
-    <p>Hello, John! Below is the mileage tracking info for your 2010 Jeep Wrangler.</p>
+    <p>Hello, John!</p>
+    <p>Below is the mileage tracking info for your 2010 Jeep Wrangler.</p>
   </div>
 </div>
 
