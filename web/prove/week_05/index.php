@@ -43,37 +43,29 @@
 </div>
 
 <div class="row">
-  <div class="columns">
+  <div class="column">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+      <label for=""></label>
+      <input type="" name="">
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
     <p>Hello, Scott! Below is the mileage tracking info for your 2010 Jeep Wrangler.</p>
   </div>
 </div>
 
 <div class="row">
-  <div class="columns">
+  <div class="column">
     <p>Average MPG: 28.34</p>
     <p>Average Miles per fill-up: 431</p>
   </div>
 </div>
 
-<!----------------------------------- TEST ----------------------------------->
-<!-- <div class="row">
-  <div class="columns">
-    <?php 
-
-      // foreach ($db->query('SELECT username, first FROM filler') as $row)
-      // {
-      //   echo 'user: ' . $row['username'];
-      //   echo ' first: ' . $row['first'];
-      //   echo '<br/>';
-      // }
-
-     ?>
-  </div>
-</div> -->
-<!----------------------------------- TEST ----------------------------------->
-
 <div class="row">
-  <div class="columns">
+  <div class="column">
     <table>
       <tr>
         <th>Date</th>
@@ -97,15 +89,6 @@
           echo '</tr>';
         }
        ?>
-      <!-- <tr>
-        <td>10/06/20</td>
-        <td>212,430</td>
-        <td>15.17</td>
-        <td>$2.12</td>
-        <td>$32.16</td>
-        <td>$28.48</td>
-        <td>432</td>
-      </tr> -->
     </table>
   </div>
 </div>

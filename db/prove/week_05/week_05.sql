@@ -56,7 +56,8 @@ INSERT INTO vehicle (year, make, model) VALUES (2010, 'Jeep', 'Wrangler');
 INSERT INTO vehicle (year, make, model) VALUES (1980, 'Datsun', '510');
 
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-13', 212862, 15.25, 2.14);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-06-13', 212430, 15.17, 2.12);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-06', 212430, 15.17, 2.12);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-30', 212011, 15.26, 2.10);
 
 INSERT INTO ledger VALUES (DEFAULT, 1, 1, 1);
 INSERT INTO ledger VALUES (DEFAULT, 2, 2, 2);
