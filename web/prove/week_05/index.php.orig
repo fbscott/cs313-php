@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
   <link rel="stylesheet" href="../../assets/css/_reset.css">
   <link rel="stylesheet" href="../../assets/css/_base.css">
   <link rel="stylesheet" href="../../assets/css/_grid.css">
+  
+=======
+>>>>>>> c92731b66de7923beead241b0822ae3c037bbf81
   <title>Query Data</title>
 </head>
 <body><div class="row"><div class="column">
