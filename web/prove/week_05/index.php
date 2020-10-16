@@ -45,8 +45,15 @@
 <div class="row">
   <div class="column">
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-      <label for=""></label>
-      <input type="" name="">
+      <label for="user">User</label>
+      <select name="user" id="user">
+        <?php 
+          foreach ($db->query('SELECT * FROM filler') as $row) {
+         ?>
+         <option value="<?php echo $row; ?>"><?php echo $row; ?></option>
+        <?php } ?>
+        <option value=""></option>
+      </select>
     </form>
   </div>
 </div>
