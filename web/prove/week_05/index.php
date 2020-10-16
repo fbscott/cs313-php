@@ -43,7 +43,7 @@
 </div>
 
 <div class="row">
-  <div class="column">
+  <div class="large-6 columns">
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
       <label for="user">User</label>
       <select name="user" id="user">
@@ -51,7 +51,20 @@
         <?php 
           foreach ($db->query('SELECT * FROM filler') as $row) {
          ?>
-         <option value="<?php echo $row['first']; ?>"><?php echo $row['first']; ?></option>
+         <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?></option>
+        <?php } ?>
+      </select>
+    </form>
+  </div>
+  <div class="large-6 columns">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+      <label for="user">User</label>
+      <select name="user" id="user">
+        <option value="" selected="true" disabled> -- </option>
+        <?php 
+          foreach ($db->query('SELECT * FROM vehicle') as $row) {
+         ?>
+         <option value="<?php echo $row['id']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
         <?php } ?>
       </select>
     </form>
