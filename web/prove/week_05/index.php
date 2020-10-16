@@ -42,34 +42,42 @@
   </div>
 </div>
 
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 <div class="row">
   <div class="large-6 columns">
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-      <label for="user">User</label>
-      <select name="user" id="user">
-        <option value="" selected="true" disabled> -- </option>
-        <?php 
-          foreach ($db->query('SELECT * FROM filler') as $row) {
-         ?>
-         <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?></option>
-        <?php } ?>
-      </select>
-    </form>
+
+    <label for="user">User</label>
+    <select name="user" id="user">
+      <option value="" selected="true" disabled> -- </option>
+      <?php 
+        foreach ($db->query('SELECT * FROM filler') as $row) {
+       ?>
+       <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?></option>
+      <?php } ?>
+    </select>
+
   </div>
   <div class="large-6 columns">
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-      <label for="user">User</label>
-      <select name="user" id="user">
-        <option value="" selected="true" disabled> -- </option>
-        <?php 
-          foreach ($db->query('SELECT * FROM vehicle') as $row) {
-         ?>
-         <option value="<?php echo $row['id']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
-        <?php } ?>
-      </select>
-    </form>
+
+    <label for="user">Vehicle</label>
+    <select name="user" id="user">
+      <option value="" selected="true" disabled> -- </option>
+      <?php 
+        foreach ($db->query('SELECT * FROM vehicle') as $row) {
+       ?>
+       <option value="<?php echo $row['id']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
+      <?php } ?>
+    </select>
+
   </div>
 </div>
+
+<div class="row">
+  <div class="column">
+    <input type="submit" value="Submit">
+  </div>
+</div>
+</form>
 
 <div class="row">
   <div class="column">
