@@ -81,14 +81,22 @@
 
 <div class="row">
   <div class="column">
-    <p>Hello, Scott! Below is the mileage tracking info for your 2010 Jeep Wrangler.</p>
+    <p>Hello, John! Below is the mileage tracking info for your 2010 Jeep Wrangler.</p>
   </div>
 </div>
 
 <div class="row">
   <div class="column">
-    <p>Average MPG: 28.34</p>
-    <p>Average Miles per fill-up: 431</p>
+    <table>
+      <tr>
+        <th>Average MPG</th>
+        <th>Average Miles per fill-up</th>
+      </tr>
+      <tr>
+        <td>28.34</td>
+        <td>431</td>
+      </tr>
+    </table>
   </div>
 </div>
 
