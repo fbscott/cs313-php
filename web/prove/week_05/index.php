@@ -84,22 +84,19 @@
         <th>MPG</th>
         <th>mi/tank</th>
       </tr>
-      <tr>
       <?php 
-
-      foreach ($db->query('SELECT * FROM fillUp') as $row)
-      {
-        echo '<td>' . $row['f_date']         . '</td>';
-        echo '<td>' . $row['mileage']        . '</td>';
-        echo '<td>' . $row['gallons']        . '</td>';
-        echo '<td>' . $row['pricePerGallon'] . '</td>';
-        echo '<td> -- </td>';
-        echo '<td> -- </td>';
-        echo '<td> -- </td>';
-      }
-
+        foreach ($db->query('SELECT * FROM fillUp') as $row) {
+          echo '<tr>';
+          echo '<td>' . $row['f_date']         . '</td>';
+          echo '<td>' . $row['mileage']        . '</td>';
+          echo '<td>' . $row['gallons']        . '</td>';
+          echo '<td>' . $row['pricePerGallon'] . '</td>';
+          echo '<td> -- </td>';
+          echo '<td> -- </td>';
+          echo '<td> -- </td>';
+          echo '</tr>';
+        }
        ?>
-      </tr>
       <!-- <tr>
         <td>10/06/20</td>
         <td>212,430</td>
