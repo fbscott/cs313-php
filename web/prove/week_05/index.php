@@ -55,24 +55,22 @@
   </div>
 </div>
 
-
-
-<div class="row">
+<!----------------------------------- TEST ----------------------------------->
+<!-- <div class="row">
   <div class="columns">
     <?php 
 
-      foreach ($db->query('SELECT username, first FROM filler') as $row)
-      {
-        echo 'user: ' . $row['username'];
-        echo ' first: ' . $row['first'];
-        echo '<br/>';
-      }
+      // foreach ($db->query('SELECT username, first FROM filler') as $row)
+      // {
+      //   echo 'user: ' . $row['username'];
+      //   echo ' first: ' . $row['first'];
+      //   echo '<br/>';
+      // }
 
      ?>
   </div>
-</div>
-
-
+</div> -->
+<!----------------------------------- TEST ----------------------------------->
 
 <div class="row">
   <div class="columns">
@@ -87,15 +85,22 @@
         <th>mi/tank</th>
       </tr>
       <tr>
-        <td>10/13/20</td>
-        <td>212,862</td>
-        <td>15.25</td>
-        <td>$2.14</td>
-        <td>$32.64</td>
-        <td> -- </td>
-        <td> -- </td>
+      <?php 
+
+      foreach ($db->query('SELECT * FROM fillUp') as $row)
+      {
+        echo '<td>' . $row['f_date']         . '</td>';
+        echo '<td>' . $row['mileage']        . '</td>';
+        echo '<td>' . $row['gallons']        . '</td>';
+        echo '<td>' . $row['pricePerGallon'] . '</td>';
+        echo '<td> -- </td>';
+        echo '<td> -- </td>';
+        echo '<td> -- </td>';
+      }
+
+       ?>
       </tr>
-      <tr>
+      <!-- <tr>
         <td>10/06/20</td>
         <td>212,430</td>
         <td>15.17</td>
@@ -103,7 +108,7 @@
         <td>$32.16</td>
         <td>$28.48</td>
         <td>432</td>
-      </tr>
+      </tr> -->
     </table>
   </div>
 </div>
