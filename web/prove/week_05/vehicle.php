@@ -40,13 +40,13 @@
       <option value="" selected="true" disabled> -- </option>
       <?php 
         $query = "SELECT year, make, model
-                  FROM vehicle as v
+                  FROM filler AS f
                   JOIN ledger AS l
-                  ON v.id = l.filler_id
+                  ON f.id = l.filler_id
                   JOIN fillup as u
                   ON u.id = l.fillup_id
-                  JOIN filler AS f
-                  ON f.id = l.vehicle_id
+                  JOIN vehicle as v
+                  ON v.id = l.vehicle_id
                   WHERE f.first = :first;";
 
         $stmt = $db->prepare($query);
