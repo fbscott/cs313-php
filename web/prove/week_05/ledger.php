@@ -47,7 +47,7 @@
 
 <div class="row">
   <div class="column">
-    <table>
+    <!-- <table>
       <tr>
         <th>Date</th>
         <th>Mileage</th>
@@ -58,7 +58,8 @@
         <th>mi/tank</th>
       </tr>
       <?php 
-        foreach ($db->query('SELECT * FROM ledger WHERE filler_id = 2') as $row) {
+        // foreach ($db->query('SELECT * FROM fillUp') as $row) {
+        foreach ($db->query('SELECT * FROM fillUp') as $row) {
           echo '<tr>';
           echo '<td>'  . $row['f_date']         . '</td>';
           echo '<td>'  . $row['mileage']        . '</td>';
@@ -70,7 +71,7 @@
           echo '</tr>';
         }
        ?>
-    </table>
+    </table> -->
   </div>
 </div>
 
