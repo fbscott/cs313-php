@@ -40,18 +40,18 @@
       <option value="" selected="true" disabled> -- </option>
       <?php 
         $query = "SELECT year, make, model
-                  FROM filler AS f
+                  FROM vehicle as v
                   JOIN ledger AS l
-                  ON f.id = l.filler_id
+                  ON v.id = l.filler_id
                   JOIN fillup as u
                   ON u.id = l.fillup_id
-                  JOIN vehicle as v
-                  ON v.id = l.vehicle_id
+                  JOIN filler AS f
+                  ON f.id = l.vehicle_id
                   WHERE f.first = :first;";
 
         $stmt = $db->prepare($query);
         $stmt->execute(array(':first' => $_SESSION['user']));
-        $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($rows as $row) {
        ?>
