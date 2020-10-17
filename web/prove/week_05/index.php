@@ -1,6 +1,8 @@
 <?php 
   session_start();
 
+  $_POST['filler'];
+
   try
   {
     $dbUrl = getenv('DATABASE_URL');
@@ -48,7 +50,7 @@
   <div class="large-6 columns">
 
     <label for="user">User</label>
-    <select name="user" id="user">
+    <select id="user">
       <option value="" selected="true" disabled> -- </option>
       <?php 
         foreach ($db->query('SELECT * FROM filler') as $row) {
@@ -58,7 +60,7 @@
     </select>
 
   </div>
-  <div class="large-6 columns">
+  <!-- <div class="large-6 columns">
 
     <label for="user">Vehicle</label>
     <select name="user" id="user">
@@ -70,7 +72,7 @@
       <?php } ?>
     </select>
 
-  </div>
+  </div> -->
 </div>
 
 <div class="row">
