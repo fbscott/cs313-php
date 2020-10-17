@@ -30,21 +30,6 @@
   </div>
 </div>
 
-<!-- <div class="row">
-  <div class="column">
-    <table>
-      <tr>
-        <th>Average MPG</th>
-        <th>Average Miles per fill-up</th>
-      </tr>
-      <tr>
-        <td>28.34</td>
-        <td>431</td>
-      </tr>
-    </table>
-  </div>
-</div> -->
-
 <div class="row">
   <div class="column">
     <table>
