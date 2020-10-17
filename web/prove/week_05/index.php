@@ -1,8 +1,6 @@
 <?php 
   session_start();
 
-  $_POST['filler'];
-
   try
   {
     $dbUrl = getenv('DATABASE_URL');
@@ -53,9 +51,7 @@
     <select id="user">
       <option value="" selected="true" disabled> -- </option>
       <?php 
-        $query = 'SELECT * FROM filler';
-
-        foreach ($db->query($query) as $row) {
+        foreach ($db->query('SELECT * FROM filler') as $row) {
        ?>
        <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?></option>
       <?php } ?>
