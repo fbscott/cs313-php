@@ -27,6 +27,12 @@
   </div>
 </div>
 
+<div class="row">
+   <div class="column">
+      <h2>Welcome, <?php echo $_SESSION['filler'] ?>!</h2>
+   </div>
+</div>
+
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 <div class="row">
   <div class="large-6 columns">
