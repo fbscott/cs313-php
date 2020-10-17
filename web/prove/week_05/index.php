@@ -23,7 +23,10 @@
     die();
   }
 
-  $user = $db->query('SELECT first FROM filler WHERE first = 'Jane'');
+  $user = foreach ($db->query('SELECT first FROM filler') as $row)
+  {
+    echo $row['first'] = 'Jane';
+  }
 
  ?>
 
