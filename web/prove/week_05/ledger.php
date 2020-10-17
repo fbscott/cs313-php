@@ -68,7 +68,7 @@
                   WHERE f.first = :first;";
 
         $stmt = $db->prepare($query);
-        $stmt->execute(array(':first' => $first));
+        $stmt->execute(array(':first' => $_SESSION['user']));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // foreach ($db->query('SELECT * FROM fillUp') as $row) {
