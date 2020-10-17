@@ -25,6 +25,10 @@
 
   $filler = $_POST['filler'];
 
+  if (!isset($_SESSION['filler'])) {
+    $_SESSION['filler'] = $filler;
+  }
+
   if (isset($_POST['submit'])) {
     // header('Location: vehicle.php');
   }
@@ -42,7 +46,7 @@
   <title>Query User Data</title>
 </head>
 <body><div class="row"><div class="column">
-<?php echo $filler; ?>
+<?php echo $_SESSION['filler']; ?>
 <div class="row">
   <div class="column">
     <h1>Mileage Tracker</h1>
