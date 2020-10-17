@@ -43,7 +43,7 @@
       <?php 
         foreach ($db->query('SELECT * FROM filler') as $row) {
        ?>
-       <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?></option>
+       <option value="<?php echo $row['first']; ?>"><?php echo $row['first']; ?></option>
       <?php } ?>
     </select>
 
