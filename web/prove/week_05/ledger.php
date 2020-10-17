@@ -72,7 +72,15 @@
         }
        ?>
     </table> -->
-    <?php echo 'hello' ?>
+    <table>
+      <?php 
+        foreach ($db->query('SELECT * FROM filler') as $row) {
+          echo '<tr>';
+          echo '<td>' . $row['first'] . '</td>';
+          echo '</tr>';
+        }
+       ?>
+    </table>
   </div>
 </div>
 
