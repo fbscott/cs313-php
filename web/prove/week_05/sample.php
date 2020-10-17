@@ -63,13 +63,13 @@
 <div class="row">
   <div class="large-6 columns">
 
-    <label for="vehicle">Vehicle</label>
-    <select id="vehicle" name="vehicle">
+    <label for="user">Vehicle</label>
+    <select name="user" id="user">
       <option value="" selected="true" disabled> -- </option>
       <?php 
         foreach ($db->query('SELECT * FROM vehicle') as $row) {
        ?>
-       <option value="<?php echo $row['first']; ?>"><?php echo $row['first']; ?></option>
+       <option value="<?php echo $row['id']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
       <?php } ?>
     </select>
 
@@ -77,7 +77,7 @@
 </div>
 
 <div class="row">
-  <div class="large-6 column">
+  <div class="column">
     <!-- SUBMIT -->
     <input type="submit" value="Submit" name="submit">
   </div>
