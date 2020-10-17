@@ -48,7 +48,7 @@
   <div class="large-6 columns">
 
     <label for="user">User</label>
-    <select id="user">
+    <select name="user" id="user">
       <option value="" selected="true" disabled> -- </option>
       <?php 
         foreach ($db->query('SELECT * FROM filler') as $row) {
@@ -58,19 +58,19 @@
     </select>
 
   </div>
-  <!-- <div class="large-6 columns">
+  <div class="large-6 columns">
 
     <label for="user">Vehicle</label>
     <select name="user" id="user">
       <option value="" selected="true" disabled> -- </option>
       <?php 
-        // foreach ($db->query('SELECT * FROM vehicle') as $row) {
+        foreach ($db->query('SELECT * FROM vehicle') as $row) {
        ?>
-       <option value="<?php // echo $row['id']; ?>"><?php // echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
+       <option value="<?php echo $row['id']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
       <?php } ?>
     </select>
 
-  </div> -->
+  </div>
 </div>
 
 <div class="row">
