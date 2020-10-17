@@ -3,7 +3,7 @@
 
   include $_SERVER['DOCUMENT_ROOT'] . '/prove/week_05/db.php';
 
-  $filler = $_POST['submit'];
+  $filler = $_POST['filler'];
 
   if (!isset($_SESSION['filler'])) {
     $_SESSION['filler'] = $filler;
@@ -38,7 +38,7 @@
   <div class="large-6 columns">
 
     <label for="filler">Filler</label>
-    <select id="filler">
+    <select id="filler" name="filler">
       <option value="" selected="true" disabled> -- </option>
       <?php 
         foreach ($db->query('SELECT * FROM filler') as $row) {
