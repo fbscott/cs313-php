@@ -39,7 +39,7 @@
     <select name="user" id="user">
       <option value="" selected="true" disabled> -- </option>
       <?php 
-        $query = "SELECT year, make, model
+        $query = "SELECT DISTINCT year, make, model
                   FROM filler AS f
                   JOIN ledger AS l
                   ON f.id = l.filler_id
