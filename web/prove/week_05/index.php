@@ -1,27 +1,7 @@
 <?php 
   session_start();
 
-  try
-  {
-    $dbUrl = getenv('DATABASE_URL');
-
-    $dbOpts = parse_url($dbUrl);
-
-    $dbHost = $dbOpts["host"];
-    $dbPort = $dbOpts["port"];
-    $dbUser = $dbOpts["user"];
-    $dbPassword = $dbOpts["pass"];
-    $dbName = ltrim($dbOpts["path"],'/');
-
-    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
-
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  }
-  catch (PDOException $ex)
-  {
-    echo 'Error!: ' . $ex->getMessage();
-    die();
-  }
+  include $_SERVER['DOCUMENT_ROOT'] . '/prove/week_05/db.php';
 
   $filler = $_POST['filler'];
 
@@ -47,7 +27,6 @@
 </head>
 <body><div class="row"><div class="column">
 <?php echo $_SESSION['filler']; ?>
-<?php echo $filler; ?>
 <div class="row">
   <div class="column">
     <h1>Mileage Tracker</h1>
@@ -69,19 +48,6 @@
     </select>
 
   </div>
-  <!-- <div class="large-6 columns">
-
-    <label for="user">Vehicle</label>
-    <select name="user" id="user">
-      <option value="" selected="true" disabled> -- </option>
-      <?php 
-        foreach ($db->query('SELECT * FROM vehicle') as $row) {
-       ?>
-       <option value="<?php echo $row['id']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
-      <?php } ?>
-    </select>
-
-  </div> -->
 </div>
 
 <div class="row">
