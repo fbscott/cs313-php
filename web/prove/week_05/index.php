@@ -1,8 +1,6 @@
 <?php 
   session_start();
 
-  $_SESSION['filler'] = $_POST['filler'];
-
   try
   {
     $dbUrl = getenv('DATABASE_URL');
@@ -38,10 +36,6 @@
   <title>Query User Data</title>
 </head>
 <body><div class="row"><div class="column">
-
-<?php 
-  echo $_SESSION['filler'];
- ?>
 
 <div class="row">
   <div class="column">
@@ -88,7 +82,9 @@
 
 <div class="row">
   <div class="column">
-    <p>Hello, John!</p>
+    <p>Hello,
+      <?php echo $db->query('SELECT * FROM filler WHERE first = "John"') . '!' ?>
+    </p>
     <p>Below is the mileage tracking info for your 2010 Jeep Wrangler.</p>
   </div>
 </div>
