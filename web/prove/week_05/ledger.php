@@ -69,7 +69,12 @@
                   WHERE f.first = :first and v.year = :year;";
 
         $stmt = $db->prepare($query);
-        $stmt->execute(array(':first' => $_SESSION['user'], ':year' => $_SESSION['vehicle_parts'][0]));
+        $stmt->execute(array(
+          ':first' => $_SESSION['user'],
+          ':year'  => $_SESSION['vehicle_parts'][0],
+          ':make'  => $_SESSION['vehicle_parts'][1],
+          ':model' => $_SESSION['vehicle_parts'][2]
+        ));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($rows as $row) {
