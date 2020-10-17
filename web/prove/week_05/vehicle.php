@@ -59,7 +59,7 @@
 
         foreach ($rows as $row) {
        ?>
-       <option value="<?php echo $row['id']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
+       <option value="<?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
       <?php } ?>
     </select>
 
