@@ -47,6 +47,7 @@
 </head>
 <body><div class="row"><div class="column">
 <?php echo $_SESSION['filler']; ?>
+<?php echo $filler; ?>
 <div class="row">
   <div class="column">
     <h1>Mileage Tracker</h1>
