@@ -26,11 +26,11 @@
 <div class="row">
   <div class="column">
     <h2>Welcome, <?php echo $_SESSION['user'] ?>!</h2>
-    <p>Below is the mileage tracking info for your 2010 Jeep Wrangler.</p>
+    <p>Below is the mileage tracking info for your vehicles.</p>
   </div>
 </div>
 
-<div class="row">
+<!-- <div class="row">
   <div class="column">
     <table>
       <tr>
@@ -43,7 +43,7 @@
       </tr>
     </table>
   </div>
-</div>
+</div> -->
 
 <div class="row">
   <div class="column">
@@ -58,7 +58,7 @@
         <th>mi/tank</th>
       </tr>
       <?php 
-        foreach ($db->query('SELECT * FROM fillUp') as $row) {
+        foreach ($db->query('SELECT * FROM ledger WHERE filler_id = 2') as $row) {
           echo '<tr>';
           echo '<td>'  . $row['f_date']         . '</td>';
           echo '<td>'  . $row['mileage']        . '</td>';

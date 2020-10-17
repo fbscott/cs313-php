@@ -29,10 +29,10 @@
 </div>
 
 <div class="row">
-   <div class="column">
-      <h2>Welcome, <?php echo $_SESSION['user'] ?>!</h2>
-      <p>Select a vehicle from the drop-down below to view its fill-up history.</p>
-   </div>
+  <div class="column">
+    <h2>Welcome, <?php echo $_SESSION['user'] ?>!</h2>
+    <p>Select a vehicle from the drop-down below to view its fill-up history.</p>
+  </div>
 </div>
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
