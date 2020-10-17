@@ -29,7 +29,7 @@
 
 <div class="row">
    <div class="column">
-      <h2>Welcome, <?php echo $_SESSION['filler'] ?>!</h2>
+      <h2>Welcome, <?php echo $_SESSION['user'] ?>!</h2>
    </div>
 </div>
 
