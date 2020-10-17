@@ -47,7 +47,7 @@
 
 <div class="row">
   <div class="column">
-    <!-- <table>
+    <table>
       <tr>
         <th>Date</th>
         <th>Mileage</th>
@@ -57,9 +57,17 @@
         <th>MPG</th>
         <th>mi/tank</th>
       </tr>
-      <?php 
+      <?php
+        $query = "SELECT * FROM filler AS f
+                  JOIN ledger AS l
+                  ON f.id = l.filler_id
+                  JOIN fillup as u
+                  ON u.id = l.fillup_id
+                  JOIN vehicle as v
+                  ON v.id = l.vehicle_id
+                  WHERE f.first = 'Sarah';";
         // foreach ($db->query('SELECT * FROM fillUp') as $row) {
-        foreach ($db->query('SELECT * FROM fillUp') as $row) {
+        foreach ($db->query($query) as $row) {
           echo '<tr>';
           echo '<td>'  . $row['f_date']         . '</td>';
           echo '<td>'  . $row['mileage']        . '</td>';
@@ -69,13 +77,6 @@
           echo '<td> -- </td>';
           echo '<td> -- </td>';
           echo '</tr>';
-        }
-       ?>
-    </table> -->
-    <table>
-      <?php 
-        foreach ($db->query('SELECT * FROM fillUp') as $row) {
-          echo '<p>' . $row . '</p>';
         }
        ?>
     </table>
