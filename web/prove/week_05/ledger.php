@@ -58,7 +58,7 @@
         <th>mi/tank</th>
       </tr>
       <?php
-        $query = "SELECT f_date, mileage, gallons, pricepergallon, year, make, model
+        $query = "SELECT f_date, mileage, gallons, pricepergallon
                   FROM filler AS f
                   JOIN ledger AS l
                   ON f.id = l.filler_id
@@ -66,13 +66,10 @@
                   ON u.id = l.fillup_id
                   JOIN vehicle as v
                   ON v.id = l.vehicle_id
-                  WHERE f.first = :first and v.year = :year and v.make = :make and v.model = :model;";
+                  WHERE f.first = :first and v.year = :year;";
 
         $stmt = $db->prepare($query);
-        $stmt->execute(array(':first' => $_SESSION['user']));
-        $stmt->execute(array(':year' => $_SESSION['vehicle_parts'][0]));
-        $stmt->execute(array(':make' => $_SESSION['vehicle_parts'][1]));
-        $stmt->execute(array(':model' => $_SESSION['vehicle_parts'][2]));
+        $stmt->execute(array(':first' => $_SESSION['user'], ':year' => $_SESSION['vehicle_parts'][0]));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($rows as $row) {
