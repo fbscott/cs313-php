@@ -23,10 +23,10 @@
     die();
   }
 
-  $user = 'Homer';
+  $filler = $_POST['filler'];
 
-  if (isset($_POST['derp'])) {
-    header('Location: ledger.php');
+  if (isset($_POST['submit'])) {
+    // header('Location: vehicle.php');
   }
 
  ?>
@@ -42,7 +42,7 @@
   <title>Query User Data</title>
 </head>
 <body><div class="row"><div class="column">
-
+<?php echo $filler; ?>
 <div class="row">
   <div class="column">
     <h1>Mileage Tracker</h1>
@@ -53,8 +53,8 @@
 <div class="row">
   <div class="large-6 columns">
 
-    <label for="user">User</label>
-    <select id="user">
+    <label for="filler">Filler</label>
+    <select id="filler">
       <option value="" selected="true" disabled> -- </option>
       <?php 
         foreach ($db->query('SELECT * FROM filler') as $row) {
@@ -81,7 +81,7 @@
 
 <div class="row">
   <div class="column">
-    <input type="submit" value="Submit" name="derp">
+    <input type="submit" value="Submit" name="submit">
   </div>
 </div>
 </form>
