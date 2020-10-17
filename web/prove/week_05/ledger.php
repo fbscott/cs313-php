@@ -58,7 +58,8 @@
         <th>mi/tank</th>
       </tr>
       <?php
-        $query = "SELECT * FROM filler AS f
+        $query = "SELECT f_date, mileage, gallons, pricepergallon
+                  FROM filler AS f
                   JOIN ledger AS l
                   ON f.id = l.filler_id
                   JOIN fillup as u
@@ -71,7 +72,6 @@
         $stmt->execute(array(':first' => $_SESSION['user']));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // foreach ($db->query('SELECT * FROM fillUp') as $row) {
         foreach ($rows as $row) {
           echo '<tr>';
           echo '<td>'  . $row['f_date']         . '</td>';

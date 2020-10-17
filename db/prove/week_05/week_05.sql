@@ -57,22 +57,29 @@ INSERT INTO vehicle (year, make, model) VALUES (2000, 'Toyota', 'Camry');
 INSERT INTO vehicle (year, make, model) VALUES (2006, 'Toyota', 'Sienna');
 INSERT INTO vehicle (year, make, model) VALUES (2015, 'Nissan', 'Sentra');
 
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-13', 1900, 15.00, 1.01);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-06', 1600, 15.00, 1.02);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-30', 1300, 15.00, 1.03);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-23', 1000, 15.00, 1.04);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-14', 2900, 16.00, 2.01);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-07', 2600, 16.00, 2.02);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-01', 2300, 16.00, 2.03);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-24', 2000, 16.00, 2.04);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-15', 3900, 17.00, 3.01);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-08', 3600, 17.00, 3.02);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-02', 3300, 17.00, 3.03);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-25', 3000, 17.00, 3.04);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-16', 4900, 18.00, 4.01);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-09', 4600, 18.00, 4.02);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-03', 4300, 18.00, 4.03);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-26', 4000, 18.00, 4.04);
+-- Jeep
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-13', 120062, 14.41, 2.28);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-06', 119863, 14.68, 2.25);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-30', 119662, 14.12, 2.23);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-23', 119462, 14.49, 2.23);
+
+-- Camry
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-14', 214088, 17.77, 2.28);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-07', 213638, 17.82, 2.25);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-01', 213143, 17.97, 2.23);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-24', 212648, 17.46, 2.23);
+
+-- Sienna
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-15', 137236, 19.06, 2.28);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-08', 136786, 19.89, 2.25);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-02', 136366, 19.43, 2.23);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-25', 135886, 19.87, 2.23);
+
+-- Sentra
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-16', 83704, 10.12, 2.28);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-09', 83354, 10.08, 2.25);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-03', 83004, 10.06, 2.23);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-26', 82654, 10.23, 2.23);
 
 INSERT INTO ledger VALUES (DEFAULT, 1, 1, 1);
 INSERT INTO ledger VALUES (DEFAULT, 1, 1, 2);
@@ -95,3 +102,14 @@ SELECT * FROM filler;
 SELECT * FROM vehicle;
 SELECT * FROM fillUp;
 SELECT * FROM ledger;
+
+-- SELECT * FROM filler AS f
+SELECT f_date, mileage, gallons, pricepergallon
+FROM filler AS f
+JOIN ledger AS l
+ON f.id = l.filler_id
+JOIN fillup as u
+ON u.id = l.fillup_id
+JOIN vehicle as v
+ON v.id = l.vehicle_id
+WHERE f.first = 'Sarah';
