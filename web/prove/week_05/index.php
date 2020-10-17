@@ -1,4 +1,7 @@
 <?php 
+  session_start();
+
+  $_POST['filler'];
 
   try
   {
@@ -32,7 +35,7 @@
   <link rel="stylesheet" href="../../assets/css/_reset.css">
   <link rel="stylesheet" href="../../assets/css/_base.css">
   <link rel="stylesheet" href="../../assets/css/_grid.css">
-  <title>Query Data</title>
+  <title>Query User Data</title>
 </head>
 <body><div class="row"><div class="column">
 
@@ -47,29 +50,31 @@
   <div class="large-6 columns">
 
     <label for="user">User</label>
-    <select name="user" id="user">
+    <select id="user">
       <option value="" selected="true" disabled> -- </option>
       <?php 
-        foreach ($db->query('SELECT * FROM filler') as $row) {
+        $query = 'SELECT * FROM filler';
+
+        foreach ($db->query($query) as $row) {
        ?>
        <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?></option>
       <?php } ?>
     </select>
 
   </div>
-  <div class="large-6 columns">
+  <!-- <div class="large-6 columns">
 
     <label for="user">Vehicle</label>
     <select name="user" id="user">
       <option value="" selected="true" disabled> -- </option>
       <?php 
-        foreach ($db->query('SELECT * FROM vehicle') as $row) {
+        // foreach ($db->query('SELECT * FROM vehicle') as $row) {
        ?>
-       <option value="<?php echo $row['id']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
+       <option value="<?php // echo $row['id']; ?>"><?php // echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
       <?php } ?>
     </select>
 
-  </div>
+  </div> -->
 </div>
 
 <div class="row">
