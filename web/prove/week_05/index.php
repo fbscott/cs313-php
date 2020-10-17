@@ -23,7 +23,7 @@
     die();
   }
 
-  $user = 'Bill';
+  $user = $db->query('SELECT * FROM filler WHERE first = "John"');
 
  ?>
 
