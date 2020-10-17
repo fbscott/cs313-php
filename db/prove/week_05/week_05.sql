@@ -61,17 +61,14 @@ INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-1
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-06', 119863, 14.68, 2.25);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-30', 119662, 14.12, 2.23);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-23', 119462, 14.49, 2.23);
-
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-14', 214088, 17.77, 2.28);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-07', 213638, 17.82, 2.25);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-01', 213143, 17.97, 2.23);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-24', 212648, 17.46, 2.23);
-
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-15', 137236, 19.06, 2.28);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-08', 136786, 19.89, 2.25);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-02', 136366, 19.43, 2.23);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-09-25', 135886, 19.87, 2.23);
-
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-16', 83704, 10.12, 2.28);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-09', 83354, 10.08, 2.25);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-03', 83004, 10.06, 2.23);
@@ -85,10 +82,10 @@ INSERT INTO ledger VALUES (DEFAULT, 1, 2, 5);
 INSERT INTO ledger VALUES (DEFAULT, 1, 2, 6);
 INSERT INTO ledger VALUES (DEFAULT, 1, 2, 7);
 INSERT INTO ledger VALUES (DEFAULT, 1, 2, 8);
-INSERT INTO ledger VALUES (DEFAULT, 1, 3, 9);
-INSERT INTO ledger VALUES (DEFAULT, 1, 3, 10);
-INSERT INTO ledger VALUES (DEFAULT, 1, 3, 11);
-INSERT INTO ledger VALUES (DEFAULT, 1, 3, 12);
+INSERT INTO ledger VALUES (DEFAULT, 2, 3, 9);
+INSERT INTO ledger VALUES (DEFAULT, 2, 3, 10);
+INSERT INTO ledger VALUES (DEFAULT, 2, 3, 11);
+INSERT INTO ledger VALUES (DEFAULT, 2, 3, 12);
 INSERT INTO ledger VALUES (DEFAULT, 2, 4, 13);
 INSERT INTO ledger VALUES (DEFAULT, 2, 4, 14);
 INSERT INTO ledger VALUES (DEFAULT, 2, 4, 15);
