@@ -16,6 +16,10 @@
 </head>
 <body>
 <?php 
+  $vehicle = $_POST['vehicle'];
+
+  $_SESSION['vehicle'] = $vehicle;
+
   if (isset($_POST['submit'])) {
     header('Location: ledger.php');
   }
@@ -35,8 +39,8 @@
 <div class="row">
   <div class="column">
 
-    <label for="user">Vehicle</label>
-    <select name="user" id="user">
+    <label for="vehicle">Vehicle</label>
+    <select name="vehicle" id="vehicle">
       <option value="" selected="true" disabled> -- </option>
       <?php 
         $query = "SELECT DISTINCT year, make, model
