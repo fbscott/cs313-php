@@ -10,7 +10,7 @@
   }
 
   if (isset($_POST['submit'])) {
-    // header('Location: vehicle.php');
+    header('Location: vehicle.php');
   }
 
  ?>
