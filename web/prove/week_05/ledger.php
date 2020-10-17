@@ -70,9 +70,9 @@
 
         $stmt = $db->prepare($query);
         $stmt->execute(array(':first' => $_SESSION['user']));
-        $stmt->execute(array(':year' => $_SESSION['vehicle_parts']));
-        $stmt->execute(array(':make' => $_SESSION['vehicle_parts']));
-        $stmt->execute(array(':model' => $_SESSION['vehicle_parts']));
+        $stmt->execute(array(':year' => $_SESSION['vehicle_parts'][0]));
+        $stmt->execute(array(':make' => $_SESSION['vehicle_parts'][1]));
+        $stmt->execute(array(':model' => $_SESSION['vehicle_parts'][2]));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($rows as $row) {
