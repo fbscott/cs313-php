@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../../assets/css/_reset.css">
   <link rel="stylesheet" href="../../assets/css/_base.css">
   <link rel="stylesheet" href="../../assets/css/_grid.css">
-  <title>Query User Data</title>
+  <title>Query Vehicle Data</title>
 </head>
 <body>
 <?php 
@@ -31,6 +31,7 @@
 <div class="row">
    <div class="column">
       <h2>Welcome, <?php echo $_SESSION['user'] ?>!</h2>
+      <p>Select a vehicle from the drop-down below to view its fill-up history.</p>
    </div>
 </div>
 

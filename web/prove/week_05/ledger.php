@@ -1,5 +1,7 @@
 <?php 
   session_start();
+
+  include $_SERVER['DOCUMENT_ROOT'] . '/prove/week_05/db.php';
  ?>
 
 <!DOCTYPE html>
@@ -21,12 +23,9 @@
   </div>
 </div>
 
-
 <div class="row">
   <div class="column">
-    <p>Hello,
-      <?php echo $user . '!' ?>
-    </p>
+    <h2>Welcome, <?php echo $_SESSION['user'] ?>!</h2>
     <p>Below is the mileage tracking info for your 2010 Jeep Wrangler.</p>
   </div>
 </div>

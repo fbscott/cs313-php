@@ -21,7 +21,7 @@
   $_SESSION['user'] = $user;
 
   if (isset($_POST['submit'])) {
-    header('Location: vehicle.php');
+    header('Location: ledger.php');
   }
  ?>
 <div class="row"><div class="column">
