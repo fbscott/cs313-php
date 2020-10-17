@@ -83,7 +83,7 @@
 <div class="row">
   <div class="column">
     <p>Hello,
-      <?php echo $db->query('SELECT * FROM filler WHERE first = "John"') . '!' ?>
+      <?php echo $db->query('SELECT * FROM filler WHERE first =' . 'John') . '!' ?>
     </p>
     <p>Below is the mileage tracking info for your 2010 Jeep Wrangler.</p>
   </div>
