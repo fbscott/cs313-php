@@ -74,10 +74,10 @@
     </table> -->
     <table>
       <?php 
-        foreach ($db->query('SELECT * FROM filler') as $row) {
-          echo '<tr>';
-          echo '<td>' . $row['first'] . '</td>';
-          echo '</tr>';
+        $query = "SELECT * FROM filler AS f, JOIN ledger AS l, ON f.id = l.filer_id, WHERE f.first = 'Sarah'";
+
+        foreach ($db->query($query) as $row) {
+          echo '<p>' . $row . '</p>';
         }
        ?>
     </table>
