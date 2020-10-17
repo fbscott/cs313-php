@@ -2,11 +2,6 @@
   session_start();
 
   include $_SERVER['DOCUMENT_ROOT'] . '/prove/week_05/db.php';
-
-  if (isset($_POST['submit'])) {
-    header('Location: ledger.php');
-  }
-
  ?>
 
 <!DOCTYPE html>
@@ -19,7 +14,13 @@
   <link rel="stylesheet" href="../../assets/css/_grid.css">
   <title>Query User Data</title>
 </head>
-<body><div class="row"><div class="column">
+<body>
+<?php 
+  if (isset($_POST['submit'])) {
+    header('Location: ledger.php');
+  }
+ ?>
+<div class="row"><div class="column">
 
 <div class="row">
   <div class="column">
@@ -57,5 +58,6 @@
 </div>
 </form>
 
-</div></div></body>
+</div></div>
+</body>
 </html>

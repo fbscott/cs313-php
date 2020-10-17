@@ -2,15 +2,6 @@
   session_start();
 
   include $_SERVER['DOCUMENT_ROOT'] . '/prove/week_05/db.php';
-
-  $user = $_POST['user'];
-
-  $_SESSION['user'] = $user;
-
-  if (isset($_POST['submit'])) {
-    header('Location: vehicle.php');
-  }
-
  ?>
 
 <!DOCTYPE html>
@@ -23,7 +14,17 @@
   <link rel="stylesheet" href="../../assets/css/_grid.css">
   <title>Query User Data</title>
 </head>
-<body><div class="row"><div class="column">
+<body>
+<?php 
+  $user = $_POST['user'];
+
+  $_SESSION['user'] = $user;
+
+  if (isset($_POST['submit'])) {
+    header('Location: vehicle.php');
+  }
+ ?>
+<div class="row"><div class="column">
 
 <div class="row">
   <div class="column">
@@ -55,5 +56,6 @@
 </div>
 </form>
 
-</div></div></body>
+</div></div>
+</body>
 </html>
