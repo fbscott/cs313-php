@@ -74,9 +74,7 @@
     </table> -->
     <table>
       <?php 
-        $query = "SELECT * FROM filler AS f, JOIN ledger AS l, ON f.id = l.filer_id, WHERE f.first = 'Sarah'";
-
-        foreach ($db->query($query) as $row) {
+        foreach ($db->query('SELECT * FROM fillUp') as $row) {
           echo '<p>' . $row . '</p>';
         }
        ?>
