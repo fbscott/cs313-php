@@ -3,9 +3,9 @@
 
   include $_SERVER['DOCUMENT_ROOT'] . '/prove/week_05/db.php';
 
-  $filler = $_POST['filler'];
+  $user = $_POST['user'];
 
-  $_SESSION['filler'] = $filler;
+  $_SESSION['user'] = $user;
 
   if (isset($_POST['submit'])) {
     header('Location: vehicle.php');
@@ -35,8 +35,8 @@
 <div class="row">
   <div class="large-6 columns">
 
-    <label for="filler">Filler</label>
-    <select id="filler" name="filler">
+    <label for="user">User</label>
+    <select id="user" name="user">
       <option value="" selected="true" disabled> -- </option>
       <?php 
         foreach ($db->query('SELECT * FROM filler') as $row) {
