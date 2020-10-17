@@ -21,7 +21,7 @@
   $_SESSION['user'] = $user;
 
   if (isset($_POST['submit'])) {
-    header('Location: vehicle.php');
+    // header('Location: vehicle.php');
   }
  ?>
 <div class="row"><div class="column">
@@ -32,6 +32,7 @@
   </div>
 </div>
 
+<!-------------------------------- USER FORM --------------------------------->
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 <div class="row">
   <div class="large-6 columns">
@@ -50,11 +51,39 @@
 </div>
 
 <div class="row">
-  <div class="column">
+  <div class="large-6 column">
+    <!-- SUBMIT -->
     <input type="submit" value="Submit" name="submit">
   </div>
 </div>
 </form>
+<!-------------------------------- /USER FORM -------------------------------->
+<!-------------------------------- VEHICLE FORM ------------------------------>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+<div class="row">
+  <div class="large-6 columns">
+
+    <label for="vehicle">Vehicle</label>
+    <select id="vehicle" name="vehicle">
+      <option value="" selected="true" disabled> -- </option>
+      <?php 
+        foreach ($db->query('SELECT * FROM vehicle') as $row) {
+       ?>
+       <option value="<?php echo $row['first']; ?>"><?php echo $row['first']; ?></option>
+      <?php } ?>
+    </select>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-6 column">
+    <!-- SUBMIT -->
+    <input type="submit" value="Submit" name="submit">
+  </div>
+</div>
+</form>
+<!-------------------------------- /VEHICLE FORM ----------------------------->
 
 </div></div>
 </body>
