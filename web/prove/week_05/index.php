@@ -23,7 +23,7 @@
     die();
   }
 
-  $user = 'John';
+  $user = 'Bill';
 
  ?>
 
@@ -85,7 +85,7 @@
 <div class="row">
   <div class="column">
     <p>Hello,
-      John!
+      <?php echo $user . '!' ?>
     </p>
     <p>Below is the mileage tracking info for your 2010 Jeep Wrangler.</p>
   </div>
