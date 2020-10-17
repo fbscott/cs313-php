@@ -26,7 +26,14 @@
 <div class="row">
   <div class="column">
     <h2>Hello, <?php echo $_SESSION['user'] ?>!</h2>
-    <p>Below is the mileage tracking info for your <?php echo $_SESSION['vehicle'] ?>.</p>
+    <p>Below is the mileage tracking info for your <strong><?php echo $_SESSION['vehicle'] ?></strong>.</p>
+    <p>
+      <?php 
+        echo $_SESSION['vehicle_parts'][0];
+        echo $_SESSION['vehicle_parts'][1];
+        echo $_SESSION['vehicle_parts'][2];
+       ?>
+    </p>
   </div>
 </div>
 

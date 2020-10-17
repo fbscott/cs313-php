@@ -19,6 +19,7 @@
   $vehicle = $_POST['vehicle'];
 
   $_SESSION['vehicle'] = $vehicle;
+  $_SESSION['vehicle_parts'] = explode(' ', $vehicle);
 
   if (isset($_POST['submit'])) {
     header('Location: ledger.php');
