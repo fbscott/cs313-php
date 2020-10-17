@@ -21,15 +21,15 @@
   $_SESSION['user'] = $user;
 
   if (isset($_POST['submit'])) {
-    header('Location: ledger.php');
+    header('Location: vehicle.php');
   }
  ?>
-<div class="row"><div class="column">
+<div class="row"><div class="large-6 large-offset-3 column">
 
 <div class="row">
   <div class="column">
     <h1>Mileage Tracker</h1>
-    <p>Select a user from the drop down list below to view logged fuel and mileage data for that user.</p>
+    <p>Select a user.</p>
   </div>
 </div>
 

@@ -20,21 +20,17 @@
     header('Location: ledger.php');
   }
  ?>
-<div class="row"><div class="column">
+
+<div class="row"><div class="large-6 large-offset-3 column">
 
 <div class="row">
   <div class="column">
     <h1>Mileage Tracker</h1>
+    <p>Select a vehicle.</p>
   </div>
 </div>
 
-<div class="row">
-  <div class="column">
-    <h2>Welcome, <?php echo $_SESSION['user'] ?>!</h2>
-    <p>Select a vehicle from the drop-down below to view its fill-up history.</p>
-  </div>
-</div>
-
+<!----------------------------------- FORM ----------------------------------->
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 <div class="row">
   <div class="large-6 columns">
@@ -43,7 +39,21 @@
     <select name="user" id="user">
       <option value="" selected="true" disabled> -- </option>
       <?php 
-        foreach ($db->query('SELECT * FROM vehicle') as $row) {
+        $query = "SELECT year, make, model
+                  FROM filler AS f
+                  JOIN ledger AS l
+                  ON f.id = l.filler_id
+                  JOIN fillup as u
+                  ON u.id = l.fillup_id
+                  JOIN vehicle as v
+                  ON v.id = l.vehicle_id
+                  WHERE f.first = :first;";
+
+        $stmt = $db->prepare($query);
+        $stmt->execute(array(':first' => $_SESSION['user']));
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($rows as $row) {
        ?>
        <option value="<?php echo $row['id']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
       <?php } ?>
@@ -58,6 +68,7 @@
   </div>
 </div>
 </form>
+<!----------------------------------- /FORM ---------------------------------->
 
 </div></div>
 </body>
