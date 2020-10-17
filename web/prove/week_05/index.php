@@ -5,9 +5,7 @@
 
   $filler = $_POST['filler'];
 
-  if (!isset($_SESSION['filler'])) {
-    $_SESSION['filler'] = $filler;
-  }
+  $_SESSION['filler'] = $filler;
 
   if (isset($_POST['submit'])) {
     header('Location: vehicle.php');
