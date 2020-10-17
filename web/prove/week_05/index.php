@@ -3,7 +3,7 @@
 
   include $_SERVER['DOCUMENT_ROOT'] . '/prove/week_05/db.php';
 
-  $filler = $_POST['filler'];
+  $filler = $_POST['submit'];
 
   if (!isset($_SESSION['filler'])) {
     $_SESSION['filler'] = $filler;
