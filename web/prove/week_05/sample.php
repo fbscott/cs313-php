@@ -77,13 +77,58 @@
 </div>
 
 <div class="row">
-  <div class="column">
+  <div class="large-6 column">
     <!-- SUBMIT -->
     <input type="submit" value="Submit" name="submit">
   </div>
 </div>
 </form>
 <!-------------------------------- /VEHICLE FORM ----------------------------->
+<!-------------------------------- LEDGER ------------------------------------>
+<div class="row">
+  <div class="column">
+    <table>
+      <tr>
+        <th>Average MPG</th>
+        <th>Average Miles per fill-up</th>
+      </tr>
+      <tr>
+        <td>28.34</td>
+        <td>431</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Mileage</th>
+        <th>Gallons</th>
+        <th>$/gal</th>
+        <th>Total</th>
+        <th>MPG</th>
+        <th>mi/tank</th>
+      </tr>
+      <?php 
+        foreach ($db->query('SELECT * FROM fillUp') as $row) {
+          echo '<tr>';
+          echo '<td>'  . $row['f_date']         . '</td>';
+          echo '<td>'  . $row['mileage']        . '</td>';
+          echo '<td>'  . $row['gallons']        . '</td>';
+          echo '<td>$' . $row['pricepergallon'] . '</td>';
+          echo '<td> -- </td>';
+          echo '<td> -- </td>';
+          echo '<td> -- </td>';
+          echo '</tr>';
+        }
+       ?>
+    </table>
+  </div>
+</div>
+<!-------------------------------- /LEDGER ----------------------------------->
 
 </div></div>
 </body>
