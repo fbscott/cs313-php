@@ -21,7 +21,7 @@
   }
  ?>
 
-<div class="row"><div class="large-6 large-offset-3 column">
+<div class="row"><div class="large-6 large-offset-3 columns">
 
 <div class="row">
   <div class="column">
@@ -33,7 +33,7 @@
 <!----------------------------------- FORM ----------------------------------->
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 <div class="row">
-  <div class="large-6 columns">
+  <div class="column">
 
     <label for="user">Vehicle</label>
     <select name="user" id="user">
@@ -51,7 +51,7 @@
 
         $stmt = $db->prepare($query);
         $stmt->execute(array(':first' => $_SESSION['user']));
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
         foreach ($rows as $row) {
        ?>
