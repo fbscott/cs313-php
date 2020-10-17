@@ -58,7 +58,7 @@
         <th>mi/tank</th>
       </tr>
       <?php
-        $query = "SELECT f_date, mileage, gallons, pricepergallon
+        $query = "SELECT f_date, mileage, gallons, pricepergallon, year, make, model
                   FROM filler AS f
                   JOIN ledger AS l
                   ON f.id = l.filler_id
