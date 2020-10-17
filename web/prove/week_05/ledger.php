@@ -65,9 +65,14 @@
                   ON u.id = l.fillup_id
                   JOIN vehicle as v
                   ON v.id = l.vehicle_id
-                  WHERE f.first = 'Sarah';";
+                  WHERE f.first = :first;";
+
+        $stmt = $db->prepare($query);
+        $stmt->execute(array(':first' => $first));
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         // foreach ($db->query('SELECT * FROM fillUp') as $row) {
-        foreach ($db->query($query) as $row) {
+        foreach ($rows as $row) {
           echo '<tr>';
           echo '<td>'  . $row['f_date']         . '</td>';
           echo '<td>'  . $row['mileage']        . '</td>';
