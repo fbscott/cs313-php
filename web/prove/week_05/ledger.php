@@ -27,13 +27,6 @@
   <div class="column">
     <h2>Hello, <?php echo $_SESSION['user'] ?>!</h2>
     <p>Below is the mileage tracking info for your <strong><?php echo $_SESSION['vehicle'] ?></strong>.</p>
-    <p>
-      <?php 
-        echo $_SESSION['vehicle_parts'][0];
-        echo $_SESSION['vehicle_parts'][1];
-        echo $_SESSION['vehicle_parts'][2];
-       ?>
-    </p>
   </div>
 </div>
 
@@ -73,10 +66,13 @@
                   ON u.id = l.fillup_id
                   JOIN vehicle as v
                   ON v.id = l.vehicle_id
-                  WHERE f.first = :first;";
+                  WHERE f.first = :first and v.year = :year and v.make = :make and v.model = :model;";
 
         $stmt = $db->prepare($query);
         $stmt->execute(array(':first' => $_SESSION['user']));
+        $stmt->execute(array(':year' => $_SESSION['vehicle_parts']));
+        $stmt->execute(array(':make' => $_SESSION['vehicle_parts']));
+        $stmt->execute(array(':model' => $_SESSION['vehicle_parts']));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($rows as $row) {
