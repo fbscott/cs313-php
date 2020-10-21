@@ -32,7 +32,6 @@
 
 <div class="row">
   <div class="column">
-    <form action="">
     <table>
       <tr>
         <th>Date</th>
@@ -45,7 +44,7 @@
         <th>Delete</th>
       </tr>
       <?php
-        $query = "SELECT f_date, mileage, gallons, pricepergallon, fillup_id, id
+        $query = "SELECT id, f_date, mileage, gallons, pricepergallon
                   FROM filler AS f
                   JOIN ledger AS l
                   ON f.id = l.filler_id
@@ -73,12 +72,11 @@
           // echo '<td> -- </td>';
           // echo '<td> -- </td>';
           // echo '<td> -- </td>';
-          echo '<button type="button" name="' . $row['fillup_id'] . '"></button>';
+          echo '<button type="button" name="' . $row['id'] . '">Delete</button>';
           echo '</tr>';
         }
        ?>
     </table>
-    </form>
   </div>
 </div>
 
