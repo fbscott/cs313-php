@@ -32,51 +32,53 @@
 
 <div class="row">
   <div class="column">
-    <table>
-      <tr>
-        <th>Date</th>
-        <th>Mileage</th>
-        <th>Gallons</th>
-        <th>$/gal</th>
-        <!-- <th>Total</th> -->
-        <!-- <th>MPG</th> -->
-        <!-- <th>mi/tank</th> -->
-        <th>Delete</th>
-      </tr>
-      <?php
-        $query = "SELECT fillup_id, f_date, mileage, gallons, pricepergallon
-                  FROM filler AS f
-                  JOIN ledger AS l
-                  ON f.id = l.filler_id
-                  JOIN fillup as u
-                  ON u.id = l.fillup_id
-                  JOIN vehicle as v
-                  ON v.id = l.vehicle_id
-                  WHERE f.first = :first and v.year = :year and v.make = :make and v.model = :model;";
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Mileage</th>
+          <th>Gallons</th>
+          <th>$/gal</th>
+          <!-- <th>Total</th> -->
+          <!-- <th>MPG</th> -->
+          <!-- <th>mi/tank</th> -->
+          <th>Delete</th>
+        </tr>
+        <?php
+          $query = "SELECT f_date, mileage, gallons, pricepergallon
+                    FROM filler AS f
+                    JOIN ledger AS l
+                    ON f.id = l.filler_id
+                    JOIN fillup as u
+                    ON u.id = l.fillup_id
+                    JOIN vehicle as v
+                    ON v.id = l.vehicle_id
+                    WHERE f.first = :first and v.year = :year and v.make = :make and v.model = :model;";
 
-        $stmt = $db->prepare($query);
-        $stmt->execute(array(
-          ':first' => $_SESSION['user'],
-          ':year'  => $_SESSION['vehicle_parts'][0],
-          ':make'  => $_SESSION['vehicle_parts'][1],
-          ':model' => $_SESSION['vehicle_parts'][2]
-        ));
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+          $stmt = $db->prepare($query);
+          $stmt->execute(array(
+            ':first' => $_SESSION['user'],
+            ':year'  => $_SESSION['vehicle_parts'][0],
+            ':make'  => $_SESSION['vehicle_parts'][1],
+            ':model' => $_SESSION['vehicle_parts'][2]
+          ));
+          $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($rows as $row) {
-          echo '<tr>';
-          echo '<td>'  . $row['f_date']         . '</td>';
-          echo '<td>'  . $row['mileage']        . '</td>';
-          echo '<td>'  . $row['gallons']        . '</td>';
-          echo '<td>$' . $row['pricepergallon'] . '</td>';
-          echo '<td><button type="button" name="' . $row['fillup_id'] . '">Delete</button></td>';
-          // echo '<td> -- </td>';
-          // echo '<td> -- </td>';
-          // echo '<td> -- </td>';
-          echo '</tr>';
-        }
-       ?>
-    </table>
+          foreach ($rows as $row) {
+            echo '<tr>';
+            echo '<td>'  . $row['f_date']         . '</td>';
+            echo '<td>'  . $row['mileage']        . '</td>';
+            echo '<td>'  . $row['gallons']        . '</td>';
+            echo '<td>$' . $row['pricepergallon'] . '</td>';
+            echo '<td><button name="remove" type="submit">Delete</button></td>';
+            // echo '<td> -- </td>';
+            // echo '<td> -- </td>';
+            // echo '<td> -- </td>';
+            echo '</tr>';
+          }
+         ?>
+      </table>
+    </form>
   </div>
 </div>
 
