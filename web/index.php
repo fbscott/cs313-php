@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./assets/css/_base.css">
   <link rel="stylesheet" href="./assets/css/_grid.css">
   <link rel="stylesheet" href="./assets/css/prove_02.css">
-  <title>Homepage</title>
+  <title>Scott Currell's Homepage</title>
 </head>
 <body>
   <div id="page-container">

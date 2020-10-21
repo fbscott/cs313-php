@@ -1,10 +1,10 @@
-# create the database
-# CREATE DATABASE fuel;
+-- create the database
+-- CREATE DATABASE fuel;
 
-# delete public schema and all tables
-# DROP SCHEMA public CASCADE;
-# create public schema
-# CREATE SCHEMA public;
+-- delete public schema and all tables
+-- DROP SCHEMA public CASCADE;
+-- create public schema
+-- CREATE SCHEMA public;
 
 DROP TABLE IF EXISTS public.ledger;
 DROP TABLE IF EXISTS public.filler;
@@ -104,7 +104,10 @@ JOIN fillup as u
 ON u.id = l.fillup_id
 JOIN vehicle as v
 ON v.id = l.vehicle_id
-WHERE f.first = 'Sarah';
+WHERE f.first = 'Sarah'
+AND v.year = 2015
+AND v.make = 'Nissan'
+AND v.model = 'Sentra';
 
 SELECT DISTINCT year, make, model
 FROM filler AS f
@@ -115,3 +118,28 @@ ON u.id = l.fillup_id
 JOIN vehicle as v
 ON v.id = l.vehicle_id
 WHERE f.first = 'Sarah';
+
+/*
+DELETE
+FROM ledger as l
+WHERE l.fillup_id = 11;
+*/
+
+/*
+SELECT
+FROM fillup
+USING ledger
+WHERE fillup.id = ledger.fillup_id;
+*/
+
+SELECT *
+FROM fillup
+WHERE id = 11;
+
+DELETE
+FROM ledger
+WHERE fillup_id = 11;
+
+DELETE
+FROM fillup
+WHERE id = 11;
