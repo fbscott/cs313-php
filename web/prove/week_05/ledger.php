@@ -70,7 +70,7 @@
           echo '<td>$' . $row['pricepergallon'] . '</td>';
           echo '<td> -- </td>';
           echo '<td> -- </td>';
-          echo '<td> -- </td>';
+          echo '<td>'  . $row['gallons']        . '</td>';
           echo '</tr>';
         }
        ?>
