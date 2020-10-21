@@ -43,7 +43,7 @@
         <th>mi/tank</th>
       </tr>
       <?php
-        $query = "SELECT id, f_date, mileage, gallons, pricepergallon
+        $query = "SELECT fillup_id, f_date, mileage, gallons, pricepergallon
                   FROM filler AS f
                   JOIN ledger AS l
                   ON f.id = l.filler_id
@@ -70,7 +70,7 @@
           echo '<td>$' . $row['pricepergallon'] . '</td>';
           echo '<td> -- </td>';
           echo '<td> -- </td>';
-          echo '<td>'  . $row['id']        . '</td>';
+          echo '<td>'  . $row['fillup_id']        . '</td>';
           echo '</tr>';
         }
        ?>
