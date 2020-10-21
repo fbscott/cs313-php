@@ -38,9 +38,10 @@
         <th>Mileage</th>
         <th>Gallons</th>
         <th>$/gal</th>
-        <th>Total</th>
-        <th>MPG</th>
-        <th>mi/tank</th>
+        <!-- <th>Total</th> -->
+        <!-- <th>MPG</th> -->
+        <!-- <th>mi/tank</th> -->
+        <th>Delete</th>
       </tr>
       <?php
         $query = "SELECT fillup_id, f_date, mileage, gallons, pricepergallon
@@ -68,9 +69,10 @@
           echo '<td>'  . $row['mileage']        . '</td>';
           echo '<td>'  . $row['gallons']        . '</td>';
           echo '<td>$' . $row['pricepergallon'] . '</td>';
-          echo '<td> -- </td>';
-          echo '<td> -- </td>';
-          echo '<td>'  . $row['fillup_id']        . '</td>';
+          echo '<td><button type="button" name="' . $row['fillup_id'] . '">Delete</button></td>';
+          // echo '<td> -- </td>';
+          // echo '<td> -- </td>';
+          // echo '<td> -- </td>';
           echo '</tr>';
         }
        ?>
