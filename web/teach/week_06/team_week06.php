@@ -22,14 +22,14 @@ catch (PDOException $ex)
   die();
 }
 
-if (isset($_POST['book'])) {
-   $book = $_POST["book"];
-   $chapter = $_POST["chapter"];
-   $verse = $_POST["verse"];
-   $content = $_POST["content"];
-   $topics = $_POST["topic"];
-   $other_check = $_POST["check_other"];
-   $other_input = $_POST["input_other"];
+if (isset($_GET['book'])) {
+   $book = $_GET["book"];
+   $chapter = $_GET["chapter"];
+   $verse = $_GET["verse"];
+   $content = $_GET["content"];
+   $topics = $_GET["topic"];
+   $other_check = $_GET["check_other"];
+   $other_input = $_GET["input_other"];
 
    $stmt = $db->prepare('INSERT INTO scriptures(book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content);');
    $stmt->bindValue(':book', $book, PDO::PARAM_STR);
@@ -73,7 +73,7 @@ if (isset($_POST['book'])) {
   </head>
   <body>
     <h1>Insert a Reference</h1>
-    <form class="" action="" method="POST" onsubmit="return loadDoc(this);">
+    <form class="" action="" method="GET" onsubmit="return loadDoc(this);">
       <label for="book">Book:</label>
       <input id="book" type="text" name="book" value="">
       <label for="chapter">Chapter:</label>
@@ -81,7 +81,7 @@ if (isset($_POST['book'])) {
       <label for="verse">Verse:</label>
       <input id="verse" type="text" name="verse" value="">
       <label for="content">Content:</label>
-      <textarea id="content" name="content"></textarea>
+      <textarea id="content" name="content" required></textarea>
       <?php
         $stmt = $db->prepare('SELECT * FROM topic');
         $stmt->execute();
@@ -130,6 +130,8 @@ if (isset($_POST['book'])) {
               var item = elements.item(i);
               if ((item.type == 'checkbox' && item.checked) || (item.type == 'text' && item.value != '')) {
                queryString += item.name + '=' + item.value + '&';
+              } else if (item.tagName == 'TEXTAREA') {
+               queryString += item.name + '=' + item.innerHTML + '&';
               }
           }
          console.log(queryString);
