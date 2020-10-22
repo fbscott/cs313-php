@@ -82,10 +82,10 @@ foreach ($topics as $topic) {
       <?php
         $stmt = $db->prepare('SELECT * FROM topic');
         $stmt->execute();
-        $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($topics as $topic) {
-          echo "<input id='topic{$topic['id']}' type='checkbox' name='topic[]' value='{$topic['id']}'>";
-          echo "<label for='topic{$topic['id']}'>{$topic['name']}</label>";
+        $existingTopics = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($existingTopics as $existingTopic) {
+          echo "<input id='topic{$existingTopic['id']}' type='checkbox' name='topic[]' value='{$existingTopic['id']}'>";
+          echo "<label for='topic{$existingTopic['id']}'>{$existingTopic['name']}</label>";
         }
       ?>
 
