@@ -70,6 +70,7 @@ foreach ($topics as $topic) {
   </head>
   <body>
     <h1>Your References</h1> -->
+    <h2>New result</h2>
     <ul>
     <?php
       $stmt = $db->prepare("SELECT scriptures.id, book, chapter, verse, content,
