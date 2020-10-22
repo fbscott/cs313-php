@@ -128,7 +128,7 @@ if (isset($_POST['book'])) {
 
           for(var i = 0 ; i < elements.length ; i++) {
               var item = elements.item(i);
-              if (!!item) {
+              if ((item.type == 'checkbox' && item.checked) || (item.type == 'text' && item.value != '')) {
                queryString += item.name + '=' + item.value + '&';
               }
           }
