@@ -27,6 +27,8 @@ $chapter = $_POST["chapter"];
 $verse = $_POST["verse"];
 $content = $_POST["content"];
 $topics = $_POST["topic"];
+$other_check = $_POST["check_other"];
+$other_input = $_POST["input_other"];
 
 $stmt = $db->prepare('INSERT INTO scriptures(book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content);');
 $stmt->bindValue(':book', $book, PDO::PARAM_STR);
@@ -37,12 +39,24 @@ $stmt->execute();
 
 $scripture_id = $db->lastInsertId('scriptures_id_seq');
 
+if ($other_check && $other_input) {
+   $stmt = $db->prepare('INSERT INTO topic(name) VALUES (:other_input);');
+   $stmt->bindValue(':other_input', $other_input, PDO::PARAM_STR);
+   $stmt->execute();
+
+   $topic_id = $db->lastInsertId('topic_id_seq');
+
+   $stmt = $db->prepare('INSERT INTO scriptures_topic VALUES (DEFAULT, :scripture_id, :topic_id)');
+   $stmt->bindValue(':scripture_id', $scripture_id, PDO::PARAM_INT);
+   $stmt->bindValue(':topic_id', $topic_id, PDO::PARAM_INT);
+   $stmt->execute();
+}
+
 foreach ($topics as $topic) {
   $stmt = $db->prepare('INSERT INTO scriptures_topic VALUES (DEFAULT, :scripture_id, :topic_id)');
   $stmt->bindValue(':scripture_id', $scripture_id, PDO::PARAM_INT);
   $stmt->bindValue(':topic_id', $topic['id'], PDO::PARAM_INT);
   $stmt->execute();
-
 }
 
 ?>

@@ -52,6 +52,9 @@ catch (PDOException $ex)
         }
       ?>
 
+      <input id="check_other" name="check_other" type="checkbox" value="check_other">
+      <input id="input_other" name="input_other" type="text">
+
       <button type="submit" name="button">Submit</button>
     </form>
   </body>
