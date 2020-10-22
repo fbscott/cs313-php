@@ -62,14 +62,14 @@ foreach ($topics as $topic) {
 ?>
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <h1>Your References</h1>
+    <h1>Your References</h1> -->
     <ul>
     <?php
       $stmt = $db->prepare("SELECT scriptures.id, book, chapter, verse, content,
@@ -88,5 +88,5 @@ foreach ($topics as $topic) {
 
      ?>
    </ul>
-  </body>
-</html>
+<!--   </body>
+</html> -->

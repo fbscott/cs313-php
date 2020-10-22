@@ -95,9 +95,10 @@ if (isset($_POST['book'])) {
       <input id="check_other" name="check_other" type="checkbox" value="check_other">
       <input id="input_other" name="input_other" type="text">
 
-      <button type="submit" name="button">Submit</button>
+      <button type="submit" name="button" onclick="loadDoc();">Submit</button>
     </form>
 
+    <div id="result">
     <ul>
     <?php
       $stmt = $db->prepare("SELECT scriptures.id, book, chapter, verse, content,
@@ -116,5 +117,19 @@ if (isset($_POST['book'])) {
 
      ?>
    </ul>
+   </div>
+
+   <script>
+      function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+           document.getElementById("result").innerHTML = this.responseText;
+          }
+        };
+        xhttp.open("POST", "06results.php", true);
+        xhttp.send();
+      }
+   </script>   
   </body>
 </html>
