@@ -131,7 +131,7 @@ if (isset($_GET['book'])) {
               if ((item.type == 'checkbox' && item.checked) || (item.type == 'text' && item.value != '')) {
                queryString += item.name + '=' + item.value + '&';
               } else if (item.tagName == 'TEXTAREA') {
-               queryString += item.name + '=' + item.innerHTML + '&';
+               queryString += item.name + '=' + item.value + '&';
               }
           }
          console.log(queryString);
