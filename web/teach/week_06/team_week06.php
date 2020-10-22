@@ -142,6 +142,8 @@ if (isset($_POST['book'])) {
 
         xhttp.open("GET", "06results.php?" + queryString, true);
         xhttp.send();
+
+        return false;
       }
    </script>   
   </body>
