@@ -73,7 +73,7 @@ if (isset($_POST['book'])) {
   </head>
   <body>
     <h1>Insert a Reference</h1>
-    <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+    <form class="" action="" method="POST" onsubmit="return loadDoc(this);">
       <label for="book">Book:</label>
       <input id="book" type="text" name="book" value="">
       <label for="chapter">Chapter:</label>
@@ -95,7 +95,7 @@ if (isset($_POST['book'])) {
       <input id="check_other" name="check_other" type="checkbox" value="check_other">
       <input id="input_other" name="input_other" type="text">
 
-      <button type="submit" name="button" onclick="loadDoc();">Submit</button>
+      <button type="submit" name="submit">Submit</button>
     </form>
 
     <div id="result">
@@ -120,14 +120,27 @@ if (isset($_POST['book'])) {
    </div>
 
    <script>
-      function loadDoc() {
+      function loadDoc(formData) {
         var xhttp = new XMLHttpRequest();
+
+          var elements = formData.elements;
+          var queryString = '';
+
+          for(var i = 0 ; i < elements.length ; i++) {
+              var item = elements.item(i);
+              if (!!item) {
+               queryString += item.name + '=' + item.value + '&';
+              }
+          }
+         console.log(queryString);
+
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
            document.getElementById("result").innerHTML = this.responseText;
           }
         };
-        xhttp.open("POST", "06results.php", true);
+
+        xhttp.open("GET", "06results.php?" + queryString, true);
         xhttp.send();
       }
    </script>   

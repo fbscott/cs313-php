@@ -22,13 +22,13 @@ catch (PDOException $ex)
   die();
 }
 
-$book = $_POST["book"];
-$chapter = $_POST["chapter"];
-$verse = $_POST["verse"];
-$content = $_POST["content"];
-$topics = $_POST["topic"];
-$other_check = $_POST["check_other"];
-$other_input = $_POST["input_other"];
+$book = $_GET["book"];
+$chapter = $_GET["chapter"];
+$verse = $_GET["verse"];
+$content = $_GET["content"];
+$topics = $_GET["topic"];
+$other_check = $_GET["check_other"];
+$other_input = $_GET["input_other"];
 
 $stmt = $db->prepare('INSERT INTO scriptures(book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content);');
 $stmt->bindValue(':book', $book, PDO::PARAM_STR);
