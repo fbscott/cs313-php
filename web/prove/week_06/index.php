@@ -16,10 +16,13 @@
 </head>
 <body>
 <?php 
-   $user = $_POST['user'];
+   $fillerId = $_POST['user'];
 
-   $_SESSION['user'] = $user;
+   $_SESSION['fillerId'] = $fillerId;
 
+   /***************************************************************************
+    * ADD NEW RECORD
+    **************************************************************************/
    if (isset($_POST['submitAdd'])) {
       $username = $_POST['username'];
       $first = $_POST['first'];
@@ -33,38 +36,25 @@
 
       $filler_id = $db->lastInsertId('filler_id_seq');
 
-      // header('Location: vehicle.php');
+      header('Location: vehicle.php');
    }
 
+   /***************************************************************************
+    * QUERY A RECORD
+    **************************************************************************/
    if (isset($_POST['submitQuery'])) {
       header('Location: vehicle.php');
    }
 
+   /***************************************************************************
+    * DELETE A RECORD
+    **************************************************************************/
    if (isset($_POST['submitDelete'])) {
-      /*
-      $stmt = $db->prepare('DELETE FROM filler WHERE first = ?');
-      $stmt->execute(array('Mort'));
-      $count = $stmt->rowCount();
-      */
-      
       $userData = $_POST['user'];
-
-/*      $query = 'SELECT username, first, last, filler_id
-                FROM filler AS f
-                JOIN ledger AS l
-                ON f.id = l.filler_id
-                WHERE f.id = :id;';*/
 
       $stmt = $db->prepare('DELETE FROM ledger WHERE filler_id = :userData');
       $stmt->bindValue(':userData', $userData, PDO::PARAM_INT);
       $stmt->execute();
-
-      /*
-      $stmt = $db->prepare($query);
-      $stmt = $db->prepare('DELETE FROM ledger WHERE filler_id = ?');
-      $stmt->execute(array(':id' => 1));
-      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      */
    }
 
  ?>
@@ -76,7 +66,7 @@
 <div class="row">
    <div class="large-6 columns">
       <p>Add a new user</p>
-      <!----------------------------------- FORM ----------------------------------->
+      <!-------------------------------- FORM -------------------------------->
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
          <div class="row">
             <div class="large-6 columns">
@@ -92,11 +82,11 @@
          <input name="username" type="text">
          <input type="submit" value="Submit" name="submitAdd">
       </form>
-      <!----------------------------------- /FORM ---------------------------------->
+      <!-------------------------------- /FORM ------------------------------->
    </div><!-- /column -->
    <div class="large-6 columns">
       <p>Select a user</p>
-      <!----------------------------------- FORM ----------------------------------->
+      <!-------------------------------- FORM -------------------------------->
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
          <label for="user">User</label>
          <select id="user" name="user">
@@ -116,7 +106,7 @@
             </div>
          </div>
       </form>
-      <!----------------------------------- /FORM ---------------------------------->
+      <!-------------------------------- /FORM ------------------------------->
    </div><!-- /column -->
 </div><!-- /row -->
 </body>

@@ -55,7 +55,7 @@
                   WHERE f.id = :id;';
 
         $stmt = $db->prepare($query);
-        $stmt->execute(array(':id' => $_SESSION['user']));
+        $stmt->execute(array(':id' => $_SESSION['fillerId']));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($rows as $row) {

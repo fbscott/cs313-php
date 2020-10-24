@@ -26,7 +26,14 @@
 
 <div class="row">
   <div class="column">
-    <h2>Hello, <?php echo $_SESSION['user'] ?>!</h2>
+   <?php 
+      $query = 'SELECT name FROM filler WHERE id = :fillerId';
+
+      $stmt = $db->prepare($query);
+      $stmt->execute(array(':fillerId' => $_SESSION['fillerId']));
+      $row = $stmt->fetch(PDO::FETCH_ASSOC);      
+    ?>
+    <h2>Hello, <?php echo $row ?>!</h2>
     <p>Below is the mileage tracking info for your <strong><?php echo $_SESSION['vehicle'] ?></strong>.</p>
   </div>
 </div>
@@ -46,7 +53,7 @@
           <th>Delete</th>
         </tr>
         <?php
-          $query = "SELECT f_date, mileage, gallons, pricepergallon
+          $query = 'SELECT f_date, mileage, gallons, pricepergallon
                     FROM filler AS f
                     JOIN ledger AS l
                     ON f.id = l.filler_id
@@ -54,11 +61,11 @@
                     ON u.id = l.fillup_id
                     JOIN vehicle as v
                     ON v.id = l.vehicle_id
-                    WHERE f.id = :id and v.year = :year and v.make = :make and v.model = :model;";
+                    WHERE f.id = :id and v.year = :year and v.make = :make and v.model = :model;';
 
           $stmt = $db->prepare($query);
           $stmt->execute(array(
-            ':id'    => $_SESSION['user'],
+            ':id'    => $_SESSION['fillerId'],
             ':year'  => $_SESSION['vehicle_parts'][0],
             ':make'  => $_SESSION['vehicle_parts'][1],
             ':model' => $_SESSION['vehicle_parts'][2]
