@@ -47,33 +47,34 @@
    }
 
  ?>
-<div class="row">
-   <div class="column">
-      <h1>Mileage Tracker</h1>
+
+<div class="row"><div class="large-6 large-offset-3 columns">
+
+   <div class="row">
+     <div class="column">
+       <h1>Select a User</h1>
+     </div>
    </div>
-</div>
-<div class="row">
-   <div class="large-6 columns">
-      <p>Select a user</p>
-      <!-------------------------------- FORM -------------------------------->
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-         <label for="user">User</label>
-         <select id="user" name="user">
-            <option value="" selected="true" disabled> -- </option>
-            <?php 
-            foreach ($db->query('SELECT * FROM filler') as $row) {
-            ?>
-            <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?></option>
-            <?php } ?>
-         </select>
-         <div class="row">
-            <div class="columns">
-               <input type="submit" value="Submit" name="submitQuery">
-            </div>
+
+   <!---------------------------------- FORM ---------------------------------->
+   <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+      <label for="user">User</label>
+      <select id="user" name="user">
+         <option value="" selected="true" disabled> -- </option>
+         <?php 
+         foreach ($db->query('SELECT * FROM filler') as $row) {
+         ?>
+         <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?></option>
+         <?php } ?>
+      </select>
+      <div class="row">
+         <div class="columns">
+            <input type="submit" value="Submit" name="submitQuery">
          </div>
-      </form>
-      <!-------------------------------- /FORM ------------------------------->
-   </div><!-- /column -->
-</div><!-- /row -->
+      </div>
+   </form>
+   <!---------------------------------- /FORM --------------------------------->
+</div></div>
+
 </body>
 </html>
