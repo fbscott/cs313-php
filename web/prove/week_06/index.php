@@ -16,9 +16,9 @@
 </head>
 <body>
 <?php 
-   // $user = $_POST['user'];
+   $user = $_POST['user'];
 
-   // $_SESSION['user'] = $user;
+   $_SESSION['user'] = $user;
 
    if (isset($_POST['submitQuery'])) {
       header('Location: vehicle.php');
