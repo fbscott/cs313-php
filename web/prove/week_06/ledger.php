@@ -65,18 +65,18 @@
           $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
           foreach ($rows as $row) {
-            echo '<tr>';
-            echo '<td>'  . $row['f_date']         . '</td>';
-            echo '<td>'  . $row['mileage']        . '</td>';
-            echo '<td>'  . $row['gallons']        . '</td>';
-            echo '<td>$' . $row['pricepergallon'] . '</td>';
-            echo '<td><button name="remove" type="submit">Delete</button></td>';
-            // echo '<td> -- </td>';
-            // echo '<td> -- </td>';
-            // echo '<td> -- </td>';
-            echo '</tr>';
-          }
          ?>
+            <tr>
+            <td><?php echo $row['f_date']; ?></td>
+            <td><?php echo $row['mileage']; ?></td>
+            <td><?php echo $row['gallons']; ?></td>
+            <td>$<?php echo $row['pricepergallon']; ?></td>
+            <td><button name="remove" type="submit">Delete</button></td>
+            <!-- <td> -- </td> -->
+            <!-- <td> -- </td> -->
+            <!-- <td> -- </td> -->
+            </tr>
+         <?php } ?>
       </table>
     </form>
   </div>

@@ -68,7 +68,7 @@
 </div>
 <div class="row">
    <div class="large-6 columns">
-      <p>Add a new user.</p>
+      <p>Add a new user</p>
       <!----------------------------------- FORM ----------------------------------->
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
          <div class="row">
@@ -88,7 +88,7 @@
       <!----------------------------------- /FORM ---------------------------------->
    </div><!-- /column -->
    <div class="large-6 columns">
-      <p>Select a user.</p>
+      <p>Select a user</p>
       <!----------------------------------- FORM ----------------------------------->
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
          <label for="user">User</label>
