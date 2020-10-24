@@ -53,7 +53,7 @@
                 WHERE f.first = :first;';
 
       $stmt = $db->prepare('DELETE FROM ledger WHERE id = ?');
-      $stmt->execute(array(':first' => 16));
+      $stmt->execute(array(':id' => 16));
       $count = $stmt->rowCount();
    }
 
