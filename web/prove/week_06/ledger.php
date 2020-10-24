@@ -7,13 +7,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../assets/css/_reset.css">
-  <link rel="stylesheet" href="../../assets/css/_base.css">
-  <link rel="stylesheet" href="../../assets/css/_grid.css">
-  <link rel="stylesheet" href="../../assets/css/prove_project.css">
-  <title>Mileage Tracker</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../../assets/css/_reset.css">
+   <link rel="stylesheet" href="../../assets/css/_base.css">
+   <link rel="stylesheet" href="../../assets/css/_grid.css">
+   <link rel="stylesheet" href="../../assets/css/prove_project.css">
+   <title>Mileage Tracker</title>
 </head>
 <body>
 <body><div class="row"><div class="column">
@@ -27,16 +27,13 @@
 <div class="row">
    <div class="column">
       <?php 
-         $fillerName = 'SELECT first FROM filler WHERE id = :id';
+         $query = 'SELECT first FROM filler WHERE id = :id';
 
-         $stmt = $db->prepare($fillerName);
+         $stmt = $db->prepare($query);
          $stmt->execute(array(':id' => $_SESSION['fillerId']));
-         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
-
-         echo $fillerName;
-         echo $userData['first'];
+         $rows = $stmt->fetch(PDO::FETCH_ASSOC);
        ?>
-      <h2>Hello, <?php echo $userData['first'] ?>!</h2>
+      <h2>Hello, <?php echo $rows['first'] ?>!</h2>
       <p>Below is the mileage tracking info for your <strong><?php echo $_SESSION['vehicle'] ?></strong>.</p>
    </div>
 </div>
@@ -50,13 +47,10 @@
           <th>Mileage</th>
           <th>Gallons</th>
           <th>$/gal</th>
-          <!-- <th>Total</th> -->
-          <!-- <th>MPG</th> -->
-          <!-- <th>mi/tank</th> -->
           <th>Delete</th>
         </tr>
         <?php
-          $query = "SELECT f_date, mileage, gallons, pricepergallon
+          $query = 'SELECT f_date, mileage, gallons, pricepergallon
                     FROM filler AS f
                     JOIN ledger AS l
                     ON f.id = l.filler_id
@@ -64,7 +58,7 @@
                     ON u.id = l.fillup_id
                     JOIN vehicle as v
                     ON v.id = l.vehicle_id
-                    WHERE f.id = :id and v.year = :year and v.make = :make and v.model = :model;";
+                    WHERE f.id = :id and v.year = :year and v.make = :make and v.model = :model;';
 
           $stmt = $db->prepare($query);
           $stmt->execute(array(
@@ -82,11 +76,7 @@
             <td><?php echo $row['mileage']; ?></td>
             <td><?php echo $row['gallons']; ?></td>
             <td>$<?php echo $row['pricepergallon']; ?></td>
-            <!-- <td><button name="remove" type="submit">Delete</button></td> -->
             <td><input type="submit" value="Delete" name="remove"></td>
-            <!-- <td> -- </td> -->
-            <!-- <td> -- </td> -->
-            <!-- <td> -- </td> -->
             </tr>
          <?php } ?>
       </table>
