@@ -16,16 +16,18 @@
 </head>
 <body>
 <?php 
-   // $user = $_GET['user'];
+   // $user = $_POST['user'];
 
    // $_SESSION['user'] = $user;
 
-   if (isset($_GET['submitQuery'])) {
+   if (isset($_POST['submitQuery'])) {
       header('Location: vehicle.php');
    }
 
-   if (isset($_GET['submitUpdate'])) {
-      $name = $_GET['newUser'];
+   if (isset($_POST['submitUpdate'])) {
+      $name = $_POST['username'];
+      $name = $_POST['first'];
+      $name = $_POST['last'];
 
       $stmt = $db->prepare('INSERT INTO filler(username, first, last) VALUES (:username, :first, :last);');
       $stmt->bindValue(':username', $username, PDO::PARAM_STR);
@@ -48,7 +50,7 @@
    <div class="large-6 columns">
       <p>Add a new user.</p>
       <!----------------------------------- FORM ----------------------------------->
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
          <div class="row">
             <div class="large-6 columns">
                <label for="first">First</label>
@@ -68,7 +70,7 @@
    <div class="large-6 columns">
       <p>Select a user.</p>
       <!----------------------------------- FORM ----------------------------------->
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
          <label for="user">User</label>
          <select id="user" name="user">
             <option value="" selected="true" disabled> -- </option>
