@@ -52,10 +52,10 @@
                   ON u.id = l.fillup_id
                   JOIN vehicle as v
                   ON v.id = l.vehicle_id
-                  WHERE f.first = :first;';
+                  WHERE f.id = :id;';
 
         $stmt = $db->prepare($query);
-        $stmt->execute(array(':first' => $_SESSION['user']));
+        $stmt->execute(array(':id' => $_SESSION['user']));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($rows as $row) {

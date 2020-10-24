@@ -114,10 +114,6 @@ SELECT DISTINCT username, first, last, filler_id
 FROM filler AS f
 JOIN ledger AS l
 ON f.id = l.filler_id
-JOIN fillup as u
-ON u.id = l.fillup_id
-JOIN vehicle as v
-ON v.id = l.vehicle_id
 WHERE f.id = 1;
 
 /*
