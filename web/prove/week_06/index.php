@@ -41,19 +41,27 @@
    }
 
    if (isset($_POST['submitDelete'])) {
-
+      /*
       $stmt = $db->prepare('DELETE FROM filler WHERE first = ?');
       $stmt->execute(array('Mort'));
       $count = $stmt->rowCount();
-/*
-      $query = 'SELECT username, first, last, filler_id
+      */
+      
+      $filler_id = $_POST['user'];
+
+/*      $query = 'SELECT username, first, last, filler_id
                 FROM filler AS f
                 JOIN ledger AS l
                 ON f.id = l.filler_id
-                WHERE f.id = :id;';
+                WHERE f.id = :id;';*/
 
+      $stmt = $db->prepare('DELETE FROM ledger WHERE filler_id = :filler_id');
+      $stmt->bindValue(':filler_id', $filler_id, PDO::PARAM_INT);
+      $stmt->execute();
+
+      /*
       $stmt = $db->prepare($query);
-      $stmt = $db->prepare('DELETE FROM ledger WHERE id = ?');
+      $stmt = $db->prepare('DELETE FROM ledger WHERE filler_id = ?');
       $stmt->execute(array(':id' => 1));
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
       */
@@ -96,7 +104,7 @@
             <?php 
             foreach ($db->query('SELECT * FROM filler') as $row) {
             ?>
-            <option value="<?php echo $row['first']; ?>"><?php echo $row['first']; ?></option>
+            <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?></option>
             <?php } ?>
          </select>
          <div class="row">
