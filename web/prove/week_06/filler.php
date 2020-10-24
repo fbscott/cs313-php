@@ -45,36 +45,35 @@
    if (isset($_POST['submitQuery'])) {
       header('Location: vehicle.php');
    }
- ?>
 
+ ?>
 <div class="row">
-   <div class="large-6 large-offset-3 columns">
+   <div class="column">
       <h1>Mileage Tracker</h1>
    </div>
 </div>
-
 <div class="row">
-   <div class="large-6 large-offset-3 columns">
-      <p>Add a new user</p>
+   <div class="large-6 columns">
+      <p>Select a user</p>
       <!-------------------------------- FORM -------------------------------->
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+         <label for="user">User</label>
+         <select id="user" name="user">
+            <option value="" selected="true" disabled> -- </option>
+            <?php 
+            foreach ($db->query('SELECT * FROM filler') as $row) {
+            ?>
+            <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?></option>
+            <?php } ?>
+         </select>
          <div class="row">
-            <div class="large-6 columns">
-               <label for="first">First</label>
-               <input name="first" type="text">
-            </div>
-            <div class="large-6 columns">
-               <label for="last">Last</label>
-               <input name="last" type="text">
+            <div class="columns">
+               <input type="submit" value="Submit" name="submitQuery">
             </div>
          </div>
-         <label for="username">User Name</label>
-         <input name="username" type="text">
-         <input type="submit" value="Submit" name="submitAdd">
       </form>
       <!-------------------------------- /FORM ------------------------------->
    </div><!-- /column -->
 </div><!-- /row -->
-
 </body>
 </html>
