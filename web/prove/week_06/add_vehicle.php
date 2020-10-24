@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../../assets/css/_reset.css">
   <link rel="stylesheet" href="../../assets/css/_base.css">
   <link rel="stylesheet" href="../../assets/css/_grid.css">
-  <title>Query User Data</title>
+  <title>Add New Vehicle Data</title>
 </head>
 <body>
 <?php 
@@ -32,7 +32,7 @@
       $stmt->bindValue(':year', $year, PDO::PARAM_STR);
       $stmt->bindValue(':make', $make, PDO::PARAM_STR);
       $stmt->bindValue(':model', $model, PDO::PARAM_STR);
-      $stmt->bindValue(':filler_id', $_SESSION['fillerId'], PDO::PARAM_STR);
+      $stmt->bindValue(':filler_id', $_SESSION['fillerId'], PDO::PARAM_INT);
       $stmt->execute();
 
       $filler_id = $db->lastInsertId('filler_id_seq');
