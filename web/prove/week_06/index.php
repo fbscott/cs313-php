@@ -42,7 +42,7 @@
 
    if (isset($_POST['submitDelete'])) {
 
-      $query = 'SELECT username, first, last, year, make, model, f_date, mileage, gallons, pricepergallon, filler_id, vehicle_id, fillUp_id
+      $query = 'SELECT username, first, last
                 FROM filler AS f
                 JOIN ledger AS l
                 ON f.id = l.filler_id
@@ -53,7 +53,7 @@
                 WHERE f.id = :id;';
 
       $stmt = $db->prepare('DELETE FROM ledger WHERE filler_id = ?');
-      $stmt->execute(array(':id' => 1));
+      $stmt->execute(array(':filler_id' => 1));
       $count = $stmt->rowCount();
    }
 
