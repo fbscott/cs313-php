@@ -50,10 +50,10 @@
                 ON u.id = l.fillup_id
                 JOIN vehicle as v
                 ON v.id = l.vehicle_id
-                WHERE f.filler_id = :filler_id;';
+                WHERE f.id = :id;';
 
       $stmt = $db->prepare('DELETE FROM ledger WHERE id = ?');
-      $stmt->execute(array(':filler_id' => 1));
+      $stmt->execute(array(':id' => 1));
       $count = $stmt->rowCount();
    }
 
