@@ -44,7 +44,7 @@
     <select name="vehicle" id="vehicle">
       <option value="" selected="true" disabled> -- </option>
       <?php 
-        $query = "SELECT DISTINCT year, make, model
+        $query = 'SELECT DISTINCT year, make, model
                   FROM filler AS f
                   JOIN ledger AS l
                   ON f.id = l.filler_id
@@ -52,7 +52,7 @@
                   ON u.id = l.fillup_id
                   JOIN vehicle as v
                   ON v.id = l.vehicle_id
-                  WHERE f.first = :first;";
+                  WHERE f.first = :first;';
 
         $stmt = $db->prepare($query);
         $stmt->execute(array(':first' => $_SESSION['user']));

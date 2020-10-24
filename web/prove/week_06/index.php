@@ -20,11 +20,7 @@
 
    $_SESSION['user'] = $user;
 
-   if (isset($_POST['submitQuery'])) {
-      header('Location: vehicle.php');
-   }
-
-   if (isset($_POST['submitUpdate'])) {
+   if (isset($_POST['submitAdd'])) {
       $username = $_POST['username'];
       $first = $_POST['first'];
       $last = $_POST['last'];
@@ -40,10 +36,25 @@
       // header('Location: vehicle.php');
    }
 
-   if (isset($_POST['deleteUser'])) {
+   if (isset($_POST['submitQuery'])) {
+      header('Location: vehicle.php');
+   }
 
-      $stmt = $db->prepare('DELETE FROM filler WHERE first = ?');
-      $stmt->execute(array($user));
+   if (isset($_POST['submitDelete'])) {
+
+      $query = 'SELECT username, first, last, year, make, model, f_date, mileage, gallons, pricepergallon
+                FROM filler AS f
+                JOIN ledger AS l
+                ON f.id = l.filler_id
+                JOIN fillup as u
+                ON u.id = l.fillup_id
+                JOIN vehicle as v
+                ON v.id = l.vehicle_id
+                WHERE f.first = :first;';
+
+      $stmt = $db->prepare('DELETE FROM ledger WHERE first = ?');
+      // $stmt->execute(array($user));
+      $stmt->execute(array(':first' => 'Sarah'));
       $count = $stmt->rowCount();
 
       /*
@@ -83,7 +94,7 @@
          </div>
          <label for="username">User Name</label>
          <input name="username" type="text">
-         <input type="submit" value="Submit" name="submitUpdate">
+         <input type="submit" value="Submit" name="submitAdd">
       </form>
       <!----------------------------------- /FORM ---------------------------------->
    </div><!-- /column -->
@@ -105,7 +116,7 @@
                <input type="submit" value="Submit" name="submitQuery">
             </div>
             <div class="columns large-6">
-               <input type="submit" value="Delete" name="deleteUser">
+               <input type="submit" value="Delete" name="submitDelete">
             </div>
          </div>
       </form>
