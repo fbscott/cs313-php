@@ -47,7 +47,7 @@
       $count = $stmt->rowCount();
       */
       
-      $filler_id = $_POST['user'];
+      $userData = $_POST['user'];
 
 /*      $query = 'SELECT username, first, last, filler_id
                 FROM filler AS f
@@ -55,8 +55,8 @@
                 ON f.id = l.filler_id
                 WHERE f.id = :id;';*/
 
-      $stmt = $db->prepare('DELETE FROM ledger WHERE filler_id = :filler_id');
-      $stmt->bindValue(':filler_id', $filler_id, PDO::PARAM_INT);
+      $stmt = $db->prepare('DELETE FROM ledger WHERE filler_id = :userData');
+      $stmt->bindValue(':userData', $userData, PDO::PARAM_INT);
       $stmt->execute();
 
       /*
