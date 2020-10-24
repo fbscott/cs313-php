@@ -11,20 +11,24 @@
 </head>
 <body>
 
-<div class="row">
-  <div class="column">
-    <h1>Mileage Tracker</h1>
-  </div>
-</div>
+<div class="row"><div class="large-6 large-offset-3 columns">
 
-<div class="row">
-   <div class="large-6 columns">
-      <a class="button" href="./filler.php">View Fill-up Records</a>
+   <div class="row">
+     <div class="column">
+       <h1>Select a User</h1>
+     </div>
    </div>
-   <div class="large-6 columns">
-      <a class="button" href="./add_filler.php">Add New Record</a>
+
+   <div class="row">
+      <div class="large-6 column">
+         <a class="button" href="./filler.php">View Fill-up Records</a>
+      </div>
+      <div class="large-6 column">
+         <a class="button" href="./add_filler.php">Add New Record</a>
+      </div>
    </div>
-</div>
+
+</div></div>
 
 </body>
 </html>
