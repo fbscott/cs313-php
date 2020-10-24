@@ -43,11 +43,8 @@
    if (isset($_POST['deleteUser'])) {
 
       $stmt = $db->prepare('DELETE FROM filler WHERE first = ?');
-      $stmt->execute(array('John'));
+      $stmt->execute(array($user));
       $count = $stmt->rowCount();
-
-      echo $user;
-      echo $_SESSION['user'];
 
       /*
       // Example from Slack channel
