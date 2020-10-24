@@ -43,7 +43,7 @@
    if (isset($_POST['submitDelete'])) {
 
       $stmt = $db->prepare('DELETE FROM filler WHERE first = ?');
-      $stmt->execute(array('John'));
+      $stmt->execute(array('Mort'));
       $count = $stmt->rowCount();
 /*
       $query = 'SELECT username, first, last, filler_id
