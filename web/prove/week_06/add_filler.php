@@ -16,9 +16,9 @@
 </head>
 <body>
 <?php 
-   $fillerId = $_POST['user'];
+   // $fillerId = $_POST['user'];
 
-   $_SESSION['fillerId'] = $fillerId;
+   // $_SESSION['fillerId'] = $fillerId;
 
    /***************************************************************************
     * ADD NEW RECORD
