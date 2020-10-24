@@ -42,7 +42,7 @@
 
    if (isset($_POST['submitDelete'])) {
 
-      $query = 'SELECT username, first, last, year, make, model, f_date, mileage, gallons, pricepergallon
+      $query = 'SELECT username, first, last, year, make, model, f_date, mileage, gallons, pricepergallon, filler_id, vehicle_id, fillUp_id
                 FROM filler AS f
                 JOIN ledger AS l
                 ON f.id = l.filler_id
@@ -52,23 +52,9 @@
                 ON v.id = l.vehicle_id
                 WHERE f.first = :first;';
 
-      $stmt = $db->prepare('DELETE FROM ledger WHERE first = ?');
-      // $stmt->execute(array($user));
-      $stmt->execute(array(':first' => 'Sarah'));
+      $stmt = $db->prepare('DELETE FROM ledger WHERE id = ?');
+      $stmt->execute(array(':first' => 16));
       $count = $stmt->rowCount();
-
-      /*
-      // Example from Slack channel
-      // Can't quite get it working
-      $stmt = $db->prepare('UPDATE filler
-                            SET deletedAt = :first, deletedBy = :username
-                            WHERE otherTableId = :otherTableId');
-      // Then, bind the values
-      $stmt->bindValue(':first', $first);
-      $stmt->bindValue(':username',  $username);
-      $stmt->bindValue(':otherTableId',  $id);
-      $stmt->execute();
-      */
    }
 
  ?>
