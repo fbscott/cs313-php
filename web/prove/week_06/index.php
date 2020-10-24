@@ -35,7 +35,7 @@
       $stmt->bindValue(':last', $last, PDO::PARAM_STR);
       $stmt->execute();
 
-      $filler_id = $db->lastInsertId('filler__id_seq');
+      $filler_id = $db->lastInsertId('filler_id_seq');
 
       // header('Location: vehicle.php');
    }
@@ -54,15 +54,15 @@
          <div class="row">
             <div class="large-6 columns">
                <label for="first">First</label>
-               <input id="first" type="text">
+               <input name="first" type="text">
             </div>
             <div class="large-6 columns">
                <label for="last">Last</label>
-               <input id="last" type="text">
+               <input name="last" type="text">
             </div>
          </div>
          <label for="username">User Name</label>
-         <input id="username" type="text">
+         <input name="username" type="text">
          <input type="submit" value="Submit" name="submitUpdate">
       </form>
       <!----------------------------------- /FORM ---------------------------------->
