@@ -41,9 +41,37 @@
    }
 
    if (isset($_POST['deleteUser'])) {
+      /*
       $stmt = $db->prepare('DELETE FROM filler WHERE first = ?');
       $stmt->execute(array('John'));
       $count = $stmt->rowCount();
+      */
+
+      /*
+      // Example
+      $stmt = $db->prepare('UPDATE instructions
+                            SET deletedAt = :updateDate, deletedBy = :userId
+                            WHERE recipeId = :recipeId');
+      // Then, bind the values
+      $stmt->bindValue(':updateDate', $date);
+      $stmt->bindValue(':userId',  $userId);
+      $stmt->bindValue(':recipeId',  $id);
+      $stmt->execute();
+      */
+
+      $username = 'doe_boi';
+      $first = 'John';
+      $last = 'Doe';
+
+      $stmt = $db->prepare('UPDATE filler
+                            SET deletedAt = :username, first = :last
+                            WHERE recipeId = :recipeId');
+      // Then, bind the values
+      $stmt->bindValue(':username', $username);
+      $stmt->bindValue(':first',  $first);
+      $stmt->bindValue(':last',  $last);
+      $stmt->execute();
+
    }
 
  ?>
