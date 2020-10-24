@@ -25,10 +25,20 @@
 </div>
 
 <div class="row">
-  <div class="column">
-    <h2>Hello, <?php echo $_SESSION['fillerId'] ?>!</h2>
-    <p>Below is the mileage tracking info for your <strong><?php echo $_SESSION['vehicle'] ?></strong>.</p>
-  </div>
+   <div class="column">
+      <?php 
+         $fillerName = 'SELECT name FROM filler WHERE id = :id';
+
+         $stmt = $db->prepare($fillerName);
+         $stmt->execute(array(':id' => $_SESSION['fillerId']));
+         $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+
+         echo $fillerName;
+         echo $rows;
+       ?>
+      <h2>Hello, <?php echo $_SESSION['fillerId'] ?>!</h2>
+      <p>Below is the mileage tracking info for your <strong><?php echo $_SESSION['vehicle'] ?></strong>.</p>
+   </div>
 </div>
 
 <div class="row">
