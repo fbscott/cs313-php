@@ -27,7 +27,7 @@
 <div class="row">
    <div class="column">
       <?php 
-         $fillerName = 'SELECT name FROM filler WHERE id = :id';
+         $fillerName = 'SELECT first FROM filler WHERE id = :id';
 
          $stmt = $db->prepare($fillerName);
          $stmt->execute(array(':id' => $_SESSION['fillerId']));
