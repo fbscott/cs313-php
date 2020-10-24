@@ -23,7 +23,7 @@
    /***************************************************************************
     * ADD NEW RECORD
     **************************************************************************/
-   if (isset($_POST['submitAdd'])) {
+   if (isset($_POST['submitAddFiller'])) {
       $username = $_POST['username'];
       $first = $_POST['first'];
       $last = $_POST['last'];
@@ -34,9 +34,11 @@
       $stmt->bindValue(':last', $last, PDO::PARAM_STR);
       $stmt->execute();
 
-      $filler_id = $db->lastInsertId('filler_id_seq');
+      $fillerId = $db->lastInsertId('filler_id_seq');
 
-      header('Location: vehicle.php');
+      $_SESSION['fillerId'] = $fillerId;
+
+      header('Location: add_vehicle.php');
    }
 
    /***************************************************************************
@@ -56,7 +58,7 @@
 
    <div class="row">
      <div class="column">
-       <h1>Select a User</h1>
+       <h1>Add a User</h1>
      </div>
    </div>
 
@@ -74,7 +76,7 @@
       </div>
       <label for="username">User Name</label>
       <input name="username" type="text">
-      <input type="submit" value="Submit" name="submitAdd">
+      <input type="submit" value="Submit" name="submitAddFiller">
    </form>
    <!---------------------------------- /FORM --------------------------------->
 </div></div>
