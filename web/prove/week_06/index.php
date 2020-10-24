@@ -40,6 +40,12 @@
       // header('Location: vehicle.php');
    }
 
+   if (isset($_POST['deleteUser'])) {
+      $stmt = $db->prepare('DELETE FROM filler WHERE first = ?');
+      $stmt->execute(array('John'));
+      $count = $stmt->rowCount();
+   }
+
  ?>
 <div class="row">
    <div class="column">
