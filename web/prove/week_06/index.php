@@ -49,6 +49,7 @@
    /***************************************************************************
     * DELETE A RECORD
     **************************************************************************/
+   /*
    if (isset($_POST['submitDelete'])) {
       $userData = $_POST['user'];
 
@@ -56,7 +57,7 @@
       $stmt->bindValue(':userData', $userData, PDO::PARAM_INT);
       $stmt->execute();
    }
-
+   */
  ?>
 <div class="row">
    <div class="column">
@@ -101,9 +102,9 @@
             <div class="columns large-6">
                <input type="submit" value="Submit" name="submitQuery">
             </div>
-            <div class="columns large-6">
+            <!-- <div class="columns large-6">
                <input type="submit" value="Delete" name="submitDelete">
-            </div>
+            </div> -->
          </div>
       </form>
       <!-------------------------------- /FORM ------------------------------->
