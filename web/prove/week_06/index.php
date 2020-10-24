@@ -42,7 +42,7 @@
 
    if (isset($_POST['submitDelete'])) {
 
-      $query = 'SELECT username, first, last, year, make, model, f_date, mileage, gallons, pricepergallon, filler_id, vehicle_id, fillUp_id
+      $query = 'SELECT username, first, last, filler_id
                 FROM filler AS f
                 JOIN ledger AS l
                 ON f.id = l.filler_id
