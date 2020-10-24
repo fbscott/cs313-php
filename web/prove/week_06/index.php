@@ -46,15 +46,12 @@
                 FROM filler AS f
                 JOIN ledger AS l
                 ON f.id = l.filler_id
-                JOIN fillup as u
-                ON u.id = l.fillup_id
-                JOIN vehicle as v
-                ON v.id = l.vehicle_id
                 WHERE f.id = :id;';
 
-      $stmt = $db->prepare('DELETE FROM ledger WHERE filler_id = ?');
-      $stmt->execute(array(':filler_id' => 1));
-      $count = $stmt->rowCount();
+      $stmt = $db->prepare($query);
+      $stmt = $db->prepare('DELETE FROM ledger WHERE id = ?');
+      $stmt->execute(array(':id' => 1));
+      $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
    }
 
  ?>
