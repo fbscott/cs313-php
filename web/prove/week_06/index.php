@@ -46,6 +46,9 @@
       $stmt->execute(array('John'));
       $count = $stmt->rowCount();
 
+      echo $user;
+      echo $_SESSION['user'];
+
       /*
       // Example from Slack channel
       // Can't quite get it working
