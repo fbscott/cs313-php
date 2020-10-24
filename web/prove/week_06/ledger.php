@@ -54,11 +54,11 @@
                     ON u.id = l.fillup_id
                     JOIN vehicle as v
                     ON v.id = l.vehicle_id
-                    WHERE f.id = :id and v.year = :year and v.make = :make and v.model = :model;";
+                    WHERE f.first = :first and v.year = :year and v.make = :make and v.model = :model;";
 
           $stmt = $db->prepare($query);
           $stmt->execute(array(
-            ':id' => $_SESSION['user'],
+            ':first' => $_SESSION['user'],
             ':year'  => $_SESSION['vehicle_parts'][0],
             ':make'  => $_SESSION['vehicle_parts'][1],
             ':model' => $_SESSION['vehicle_parts'][2]
