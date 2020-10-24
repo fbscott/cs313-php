@@ -27,11 +27,13 @@
    if (isset($_POST['submitUpdate'])) {
       $name = $_POST['newUser'];
 
-      $stmt = $db->prepare('INSERT INTO filler(first, last, username) VALUES (:first, :last, :username);');
+      $stmt = $db->prepare('INSERT INTO filler(username, first, last) VALUES (:username, :first, :last);');
+      $stmt->bindValue(':username', $username, PDO::PARAM_STR);
       $stmt->bindValue(':first', $first, PDO::PARAM_STR);
       $stmt->bindValue(':last', $last, PDO::PARAM_STR);
-      $stmt->bindValue(':username', $username, PDO::PARAM_STR);
       $stmt->execute();
+
+      $filler_id = $db->lastInsertId('filler__id_seq');
 
       // header('Location: vehicle.php');
    }
@@ -47,10 +49,16 @@
       <p>Add a new user.</p>
       <!----------------------------------- FORM ----------------------------------->
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-         <label for="first">First</label>
-         <input id="first" type="text">
-         <label for="last">Last</label>
-         <input id="last" type="text">
+         <div class="row">
+            <div class="large-6 columns">
+               <label for="first">First</label>
+               <input id="first" type="text">
+            </div>
+            <div class="large-6 columns">
+               <label for="last">Last</label>
+               <input id="last" type="text">
+            </div>
+         </div>
          <label for="username">User Name</label>
          <input id="username" type="text">
          <input type="submit" value="Submit" name="submitUpdate">
