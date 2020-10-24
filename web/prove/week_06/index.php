@@ -25,9 +25,9 @@
    }
 
    if (isset($_POST['submitUpdate'])) {
-      $name = $_POST['username'];
-      $name = $_POST['first'];
-      $name = $_POST['last'];
+      $username = $_POST['username'];
+      $first = $_POST['first'];
+      $last = $_POST['last'];
 
       $stmt = $db->prepare('INSERT INTO filler(username, first, last) VALUES (:username, :first, :last);');
       $stmt->bindValue(':username', $username, PDO::PARAM_STR);
