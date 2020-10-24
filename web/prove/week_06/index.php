@@ -15,7 +15,7 @@
 
    <div class="row">
      <div class="column">
-       <h1>Select a User</h1>
+       <h1>Mileage Tracker</h1>
      </div>
    </div>
 

@@ -20,7 +20,7 @@
 
 <div class="row">
   <div class="column">
-    <h1>Mileage Tracker</h1>
+    <h1>Logged Fill-up Data</h1>
   </div>
 </div>
 
