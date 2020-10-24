@@ -42,6 +42,10 @@
 
    if (isset($_POST['submitDelete'])) {
 
+      $stmt = $db->prepare('DELETE FROM filler WHERE first = ?');
+      $stmt->execute(array('John'));
+      $count = $stmt->rowCount();
+/*
       $query = 'SELECT username, first, last, filler_id
                 FROM filler AS f
                 JOIN ledger AS l
@@ -52,6 +56,7 @@
       $stmt = $db->prepare('DELETE FROM ledger WHERE id = ?');
       $stmt->execute(array(':id' => 1));
       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      */
    }
 
  ?>
