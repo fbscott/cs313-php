@@ -31,12 +31,12 @@
 
          $stmt = $db->prepare($fillerName);
          $stmt->execute(array(':id' => $_SESSION['fillerId']));
-         $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
          echo $fillerName;
-         echo $rows;
+         echo $userData['first'];
        ?>
-      <h2>Hello, <?php echo $_SESSION['fillerId'] ?>!</h2>
+      <h2>Hello, <?php echo $userData['first'] ?>!</h2>
       <p>Below is the mileage tracking info for your <strong><?php echo $_SESSION['vehicle'] ?></strong>.</p>
    </div>
 </div>
