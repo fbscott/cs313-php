@@ -52,7 +52,7 @@
                 ON v.id = l.vehicle_id
                 WHERE f.id = :id;';
 
-      $stmt = $db->prepare('DELETE FROM ledger WHERE id = ?');
+      $stmt = $db->prepare('DELETE FROM ledger WHERE filler_id = ?');
       $stmt->execute(array(':id' => 1));
       $count = $stmt->rowCount();
    }
