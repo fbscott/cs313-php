@@ -29,7 +29,7 @@
       $gallons = $_POST['gallons'];
       $pricepergallon = $_POST['pricepergallon'];
 
-      $stmt = $db->prepare('INSERT INTO fillup(date, mileage, gallons, pricepergallon) VALUES (:date, :mileage, :gallons, :pricepergallon);');
+      $stmt = $db->prepare('INSERT INTO fillup(f_date, mileage, gallons, pricepergallon) VALUES (:date, :mileage, :gallons, :pricepergallon);');
       $stmt->bindValue(':date', $date, PDO::PARAM_STR);
       $stmt->bindValue(':mileage', $mileage, PDO::PARAM_INT);
       $stmt->bindValue(':gallons', $gallons, PDO::PARAM_INT);
@@ -38,7 +38,7 @@
 
       $fillup_id = $db->lastInsertId('fillup_id_seq');
 
-      header('Location: add_fillup.php');
+      header('Location: ledger.php');
    }
  ?>
 <div class="row"><div class="large-8 large-offset-2 columns">
