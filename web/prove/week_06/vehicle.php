@@ -20,8 +20,8 @@
       $vehicle = $_POST['vehicle'];
       $_SESSION['vehicle'] = $vehicle;
       $_SESSION['vehicle_parts'] = explode(' ', $vehicle);
-      
-      header('Location: ledger.php');
+
+      header('Location: ledger2.php');
    }
  ?>
 
