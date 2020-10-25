@@ -17,7 +17,7 @@
 <body>
 <?php 
   $vehicle = $_POST['vehicle'];
-
+  echo $vehicle;
   $_SESSION['vehicle'] = $vehicle;
   $_SESSION['vehicle_parts'] = explode(' ', $vehicle);
 
