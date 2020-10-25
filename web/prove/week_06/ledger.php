@@ -84,6 +84,12 @@
   </div>
 </div>
 
+<div class="row">
+   <div class="column">
+      <button onclick="location.href = './';">Return to Home Page</button>
+   </div>
+</div>
+
 </div></div></body>
 </body>
 </html>

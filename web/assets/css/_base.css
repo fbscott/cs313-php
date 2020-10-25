@@ -35,12 +35,12 @@ th, td {
    min-width: 7.813rem;
 }
 
-input, select {
+input, button, select {
    width: 100%;
    height: 3em;
 }
 
-input {
+input, button {
    padding: 15px;
 }
 

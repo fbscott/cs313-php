@@ -52,6 +52,7 @@
    <div class="row">
      <div class="column">
        <h1>Add a Fill-up Record</h1>
+       <p>Please enter dates in YYYY-MM-DD format.</p>
      </div>
    </div>
 

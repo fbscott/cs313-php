@@ -22,11 +22,9 @@
 
    <div class="row">
       <div class="large-6 column">
-         <!-- <a class="button" href="./filler.php">View Fill-up Records</a> -->
          <button onclick="location.href = './filler.php';">View Fill-up Records</button>
       </div>
       <div class="large-6 column">
-         <!-- <a class="button" href="./add_filler.php">Add New Record</a> -->
          <button onclick="location.href = './add_filler.php';">Add New Record</button>
       </div>
    </div>
