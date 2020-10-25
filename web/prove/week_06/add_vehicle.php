@@ -35,7 +35,7 @@
       $stmt->bindValue(':filler_id', $_SESSION['fillerId'], PDO::PARAM_INT);
       $stmt->execute();
 
-      $filler_id = $db->lastInsertId('filler_id_seq');
+      $vehicle_id = $db->lastInsertId('vehicle_id_seq');
 
       header('Location: add_fillup.php');
    }
