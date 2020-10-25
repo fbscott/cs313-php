@@ -47,7 +47,7 @@
       header('Location: ledger.php');
    }
  ?>
-<div class="row"><div class="large-8 large-offset-2 columns">
+<div class="row"><div class="column">
 
    <div class="row">
      <div class="column">
