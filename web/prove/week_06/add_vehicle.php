@@ -36,7 +36,7 @@
 
       $_SESSION['vehicleId'] = $vehicleId;
 
-      $_SESSION['vehicle_parts'] = array($_POST['year'] . $_POST['make'] . $_POST['model']);
+      $_SESSION['vehicle_parts'] = array($_POST['year'], $_POST['make'], $_POST['model']);
 
       header('Location: add_fillup.php');
    }

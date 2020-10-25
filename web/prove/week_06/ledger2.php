@@ -35,7 +35,6 @@
        ?>
       <h2>Hello, <?php echo $rows['first']; ?>!</h2>
       <p>Below is the mileage tracking info for your <strong><?php echo $_SESSION['vehicle']; ?>
-         <?php echo 'parts: ' .  $_SESSION['vehicle_parts']; ?>
       </strong>.</p>
    </div>
 </div>
