@@ -28,6 +28,7 @@
       $first = $_POST['first'];
       $last = $_POST['last'];
 
+      /* filler table */
       $stmt = $db->prepare('INSERT INTO filler(username, first, last) VALUES (:username, :first, :last);');
       $stmt->bindValue(':username', $username, PDO::PARAM_STR);
       $stmt->bindValue(':first', $first, PDO::PARAM_STR);

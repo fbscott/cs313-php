@@ -28,6 +28,7 @@
       $make = $_POST['make'];
       $model = $_POST['model'];
 
+      /* vehicle table */
       $stmt = $db->prepare('INSERT INTO vehicle(year, make, model, filler_id) VALUES (:year, :make, :model, :filler_id);');
       $stmt->bindValue(':year', $year, PDO::PARAM_INT);
       $stmt->bindValue(':make', $make, PDO::PARAM_STR);
@@ -35,7 +36,9 @@
       $stmt->bindValue(':filler_id', $_SESSION['fillerId'], PDO::PARAM_INT);
       $stmt->execute();
 
-      $vehicle_id = $db->lastInsertId('vehicle_id_seq');
+      $vehicleId = $db->lastInsertId('vehicle_id_seq');
+
+      $_SESSION['vehicleId'] = $vehicleId;
 
       header('Location: add_fillup.php');
    }
