@@ -16,31 +16,32 @@
 </head>
 <body>
 <?php 
-   $fillerId = $_POST['user'];
+   // $fillerId = $_POST['user'];
 
-   $_SESSION['fillerId'] = $fillerId;
+   // $_SESSION['fillerId'] = $fillerId;
 
    /***************************************************************************
     * ADD NEW RECORD
     **************************************************************************/
-   if (isset($_POST['submitAddVehicle'])) {
-      $year = $_POST['year'];
-      $make = $_POST['make'];
-      $model = $_POST['model'];
+   if (isset($_POST['submitAddFillUp'])) {
+      $date = $_POST['date'];
+      $mileage = $_POST['mileage'];
+      $gallons = $_POST['gallons'];
+      $pricepergallon = $_POST['pricepergallon'];
 
-      $stmt = $db->prepare('INSERT INTO filler(year, make, model, filler_id) VALUES (:year, :make, :model, :filler_id);');
-      $stmt->bindValue(':year', $year, PDO::PARAM_STR);
-      $stmt->bindValue(':make', $make, PDO::PARAM_STR);
-      $stmt->bindValue(':model', $model, PDO::PARAM_STR);
-      $stmt->bindValue(':filler_id', $_SESSION['fillerId'], PDO::PARAM_INT);
+      $stmt = $db->prepare('INSERT INTO fillup(date, mileage, gallons, pricepergallon) VALUES (:date, :mileage, :gallons, :pricepergallon);');
+      $stmt->bindValue(':date', $date, PDO::PARAM_STR);
+      $stmt->bindValue(':mileage', $mileage, PDO::PARAM_INT);
+      $stmt->bindValue(':gallons', $gallons, PDO::PARAM_INT);
+      $stmt->bindValue(':pricepergallon', $pricepergallon, PDO::PARAM_INT);
       $stmt->execute();
 
-      $filler_id = $db->lastInsertId('filler_id_seq');
+      $fillup_id = $db->lastInsertId('fillup_id_seq');
 
       header('Location: add_fillup.php');
    }
  ?>
-<div class="row"><div class="large-6 large-offset-3 columns">
+<div class="row"><div class="large-8 large-offset-2 columns">
 
    <div class="row">
      <div class="column">
@@ -51,20 +52,24 @@
    <!---------------------------------- FORM ---------------------------------->
    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
       <div class="row">
-         <div class="large-4 columns">
-            <label for="year">Year</label>
-            <input name="year" type="text">
+         <div class="large-3 columns">
+            <label for="date">Date</label>
+            <input name="date" type="text">
          </div>
-         <div class="large-4 columns">
-            <label for="make">Make</label>
-            <input name="make" type="text">
+         <div class="large-3 columns">
+            <label for="mileage">Mileage</label>
+            <input name="mileage" type="text">
          </div>
-         <div class="large-4 columns">
-            <label for="model">Model</label>
-            <input name="model" type="text">
+         <div class="large-3 columns">
+            <label for="gallons">Gallons</label>
+            <input name="gallons" type="text">
+         </div>
+         <div class="large-3 columns">
+            <label for="pricepergallon">Pricer per Gallon</label>
+            <input name="pricepergallon" type="text">
          </div>
       </div>
-      <input type="submit" value="Submit" name="submitAddVehicle">
+      <input type="submit" value="Submit" name="submitAddFillUp">
    </form>
    <!---------------------------------- /FORM --------------------------------->
 </div></div>
