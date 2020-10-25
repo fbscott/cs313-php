@@ -28,7 +28,7 @@
       $make = $_POST['make'];
       $model = $_POST['model'];
 
-      $stmt = $db->prepare('INSERT INTO filler(year, make, model, filler_id) VALUES (:year, :make, :model, :filler_id);');
+      $stmt = $db->prepare('INSERT INTO vehicle(year, make, model, filler_id) VALUES (:year, :make, :model, :filler_id);');
       $stmt->bindValue(':year', $year, PDO::PARAM_INT);
       $stmt->bindValue(':make', $make, PDO::PARAM_STR);
       $stmt->bindValue(':model', $model, PDO::PARAM_STR);
