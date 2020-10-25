@@ -21,7 +21,7 @@
       $_SESSION['vehicle'] = $vehicle;
       $_SESSION['vehicle_parts'] = explode(' ', $vehicle);
 
-      header('Location: ledger2.php');
+      header('Location: ledger.php');
    }
  ?>
 

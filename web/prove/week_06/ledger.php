@@ -34,7 +34,7 @@
          $rows = $stmt->fetch(PDO::FETCH_ASSOC);
        ?>
       <h2>Hello, <?php echo $rows['first'] ?>!</h2>
-      <p>Below is the mileage tracking info for your <strong><?php echo $_SESSION['vehicle'] ?></strong>.</p>
+      <p>Below is the mileage tracking info for your <strong><?php echo $_SESSION['vehicle']; ?></strong>.</p>
    </div>
 </div>
 

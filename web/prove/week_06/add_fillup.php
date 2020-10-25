@@ -44,7 +44,7 @@
       $altStmt->bindValue(':fillUp_id', $_SESSION['fillupId'], PDO::PARAM_INT);
       $altStmt->execute();
 
-      header('Location: ledger2.php');
+      header('Location: ledger.php');
    }
  ?>
 <div class="row"><div class="large-8 large-offset-2 columns">
