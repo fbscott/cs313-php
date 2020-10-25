@@ -16,14 +16,13 @@
 </head>
 <body>
 <?php 
-  $vehicle = $_POST['vehicle'];
-  echo $vehicle;
-  $_SESSION['vehicle'] = $vehicle;
-  $_SESSION['vehicle_parts'] = explode(' ', $vehicle);
-
-  if (isset($_POST['submit'])) {
-    header('Location: ledger.php');
-  }
+   if (isset($_POST['submit'])) {
+      $vehicle = $_POST['vehicle'];
+      $_SESSION['vehicle'] = $vehicle;
+      $_SESSION['vehicle_parts'] = explode(' ', $vehicle);
+      
+      header('Location: ledger.php');
+   }
  ?>
 
 <div class="row"><div class="large-6 large-offset-3 columns">
