@@ -19,7 +19,7 @@
    // $fillerId = $_POST['user'];
 
    // $_SESSION['fillerId'] = $fillerId;
-echo $_SESSION['fillerId'];
+
    /***************************************************************************
     * ADD NEW RECORD
     **************************************************************************/
@@ -29,7 +29,7 @@ echo $_SESSION['fillerId'];
       $model = $_POST['model'];
 
       $stmt = $db->prepare('INSERT INTO filler(year, make, model, filler_id) VALUES (:year, :make, :model, :filler_id);');
-      $stmt->bindValue(':year', $year, PDO::PARAM_STR);
+      $stmt->bindValue(':year', $year, PDO::PARAM_INT);
       $stmt->bindValue(':make', $make, PDO::PARAM_STR);
       $stmt->bindValue(':model', $model, PDO::PARAM_STR);
       $stmt->bindValue(':filler_id', $_SESSION['fillerId'], PDO::PARAM_INT);
