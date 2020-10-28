@@ -30,11 +30,28 @@
          $query = 'SELECT first FROM filler WHERE id = :id';
 
          $stmt = $db->prepare($query);
-         $stmt->execute(array(':id' => $_SESSION['fillerId']));
+         $stmt->execute(array(':id' => $_SESSION['filler_id']));
          $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+
+         $query = 'SELECT vehicle_id, year, make, model, f_date, mileage, gallons, pricepergallon
+                   FROM filler AS f
+                   JOIN ledger AS l
+                   ON f.id = l.filler_id
+                   JOIN fillup as u
+                   ON u.id = l.fillup_id
+                   JOIN vehicle as v
+                   ON v.id = l.vehicle_id
+                   WHERE f.id = :filler_id AND v.id = :vehicle_id;';
+
+         $stmt = $db->prepare($query);
+         $stmt->execute(array(
+            ':filler_id'  => $_SESSION['filler_id'],
+            ':vehicle_id' => $_SESSION['vehicle_id']
+         ));
+         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
        ?>
       <h2>Hello, <?php echo $rows['first'] ?>!</h2>
-      <p>Below is the mileage tracking info for your <strong><?php echo $_SESSION['vehicle']; ?></strong>.</p>
+      <p>Below is the mileage tracking info for your <strong><?php echo $rows[0]['year'] . ' ' $rows[0]['make'] . ' ' $rows[0]['model']; ?></strong>.</p>
    </div>
 </div>
 
@@ -50,24 +67,6 @@
           <th>Delete</th>
         </tr>
         <?php
-          $query = 'SELECT f_date, mileage, gallons, pricepergallon
-                    FROM filler AS f
-                    JOIN ledger AS l
-                    ON f.id = l.filler_id
-                    JOIN fillup as u
-                    ON u.id = l.fillup_id
-                    JOIN vehicle as v
-                    ON v.id = l.vehicle_id
-                    WHERE f.id = :id and v.year = :year and v.make = :make and v.model = :model;';
-
-          $stmt = $db->prepare($query);
-          $stmt->execute(array(
-            ':id'    => $_SESSION['fillerId'],
-            ':year'  => $_SESSION['vehicle_parts'][0],
-            ':make'  => $_SESSION['vehicle_parts'][1],
-            ':model' => $_SESSION['vehicle_parts'][2]
-          ));
-          $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
           foreach ($rows as $row) {
          ?>

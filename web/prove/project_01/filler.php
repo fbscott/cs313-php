@@ -16,32 +16,10 @@
 </head>
 <body>
 <?php 
-   $fillerId = $_POST['user'];
+   $filler_id = $_POST['filler_id'];
 
-   $_SESSION['fillerId'] = $fillerId;
+   $_SESSION['filler_id'] = $filler_id;
 
-   /***************************************************************************
-    * ADD NEW RECORD
-    **************************************************************************/
-   if (isset($_POST['submitAdd'])) {
-      $username = $_POST['username'];
-      $first = $_POST['first'];
-      $last = $_POST['last'];
-
-      $stmt = $db->prepare('INSERT INTO filler(username, first, last) VALUES (:username, :first, :last);');
-      $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-      $stmt->bindValue(':first', $first, PDO::PARAM_STR);
-      $stmt->bindValue(':last', $last, PDO::PARAM_STR);
-      $stmt->execute();
-
-      $filler_id = $db->lastInsertId('filler_id_seq');
-
-      header('Location: vehicle.php');
-   }
-
-   /***************************************************************************
-    * QUERY A RECORD
-    **************************************************************************/
    if (isset($_POST['submitQuery'])) {
       header('Location: vehicle.php');
    }
@@ -58,8 +36,8 @@
 
    <!---------------------------------- FORM ---------------------------------->
    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-      <label for="user">User</label>
-      <select id="user" name="user">
+      <label for="filler_id">User</label>
+      <select name="filler_id">
          <option value="" selected="true" disabled> -- </option>
          <?php 
          foreach ($db->query('SELECT * FROM filler') as $row) {

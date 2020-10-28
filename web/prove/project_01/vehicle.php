@@ -17,9 +17,9 @@
 <body>
 <?php 
    if (isset($_POST['submit'])) {
-      $vehicle = $_POST['vehicle'];
-      $_SESSION['vehicle'] = $vehicle;
-      $_SESSION['vehicle_parts'] = explode(' ', $vehicle);
+
+      $vehicle_id = $_POST['vehicle_id'];
+      $_SESSION['vehicle_id'] = $vehicle_id;
 
       header('Location: ledger.php');
    }
@@ -35,41 +35,41 @@
 
    <!---------------------------------- FORM ---------------------------------->
    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-   <div class="row">
-     <div class="column">
+      <div class="row">
+        <div class="column">
 
-       <label for="vehicle">Vehicle</label>
-       <select name="vehicle" id="vehicle">
-         <option value="" selected="true" disabled> -- </option>
-         <?php 
-           $query = 'SELECT DISTINCT year, make, model
-                     FROM filler AS f
-                     JOIN ledger AS l
-                     ON f.id = l.filler_id
-                     JOIN fillup as u
-                     ON u.id = l.fillup_id
-                     JOIN vehicle as v
-                     ON v.id = l.vehicle_id
-                     WHERE f.id = :id;';
+          <label for="vehicle_id">Vehicle</label>
+          <select name="vehicle_id">
+            <option value="" selected="true" disabled> -- </option>
+            <?php 
+              $query = 'SELECT DISTINCT vehicle_id, year, make, model
+                        FROM filler AS f
+                        JOIN ledger AS l
+                        ON f.id = l.filler_id
+                        JOIN fillup as u
+                        ON u.id = l.fillup_id
+                        JOIN vehicle as v
+                        ON v.id = l.vehicle_id
+                        WHERE f.id = :filler_id;';
 
-           $stmt = $db->prepare($query);
-           $stmt->execute(array(':id' => $_SESSION['fillerId']));
-           $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+              $stmt = $db->prepare($query);
+              $stmt->execute(array(':filler_id' => $_SESSION['filler_id']));
+              $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-           foreach ($rows as $row) {
-          ?>
-          <option value="<?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
-         <?php } ?>
-       </select>
+              foreach ($rows as $row) {
+             ?>
+             <option value="<?php echo $row['vehicle_id']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
+            <?php } ?>
+          </select>
 
-     </div>
-   </div>
+        </div>
+      </div>
 
-   <div class="row">
-     <div class="column">
-       <input type="submit" value="Submit" name="submit">
-     </div>
-   </div>
+      <div class="row">
+        <div class="column">
+          <input type="submit" value="Submit" name="submit">
+        </div>
+      </div>
    </form>
    <!---------------------------------- /FORM --------------------------------->
 
