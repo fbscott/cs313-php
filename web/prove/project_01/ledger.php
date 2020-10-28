@@ -1,94 +1,87 @@
 <?php 
-  session_start();
+session_start();
 
-  include $_SERVER['DOCUMENT_ROOT'] . '/prove/week_05/db.php';
- ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="../../assets/css/_reset.css">
-   <link rel="stylesheet" href="../../assets/css/_base.css">
-   <link rel="stylesheet" href="../../assets/css/_grid.css">
-   <link rel="stylesheet" href="../../assets/css/prove_project.css">
-   <title>Mileage Tracker</title>
+include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/db.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/page_head.php';
+?>
+  <title>Mileage Tracker</title>
 </head>
 <body>
-<body><div class="row"><div class="column">
+<body>
 
 <div class="row">
   <div class="column">
-    <h1>Logged Fill-up Data</h1>
-  </div>
-</div>
 
-<div class="row">
-   <div class="column">
-      <?php 
-         $query = 'SELECT first FROM filler WHERE id = :id';
+    <div class="row">
+      <div class="column">
+        <h1>Logged Fill-up Data</h1>
+      </div>
+    </div>
 
-         $stmt = $db->prepare($query);
-         $stmt->execute(array(':id' => $_SESSION['filler_id']));
-         $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+    <div class="row">
+      <div class="column">
+        <?php 
+        $query = 'SELECT first FROM filler WHERE id = :id';
 
-         $query = 'SELECT first, vehicle_id, year, make, model, f_date, mileage, gallons, pricepergallon
-                   FROM filler AS f
-                   JOIN ledger AS l
-                   ON f.id = l.filler_id
-                   JOIN fillup as u
-                   ON u.id = l.fillup_id
-                   JOIN vehicle as v
-                   ON v.id = l.vehicle_id
-                   WHERE f.id = :filler_id AND v.id = :vehicle_id;';
+        $stmt = $db->prepare($query);
+        $stmt->execute(array(':id' => $_SESSION['filler_id']));
+        $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
-         $stmt = $db->prepare($query);
-         $stmt->execute(array(
+        $query = 'SELECT first, vehicle_id, year, make, model, f_date, mileage, gallons, pricepergallon
+                  FROM filler AS f
+                  JOIN ledger AS l
+                  ON f.id = l.filler_id
+                  JOIN fillup as u
+                  ON u.id = l.fillup_id
+                  JOIN vehicle as v
+                  ON v.id = l.vehicle_id
+                  WHERE f.id = :filler_id AND v.id = :vehicle_id;';
+
+        $stmt = $db->prepare($query);
+        $stmt->execute(array(
             ':filler_id'  => $_SESSION['filler_id'],
             ':vehicle_id' => $_SESSION['vehicle_id']
-         ));
-         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-       ?>
-      <h2>Hello, <?php echo $rows[0]['first'] ?>!</h2>
-      <p>Below is the mileage tracking info for your <strong><?php echo $rows[0]['year'] . ' ' . $rows[0]['make'] . ' ' . $rows[0]['model']; ?></strong>.</p>
-   </div>
-</div>
+        ));
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+        <h2>Hello, <?php echo $rows[0]['first'] ?>!</h2>
+        <p>Below is the mileage tracking info for your <strong><?php echo $rows[0]['year'] . ' ' . $rows[0]['make'] . ' ' . $rows[0]['model']; ?></strong>.</p>
+      </div>
+    </div>
 
-<div class="row">
-  <div class="column">
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-      <table>
-        <tr>
-          <th>Date</th>
-          <th>Mileage</th>
-          <th>Gallons</th>
-          <th>$/gal</th>
-          <th>Delete</th>
-        </tr>
-        <?php
-
-          foreach ($rows as $row) {
-         ?>
+    <div class="row">
+      <div class="column">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+          <table>
             <tr>
-            <td><?php echo $row['f_date']; ?></td>
-            <td><?php echo $row['mileage']; ?></td>
-            <td><?php echo $row['gallons']; ?></td>
-            <td>$<?php echo $row['pricepergallon']; ?></td>
-            <td><input type="submit" value="Delete" name="remove"></td>
+              <th>Date</th>
+              <th>Mileage</th>
+              <th>Gallons</th>
+              <th>$/gal</th>
+              <th>Delete</th>
             </tr>
-         <?php } ?>
-      </table>
-    </form>
+            <?php foreach ($rows as $row) { ?>
+            <tr>
+              <td><?php echo $row['f_date']; ?></td>
+              <td><?php echo $row['mileage']; ?></td>
+              <td><?php echo $row['gallons']; ?></td>
+              <td>$<?php echo $row['pricepergallon']; ?></td>
+              <td><input type="submit" value="Delete" name="remove"></td>
+            </tr>
+            <?php } ?>
+          </table>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column">
+        <button onclick="location.href = './';">Return to Home Page</button>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<div class="row">
-   <div class="column">
-      <button onclick="location.href = './';">Return to Home Page</button>
-   </div>
-</div>
-
-</div></div></body>
 </body>
 </html>
