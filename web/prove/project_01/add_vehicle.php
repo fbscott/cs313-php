@@ -29,14 +29,12 @@
       $stmt->bindValue(':year', $year, PDO::PARAM_INT);
       $stmt->bindValue(':make', $make, PDO::PARAM_STR);
       $stmt->bindValue(':model', $model, PDO::PARAM_STR);
-      $stmt->bindValue(':filler_id', $_SESSION['fillerId'], PDO::PARAM_INT);
+      $stmt->bindValue(':filler_id', $_SESSION['filler_id'], PDO::PARAM_INT);
       $stmt->execute();
 
-      $vehicleId = $db->lastInsertId('vehicle_id_seq');
+      $vehicle_id = $db->lastInsertId('vehicle_id_seq');
 
-      $_SESSION['vehicleId'] = $vehicleId;
-
-      $_SESSION['vehicle_parts'] = array($_POST['year'], $_POST['make'], $_POST['model']);
+      $_SESSION['vehicle_id'] = $vehicle_id;
 
       header('Location: add_fillup.php');
    }

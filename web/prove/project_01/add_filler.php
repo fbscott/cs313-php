@@ -31,9 +31,9 @@
       $stmt->bindValue(':last', $last, PDO::PARAM_STR);
       $stmt->execute();
 
-      $fillerId = $db->lastInsertId('filler_id_seq');
+      $filler_id = $db->lastInsertId('filler_id_seq');
 
-      $_SESSION['fillerId'] = $fillerId;
+      $_SESSION['filler_id'] = $filler_id;
 
       header('Location: add_vehicle.php');
    }

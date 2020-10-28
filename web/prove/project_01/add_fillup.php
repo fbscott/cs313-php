@@ -33,15 +33,15 @@
       $stmt->bindValue(':pricepergallon', $pricepergallon, PDO::PARAM_INT);
       $stmt->execute();
 
-      $fillupId = $db->lastInsertId('fillup_id_seq');
+      $fillUp_id = $db->lastInsertId('fillup_id_seq');
 
-      $_SESSION['fillupId'] = $fillupId;
+      $_SESSION['fillUp_id'] = $fillUp_id;
 
       /* ledger table */
       $altStmt = $db->prepare('INSERT INTO ledger(filler_id, vehicle_id, fillUp_id) VALUES (:filler_id, :vehicle_id, :fillUp_id);');
-      $altStmt->bindValue(':filler_id', $_SESSION['fillerId'], PDO::PARAM_INT);
-      $altStmt->bindValue(':vehicle_id', $_SESSION['vehicleId'], PDO::PARAM_INT);
-      $altStmt->bindValue(':fillUp_id', $_SESSION['fillupId'], PDO::PARAM_INT);
+      $altStmt->bindValue(':filler_id', $_SESSION['filler_id'], PDO::PARAM_INT);
+      $altStmt->bindValue(':vehicle_id', $_SESSION['vehicle_id'], PDO::PARAM_INT);
+      $altStmt->bindValue(':fillUp_id', $_SESSION['fillUp_id'], PDO::PARAM_INT);
       $altStmt->execute();
 
       header('Location: ledger.php');
