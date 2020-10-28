@@ -33,7 +33,7 @@
          $stmt->execute(array(':id' => $_SESSION['filler_id']));
          $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
-         $query = 'SELECT vehicle_id, year, make, model, f_date, mileage, gallons, pricepergallon
+         $query = 'SELECT first, vehicle_id, year, make, model, f_date, mileage, gallons, pricepergallon
                    FROM filler AS f
                    JOIN ledger AS l
                    ON f.id = l.filler_id
@@ -50,7 +50,7 @@
          ));
          $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
        ?>
-      <h2>Hello, <?php echo $rows['first'] ?>!</h2>
+      <h2>Hello, <?php echo $rows[0]['first'] ?>!</h2>
       <p>Below is the mileage tracking info for your <strong><?php echo $rows[0]['year'] . ' ' . $rows[0]['make'] . ' ' . $rows[0]['model']; ?></strong>.</p>
    </div>
 </div>
