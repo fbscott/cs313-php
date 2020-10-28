@@ -51,7 +51,7 @@
          $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
        ?>
       <h2>Hello, <?php echo $rows['first'] ?>!</h2>
-      <p>Below is the mileage tracking info for your <strong><?php echo $rows[0]['year'] . ' ' $rows[0]['make'] . ' ' $rows[0]['model']; ?></strong>.</p>
+      <p>Below is the mileage tracking info for your <strong><?php echo $rows[0]['year'] . ' ' . $rows[0]['make'] . ' ' . $rows[0]['model']; ?></strong>.</p>
    </div>
 </div>
 
