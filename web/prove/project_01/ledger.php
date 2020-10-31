@@ -26,7 +26,6 @@
             // $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
             $query = 'SELECT first, vehicle_id, year, make, model, fillUp_id, f_date, mileage, gallons, pricepergallon
-                      ORDER BY fillUp_id DESC
                       FROM filler AS f
                       JOIN ledger AS l
                       ON f.id = l.filler_id
@@ -34,7 +33,8 @@
                       ON u.id = l.fillup_id
                       JOIN vehicle as v
                       ON v.id = l.vehicle_id
-                      WHERE f.id = :filler_id AND v.id = :vehicle_id;';
+                      WHERE f.id = :filler_id AND v.id = :vehicle_id
+                      ORDER BY fillUp_id DESC;';
 
             $stmt = $db->prepare($query);
             $stmt->execute(array(
