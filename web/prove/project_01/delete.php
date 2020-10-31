@@ -12,10 +12,5 @@
     ));
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if($db = pg_query($query)){
-        echo "Data Deleted Successfully.";
-    }
-    else{
-        echo "Error.";
-    }
+    header('Location: ledger.php');
  ?>
