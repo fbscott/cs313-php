@@ -40,10 +40,6 @@
             if (isset($_POST['add'])) {
                 header('Location: add_fillup.php');
             }
-
-            if (isset($_POST['remove'])) {
-                console_log($_POST['remove']);
-            }
         ?>
         <h2>Hello, <?php echo $rows[0]['first'] ?>!</h2>
         <div class="row">
@@ -76,7 +72,7 @@
               <td><?php echo $row['mileage']; ?></td>
               <td><?php echo $row['gallons']; ?></td>
               <td>$<?php echo $row['pricepergallon']; ?></td>
-              <td><a href="./delete.php?id=<?php echo $row['id']; ?>&fillup_id=<?php echo $row['id']; ?>" class="button">Delete</a></td>
+              <td><input type="submit" value="Delete" name="remove" class="margin-button-none"></td>
             </tr>
             <?php console_log($row); ?>
             <?php } ?>
