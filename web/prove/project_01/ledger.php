@@ -76,7 +76,7 @@
               <td><?php echo $row['mileage']; ?></td>
               <td><?php echo $row['gallons']; ?></td>
               <td>$<?php echo $row['pricepergallon']; ?></td>
-              <td><a href="./delete.php?fillup_id=<?php echo $row['fillup_id']; ?>" class="button">Delete</a></td>
+              <td><a href="./delete.php?fillup_id=<?php echo $row['fillup_id']; ?>" class="button delete">Delete</a></td>
             </tr>
             <?php console_log($row); ?>
             <?php } ?>

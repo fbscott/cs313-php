@@ -28,3 +28,13 @@ img.fancy {
    border: 10px solid #ffffff;
    box-shadow: 0px 2px 4px rgba(0,0,0,0.5);
 }
+
+a.button.delete {
+   border: 1px solid;
+   padding: 5px 15px 3px;
+   border-radius: 5px;
+   text-decoration: none;
+   color: #bf1010;
+   font-size: 12px;
+   background-color: #fff3f3;
+}

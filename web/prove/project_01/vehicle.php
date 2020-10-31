@@ -29,6 +29,7 @@
     <div class="row">
       <div class="column">
         <h1>Select a Vehicle</h1>
+        <p>View fill-up data for a previously logged vehicle.</p>
       </div>
     </div>
 
@@ -87,6 +88,7 @@
 
       <div class="row">
         <div class="column">
+          <p>Add a new vehicle.</p>
           <span class="or-big">
             <input type="submit" value="Add a Vehicle for this User" name="addVehicle">
           </span>
