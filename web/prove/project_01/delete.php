@@ -1,10 +1,10 @@
 <?php 
     include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_db.php';
 
-    $query = 'DELETE FROM ledger WHERE fillup_id = :fillup_id';
-
-    console_log($_GET['fillup_id']);
-    console_log($query);
+    $query = 'DELETE FROM ledger
+              INNER JOIN fillup
+              ON fillup.id = :fillup_id
+              WHERE fillup_id = :fillup_id';
 
     $stmt = $db->prepare($query);
     $stmt->execute(array(
