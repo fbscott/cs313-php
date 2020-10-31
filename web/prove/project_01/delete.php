@@ -10,6 +10,7 @@
     $stmt->execute(array(
         ':fillup_id'  => $_SESSION['fillup_id']
     ));
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if($db = pg_query($query)){
         echo "Data Deleted Successfully.";
