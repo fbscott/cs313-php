@@ -42,7 +42,7 @@
             }
 
             if (isset($_POST['remove'])) {
-                console_log($_POST['derp']);
+                console_log($_POST['remove']);
             }
         ?>
         <h2>Hello, <?php echo $rows[0]['first'] ?>!</h2>
