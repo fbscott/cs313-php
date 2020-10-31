@@ -3,7 +3,7 @@
 
     $query = 'DELETE ledger, fillup
               FROM ledger
-              LEFT JOIN fillup ON fillup.id = :fillup_id
+              LEFT JOIN fillup ON fillup.id = ledger.fillup_id
               WHERE ledger.fillup_id = :fillup_id';
 
     $stmt = $db->prepare($query);
