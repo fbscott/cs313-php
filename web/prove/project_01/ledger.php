@@ -25,7 +25,7 @@
         $stmt->execute(array(':id' => $_SESSION['filler_id']));
         $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $query = 'SELECT first, vehicle_id, year, make, model, fillUp_id, f_date, mileage, gallons, pricepergallon
+        $query = 'SELECT id, first, vehicle_id, year, make, model, fillUp_id, f_date, mileage, gallons, pricepergallon
                   FROM filler AS f
                   JOIN ledger AS l
                   ON f.id = l.filler_id
@@ -67,7 +67,6 @@
               <td><input type="submit" value="Delete" name="remove" class="margin-button-none"></td>
             </tr>
             <?php console_log($row); ?>
-            <?php console_log($row[]); ?>
             <?php console_log($row.id); ?>
             <?php console_log($row.'id'); ?>
             <?php console_log($row['fillUp_id']); ?>
