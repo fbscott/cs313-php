@@ -19,31 +19,45 @@
     <div class="row">
       <div class="column">
         <?php 
-        // $query = 'SELECT first FROM filler WHERE id = :id';
+            // $query = 'SELECT first FROM filler WHERE id = :id';
 
-        // $stmt = $db->prepare($query);
-        // $stmt->execute(array(':id' => $_SESSION['filler_id']));
-        // $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+            // $stmt = $db->prepare($query);
+            // $stmt->execute(array(':id' => $_SESSION['filler_id']));
+            // $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $query = 'SELECT first, vehicle_id, year, make, model, fillUp_id, f_date, mileage, gallons, pricepergallon
-                  FROM filler AS f
-                  JOIN ledger AS l
-                  ON f.id = l.filler_id
-                  JOIN fillup as u
-                  ON u.id = l.fillup_id
-                  JOIN vehicle as v
-                  ON v.id = l.vehicle_id
-                  WHERE f.id = :filler_id AND v.id = :vehicle_id;';
+            $query = 'SELECT first, vehicle_id, year, make, model, fillUp_id, f_date, mileage, gallons, pricepergallon
+                      FROM filler AS f
+                      JOIN ledger AS l
+                      ON f.id = l.filler_id
+                      JOIN fillup as u
+                      ON u.id = l.fillup_id
+                      JOIN vehicle as v
+                      ON v.id = l.vehicle_id
+                      WHERE f.id = :filler_id AND v.id = :vehicle_id;';
 
-        $stmt = $db->prepare($query);
-        $stmt->execute(array(
-            ':filler_id'  => $_SESSION['filler_id'],
-            ':vehicle_id' => $_SESSION['vehicle_id']
-        ));
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt = $db->prepare($query);
+            $stmt->execute(array(
+                ':filler_id'  => $_SESSION['filler_id'],
+                ':vehicle_id' => $_SESSION['vehicle_id']
+            ));
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if (isset($_POST['add'])) {
+                header('Location: add_fillup.php');
+            }
         ?>
         <h2>Hello, <?php echo $rows[0]['first'] ?>!</h2>
-        <p>Below is the mileage tracking info for your <strong><?php echo $rows[0]['year'] . ' ' . $rows[0]['make'] . ' ' . $rows[0]['model']; ?></strong>.</p>
+        <div class="row">
+          <div class="columns large-6">
+            <p>Below is the mileage tracking info for your <strong><?php echo $rows[0]['year'] . ' ' . $rows[0]['make'] . ' ' . $rows[0]['model']; ?></strong>.</p>
+          </div>
+          <div class="columns large-6">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+              <label for="add"></label>
+              <input type="submit" value="Add Record" name="add" id="add" class="margin-button-none">
+            </form>
+          </div>
+        </div>
       </div>
     </div>
 
