@@ -40,6 +40,10 @@
             if (isset($_POST['add'])) {
                 header('Location: add_fillup.php');
             }
+
+            if (isset($_POST['remove'])) {
+                console_log($_POST['derp']);
+            }
         ?>
         <h2>Hello, <?php echo $rows[0]['first'] ?>!</h2>
         <div class="row">
@@ -57,7 +61,7 @@
 
     <div class="row">
       <div class="column">
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <form name="derp" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
           <table>
             <tr>
               <th>Date</th>
