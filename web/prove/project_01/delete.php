@@ -6,7 +6,7 @@
 
     console_log($_GET['id']);
 
-    if($result = pg_query($fillup_id)){
+    if($db = pg_query($fillup_id)){
         echo "Data Deleted Successfully.";
     }
     else{
