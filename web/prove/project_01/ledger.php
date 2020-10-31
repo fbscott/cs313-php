@@ -65,8 +65,8 @@
               <td><?php echo $row['mileage']; ?></td>
               <td><?php echo $row['gallons']; ?></td>
               <td>$<?php echo $row['pricepergallon']; ?></td>
-              <td><input type="submit" value="Delete" name="remove"></td>
-              <td><?php echo $rows[$row]; ?></td>
+              <td><input type="submit" value="Delete" name="remove" class="margin-button-none"></td>
+              <td><?php echo $row; ?></td>
             </tr>
             <?php } ?>
           </table>
