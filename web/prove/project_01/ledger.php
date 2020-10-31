@@ -86,7 +86,10 @@
     </div>
 
     <div class="row">
-      <div class="column">
+      <div class="columns large-3 large-offset-6">
+        <button onclick="location.href = './vehicle.php';">Back</button>
+      </div>
+      <div class="columns large-3 large-offset-6">
         <button onclick="location.href = './';">Return to Home Page</button>
       </div>
     </div>

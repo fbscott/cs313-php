@@ -63,15 +63,15 @@ INSERT INTO vehicle (year, make, model, filler_id) VALUES (1964, 'Aston Martin',
 INSERT INTO vehicle (year, make, model, filler_id) VALUES (2015, 'Lotus', 'Espirit S1', 2);
 INSERT INTO vehicle (year, make, model, filler_id) VALUES (1976, 'AMC', 'Pacer', 3);
 
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-16', 119863, 14.68, 2.25);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-06', 119863, 14.68, 2.25);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-17', 120062, 14.41, 2.26);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-18', 213638, 17.82, 2.27);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-08', 213638, 17.82, 2.27);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-19', 214088, 17.77, 2.28);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-20', 136786, 19.89, 2.29);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-21', 137236, 19.06, 2.30);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-22', 83354, 10.08, 2.31);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-10', 36786, 19.89, 2.29);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-21', 37236, 19.06, 2.30);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-12', 83354, 10.08, 2.31);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-23', 83704, 10.12, 2.32);
-INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-24', 283354, 10.08, 2.33);
+INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-14', 283354, 10.08, 2.33);
 INSERT INTO fillUp (f_date, mileage, gallons, pricepergallon) VALUES ('2020-10-25', 286101, 10.12, 2.34);
 
 INSERT INTO ledger VALUES (DEFAULT, 1, 1, 1);
