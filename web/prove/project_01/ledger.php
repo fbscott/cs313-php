@@ -48,7 +48,7 @@
           </div>
           <div class="columns large-3">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-              <input type="submit" value="Add Record" name="add" id="add">
+              <input type="submit" value="Add Record" name="add">
             </form>
           </div>
         </div>
