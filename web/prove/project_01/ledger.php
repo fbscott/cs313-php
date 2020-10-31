@@ -54,7 +54,7 @@
           <div class="columns large-3">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
               <label for="add"></label>
-              <input type="submit" value="Add Record" name="add" id="add" class="margin-button-none">
+              <input type="submit" value="Add Record" name="add" id="add">
             </form>
           </div>
         </div>
