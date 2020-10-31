@@ -32,15 +32,21 @@ if (isset($_POST['submit'])) {
           <select name="vehicle_id">
             <option value="" selected="true" disabled> -- </option>
             <?php 
-            $query = 'SELECT DISTINCT vehicle_id, year, make, model
-                      FROM filler AS f
-                      JOIN ledger AS l
-                      ON f.id = l.filler_id
-                      JOIN fillup as u
-                      ON u.id = l.fillup_id
-                      JOIN vehicle as v
-                      ON v.id = l.vehicle_id
-                      WHERE f.id = :filler_id;';
+            // $query = 'SELECT DISTINCT vehicle_id, year, make, model
+            //           FROM filler AS f
+            //           JOIN ledger AS l
+            //           ON f.id = l.filler_id
+            //           JOIN fillup as u
+            //           ON u.id = l.fillup_id
+            //           JOIN vehicle as v
+            //           ON v.id = l.vehicle_id
+            //           WHERE f.id = :filler_id;';
+
+            $query = 'SELECT DISTINCT *
+                      FROM vehicle AS v
+                      JOIN filler AS f
+                      ON v.filler_id = f.id
+                      WHERE f.id = :filler_id';
 
             $stmt = $db->prepare($query);
             $stmt->execute(array(':filler_id' => $_SESSION['filler_id']));
@@ -48,7 +54,7 @@ if (isset($_POST['submit'])) {
 
             foreach ($rows as $row) {
             ?>
-            <option value="<?php echo $row['vehicle_id']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
+            <option value="<?php echo $row['id']; ?>"><?php echo $row['year'] . ' ' . $row['make'] . ' ' . $row['model']; ?></option>
             <?php } ?>
           </select>
 
