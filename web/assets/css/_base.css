@@ -26,7 +26,10 @@ h4, h5, h6, p, a {
 
 p { display: block; }
 
-table { margin-bottom: 3rem; }
+table {
+   margin-bottom: 3rem;
+   width: 100%;
+}
 
 th, td {
    text-align: center;
