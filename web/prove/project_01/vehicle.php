@@ -6,16 +6,20 @@
 </head>
 <body>
 <?php 
-  if (isset($_POST['submit'])) {
-      $vehicle_id = $_POST['vehicle_id'];
-      $_SESSION['vehicle_id'] = $vehicle_id;
+    if (isset($_POST['submit'])) {
+        $vehicle_id = $_POST['vehicle_id'];
+        $_SESSION['vehicle_id'] = $vehicle_id;
 
-      header('Location: ledger.php');
-  }
-
+        header('Location: ledger.php');
+    }
 
     if (isset($_POST['back'])) {
         header('Location: filler.php');
+    }
+
+
+    if (isset($_POST['addVehicle'])) {
+        header('Location: add_vehicle.php');
     }
 ?>
 

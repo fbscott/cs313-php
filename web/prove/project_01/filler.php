@@ -17,10 +17,6 @@
     if (isset($_POST['back'])) {
         header('Location: index.php');
     }
-
-    if (isset($_POST['addVehicle'])) {
-        header('Location: add_vehicle.php');
-    }
 ?>
 
 <div class="row">
