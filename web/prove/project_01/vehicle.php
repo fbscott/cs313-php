@@ -34,8 +34,8 @@ if (isset($_POST['submit'])) {
             <?php 
             $query = 'SELECT DISTINCT vehicle_id, year, make, model
                       FROM filler AS f
-                      JOIN ledger AS l
-                      ON f.id = l.filler_id
+                      JOIN vehicle AS v
+                      ON f.id = v.filler_id
                       WHERE f.id = :filler_id;';
 
             $stmt = $db->prepare($query);
