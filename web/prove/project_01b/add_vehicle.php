@@ -1,6 +1,4 @@
 <?php 
-session_start();
-
 include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/db.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/page_head.php';
 ?>
