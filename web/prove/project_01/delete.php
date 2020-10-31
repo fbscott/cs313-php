@@ -8,7 +8,7 @@
 
     $stmt = $db->prepare($query);
     $stmt->execute(array(
-        ':fillup_id'  => $_SESSION['fillup_id']
+        ':fillup_id' => $_GET['fillup_id']
     ));
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
