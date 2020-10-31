@@ -66,7 +66,6 @@
               <td>$<?php echo $row['pricepergallon']; ?></td>
               <td><input type="submit" value="Delete" name="remove" class="margin-button-none"></td>
             </tr>
-            <!-- <?php console_log($row); ?> -->
             <?php } ?>
           </table>
         </form>
