@@ -32,17 +32,8 @@ if (isset($_POST['submit'])) {
           <select name="vehicle_id">
             <option value="" selected="true" disabled> -- </option>
             <?php 
-            // $query = 'SELECT DISTINCT vehicle_id, year, make, model
-            //           FROM filler AS f
-            //           JOIN ledger AS l
-            //           ON f.id = l.filler_id
-            //           JOIN fillup as u
-            //           ON u.id = l.fillup_id
-            //           JOIN vehicle as v
-            //           ON v.id = l.vehicle_id
-            //           WHERE f.id = :filler_id;';
 
-            $query = 'SELECT DISTINCT *
+            $query = 'SELECT DISTINCT year, make, model
                       FROM vehicle AS v
                       JOIN filler AS f
                       ON v.filler_id = f.id
