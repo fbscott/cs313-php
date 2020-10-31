@@ -19,11 +19,11 @@
     <div class="row">
       <div class="column">
         <?php 
-        $query = 'SELECT first FROM filler WHERE id = :id';
+        // $query = 'SELECT first FROM filler WHERE id = :id';
 
-        $stmt = $db->prepare($query);
-        $stmt->execute(array(':id' => $_SESSION['filler_id']));
-        $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+        // $stmt = $db->prepare($query);
+        // $stmt->execute(array(':id' => $_SESSION['filler_id']));
+        // $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $query = 'SELECT first, vehicle_id, year, make, model, fillUp_id, f_date, mileage, gallons, pricepergallon
                   FROM filler AS f
