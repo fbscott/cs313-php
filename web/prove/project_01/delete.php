@@ -1,7 +1,7 @@
 <?php 
     include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_db.php';
 
-    $query = 'DELETE FROM ledger
+    $query = 'DELETE ledger, fillup FROM ledger
               INNER JOIN fillup
               ON fillup.id = :fillup_id
               WHERE fillup_id = :fillup_id';
