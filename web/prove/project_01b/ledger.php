@@ -1,6 +1,6 @@
 <?php 
-include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/db.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/page_head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_db.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_page_head.php';
 ?>
   <title>Mileage Tracker</title>
 </head>
