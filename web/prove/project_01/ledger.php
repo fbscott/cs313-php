@@ -66,7 +66,7 @@
               <td><?php echo $row['gallons']; ?></td>
               <td>$<?php echo $row['pricepergallon']; ?></td>
               <td><input type="submit" value="Delete" name="remove"></td>
-              <td><?php echo $row; ?></td>
+              <td><?php echo $rows[$row]; ?></td>
             </tr>
             <?php } ?>
           </table>
