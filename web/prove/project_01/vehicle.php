@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
             //           ON v.id = l.vehicle_id
             //           WHERE f.id = :filler_id;';
 
-            $query = 'SELECT DISTINCT id, year, make, model
+            $query = 'SELECT DISTINCT year, make, model
                       FROM vehicle AS v
                       JOIN filler AS f
                       ON v.filler_id = f.id
