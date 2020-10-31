@@ -87,7 +87,9 @@
 
       <div class="row">
         <div class="column">
-          <input type="submit" value="Add Vehicle" name="addVehicle">
+          <span class="or-big">
+            <input type="submit" value="Add a Vehicle for this User" name="addVehicle">
+          </span>
         </div>
       </div>
     </form>
