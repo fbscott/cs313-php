@@ -3,6 +3,8 @@
 
     $query = "DELETE FROM ledger WHERE id = '" . $_GET["id"] . "'";
 
+    console_log($_GET['id']);
+
     if($result = pg_query($query)){
         echo "Data Deleted Successfully.";
     }
@@ -10,4 +12,3 @@
         echo "Error.";
     }
  ?>
- 
