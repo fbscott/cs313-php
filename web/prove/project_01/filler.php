@@ -30,12 +30,12 @@
 
     <!---------------------------------- FORM ---------------------------------->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-      
+
       <label for="filler_id">User</label>
       <select name="filler_id">
         <option value="" selected="true" disabled> -- </option>
         <?php foreach ($db->query('SELECT * FROM filler') as $row) { ?>
-        <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?></option>
+        <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?> <?php echo $row['last']; ?></option>
         <?php } ?>
       </select>
 
