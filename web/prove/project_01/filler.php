@@ -1,8 +1,6 @@
 <?php 
-session_start();
-
-include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/db.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/page_head.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_db.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_page_head.php';
 ?>
   <title>Query User Data</title>
 </head>
