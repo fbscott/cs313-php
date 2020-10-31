@@ -61,7 +61,7 @@
 
     <div class="row">
       <div class="column">
-        <form name="derp" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
           <table>
             <tr>
               <th>Date</th>
@@ -76,7 +76,7 @@
               <td><?php echo $row['mileage']; ?></td>
               <td><?php echo $row['gallons']; ?></td>
               <td>$<?php echo $row['pricepergallon']; ?></td>
-              <td><button name="remove" value="<?php echo $row['fillUp_id']; ?>">Delete</button></td>
+              <td><input type="submit" value="Delete" name="remove" class="margin-button-none"></td>
             </tr>
             <?php console_log($row); ?>
             <?php } ?>
