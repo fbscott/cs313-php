@@ -6,13 +6,21 @@
 </head>
 <body>
 <?php 
-$filler_id = $_POST['filler_id'];
+    $filler_id = $_POST['filler_id'];
 
-$_SESSION['filler_id'] = $filler_id;
+    $_SESSION['filler_id'] = $filler_id;
 
-if (isset($_POST['submitQuery'])) {
-    header('Location: vehicle.php');
-}
+    if (isset($_POST['submitQuery'])) {
+        header('Location: vehicle.php');
+    }
+
+    if (isset($_POST['back'])) {
+        header('Location: index.php');
+    }
+
+    if (isset($_POST['addVehicle'])) {
+        header('Location: add_vehicle.php');
+    }
 ?>
 
 <div class="row">
@@ -26,6 +34,7 @@ if (isset($_POST['submitQuery'])) {
 
     <!---------------------------------- FORM ---------------------------------->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+      
       <label for="filler_id">User</label>
       <select name="filler_id">
         <option value="" selected="true" disabled> -- </option>
@@ -33,11 +42,16 @@ if (isset($_POST['submitQuery'])) {
         <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?></option>
         <?php } ?>
       </select>
+
       <div class="row">
-        <div class="columns">
+        <div class="columns large-6">
+          <input type="submit" value="Back" name="back" />
+        </div>
+        <div class="columns large-6">
           <input type="submit" value="Submit" name="submitQuery" />
         </div>
       </div>
+
     </form>
     <!---------------------------------- /FORM --------------------------------->
 

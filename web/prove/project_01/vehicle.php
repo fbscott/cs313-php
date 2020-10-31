@@ -6,12 +6,17 @@
 </head>
 <body>
 <?php 
-if (isset($_POST['submit'])) {
-    $vehicle_id = $_POST['vehicle_id'];
-    $_SESSION['vehicle_id'] = $vehicle_id;
+  if (isset($_POST['submit'])) {
+      $vehicle_id = $_POST['vehicle_id'];
+      $_SESSION['vehicle_id'] = $vehicle_id;
 
-    header('Location: ledger.php');
-}
+      header('Location: ledger.php');
+  }
+
+
+    if (isset($_POST['back'])) {
+        header('Location: filler.php');
+    }
 ?>
 
 <div class="row">
@@ -62,8 +67,23 @@ if (isset($_POST['submit'])) {
       </div>
 
       <div class="row">
-        <div class="column">
+        <div class="columns large-6">
+          <input type="submit" value="Back" name="back" />
+        </div>
+        <div class="columns large-6">
           <input type="submit" value="Submit" name="submit" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <p class="or-big">OR</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <input type="submit" value="Add Vehicle" name="addVehicle">
         </div>
       </div>
     </form>
