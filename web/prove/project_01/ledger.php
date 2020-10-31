@@ -19,12 +19,6 @@
     <div class="row">
       <div class="column">
         <?php 
-            // $query = 'SELECT first FROM filler WHERE id = :id';
-
-            // $stmt = $db->prepare($query);
-            // $stmt->execute(array(':id' => $_SESSION['filler_id']));
-            // $rows = $stmt->fetch(PDO::FETCH_ASSOC);
-
             $query = 'SELECT first, vehicle_id, year, make, model, fillUp_id, f_date, mileage, gallons, pricepergallon
                       FROM filler AS f
                       JOIN ledger AS l
@@ -54,7 +48,6 @@
           </div>
           <div class="columns large-3">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-              <label for="add"></label>
               <input type="submit" value="Add Record" name="add" id="add">
             </form>
           </div>
