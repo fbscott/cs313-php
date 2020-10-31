@@ -57,6 +57,7 @@
               <th>Gallons</th>
               <th>$/gal</th>
               <th>Delete</th>
+              <th>row</th>
             </tr>
             <?php foreach ($rows as $row) { ?>
             <tr>
@@ -65,6 +66,7 @@
               <td><?php echo $row['gallons']; ?></td>
               <td>$<?php echo $row['pricepergallon']; ?></td>
               <td><input type="submit" value="Delete" name="remove"></td>
+              <td><?php echo $row; ?></td>
             </tr>
             <?php } ?>
           </table>
