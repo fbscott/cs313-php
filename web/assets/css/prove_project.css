@@ -5,6 +5,11 @@
    font-size: 1rem;
 }*/
 
+h1 {
+   text-align: center;
+   margin-top: 2rem;
+}
+
 .margin-buttom-none { margin-bottom: 0; }
 .margin-buttom-3 { margin-bottom: 3rem; }
 
