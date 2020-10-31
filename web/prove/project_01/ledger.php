@@ -48,10 +48,10 @@
         ?>
         <h2>Hello, <?php echo $rows[0]['first'] ?>!</h2>
         <div class="row">
-          <div class="columns large-6">
+          <div class="columns large-9">
             <p>Below is the mileage tracking info for your <strong><?php echo $rows[0]['year'] . ' ' . $rows[0]['make'] . ' ' . $rows[0]['model']; ?></strong>.</p>
           </div>
-          <div class="columns large-6">
+          <div class="columns large-3">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
               <label for="add"></label>
               <input type="submit" value="Add Record" name="add" id="add" class="margin-button-none">
