@@ -10,10 +10,10 @@
 * ADD NEW RECORD
 **************************************************************************/
 if (isset($_POST['submitAddFillUp'])) {
-    $date = $_POST['date'];
-    $mileage = $_POST['mileage'];
-    $gallons = $_POST['gallons'];
-    $pricepergallon = $_POST['pricepergallon'];
+    $date           = htmlentities($_POST['date']);
+    $mileage        = htmlentities($_POST['mileage']);
+    $gallons        = htmlentities($_POST['gallons']);
+    $pricepergallon = htmlentities($_POST['pricepergallon']);
 
     /* fillup table */
     $stmt = $db->prepare('INSERT INTO fillup(f_date, mileage, gallons, pricepergallon) VALUES (:date, :mileage, :gallons, :pricepergallon);');
@@ -52,19 +52,19 @@ if (isset($_POST['submitAddFillUp'])) {
       <div class="row">
         <div class="large-3 columns">
           <label for="date">Date</label>
-          <input name="date" type="text" />
+          <input name="date" type="text" required />
         </div>
         <div class="large-3 columns">
           <label for="mileage">Mileage</label>
-          <input name="mileage" type="text" />
+          <input name="mileage" type="text" required />
         </div>
         <div class="large-3 columns">
           <label for="gallons">Gallons</label>
-          <input name="gallons" type="text" />
+          <input name="gallons" type="text" required />
         </div>
         <div class="large-3 columns">
           <label for="pricepergallon">Pricer per Gallon</label>
-          <input name="pricepergallon" type="text" />
+          <input name="pricepergallon" type="text" required />
         </div>
       </div>
       <input type="submit" value="Submit" name="submitAddFillUp" />

@@ -10,9 +10,9 @@
 * ADD NEW RECORD
 **************************************************************************/
 if (isset($_POST['submitAddVehicle'])) {
-    $year = $_POST['year'];
-    $make = $_POST['make'];
-    $model = $_POST['model'];
+    $year  = htmlentities($_POST['year']);
+    $make  = htmlentities($_POST['make']);
+    $model = htmlentities($_POST['model']);
 
     /* vehicle table */
     $stmt = $db->prepare('INSERT INTO vehicle(year, make, model, filler_id) VALUES (:year, :make, :model, :filler_id);');
@@ -43,15 +43,15 @@ if (isset($_POST['submitAddVehicle'])) {
       <div class="row">
         <div class="large-4 columns">
           <label for="year">Year</label>
-          <input name="year" type="text" />
+          <input name="year" type="text" required />
         </div>
         <div class="large-4 columns">
           <label for="make">Make</label>
-          <input name="make" type="text" />
+          <input name="make" type="text" required />
         </div>
         <div class="large-4 columns">
           <label for="model">Model</label>
-          <input name="model" type="text" />
+          <input name="model" type="text" required />
         </div>
       </div>
       <input type="submit" value="Submit" name="submitAddVehicle" />

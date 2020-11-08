@@ -10,9 +10,9 @@
 * ADD NEW RECORD
 **************************************************************************/
 if (isset($_POST['submitAddFiller'])) {
-    $username = $_POST['username'];
-    $first = $_POST['first'];
-    $last = $_POST['last'];
+    $username = htmlentities($_POST['username']);
+    $first    = htmlentities($_POST['first']);
+    $last     = htmlentities($_POST['last']);
 
     /* filler table */
     $stmt = $db->prepare('INSERT INTO filler(username, first, last) VALUES (:username, :first, :last);');
@@ -55,15 +55,15 @@ if (isset($_POST['submitDelete'])) {
       <div class="row">
         <div class="large-6 columns">
           <label for="first">First</label>
-          <input name="first" type="text" />
+          <input name="first" type="text" required />
         </div>
         <div class="large-6 columns">
           <label for="last">Last</label>
-          <input name="last" type="text" />
+          <input name="last" type="text" required />
         </div>
       </div>
       <label for="username">User Name</label>
-      <input name="username" type="text" />
+      <input name="username" type="text" required />
       <input type="submit" value="Submit" name="submitAddFiller" />
     </form>
     <!---------------------------------- /FORM --------------------------------->
