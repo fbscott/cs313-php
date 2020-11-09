@@ -1,6 +1,7 @@
 <?php 
     include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_db.php';
     include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_page_head.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_error_message.php';
 ?>
   <title>Query Vehicle Data</title>
 </head>
@@ -10,13 +11,20 @@
         $vehicle_id = $_POST['vehicle_id'];
         $_SESSION['vehicle_id'] = $vehicle_id;
 
-        header('Location: ledger.php');
+        // are all inputs filled in
+        $isFormValid = true;
+        $errorMsg = '';
+
+        if ($isFormValid) {
+            header('Location: ledger.php');
+        } else {
+            $errorMsg = $errorFillFields;
+        }
     }
 
     if (isset($_POST['back'])) {
         header('Location: filler.php');
     }
-
 
     if (isset($_POST['addVehicle'])) {
         header('Location: add_vehicle.php');
@@ -32,6 +40,8 @@
         <p>View fill-up data for a previously logged vehicle.</p>
       </div>
     </div>
+
+    <?php echo $errorMsg; ?>
 
     <!---------------------------------- FORM ---------------------------------->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
@@ -51,12 +61,6 @@
                       JOIN vehicle as v
                       ON v.id = l.vehicle_id
                       WHERE f.id = :filler_id;';
-
-            // $query = 'SELECT DISTINCT year, make, model
-            //           FROM vehicle AS v
-            //           JOIN filler AS f
-            //           ON v.filler_id = f.id
-            //           WHERE f.id = :filler_id';
 
             $stmt = $db->prepare($query);
             $stmt->execute(array(':filler_id' => $_SESSION['filler_id']));

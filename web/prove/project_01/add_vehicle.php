@@ -14,6 +14,7 @@
         $year  = htmlentities($_POST['year']);
         $make  = htmlentities($_POST['make']);
         $model = htmlentities($_POST['model']);
+
         // are all inputs filled in
         $isFormValid = true;
         $errorMsg = '';

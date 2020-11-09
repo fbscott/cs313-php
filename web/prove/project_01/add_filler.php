@@ -15,6 +15,7 @@
         $username = htmlentities($_POST['username']);
         $first    = htmlentities($_POST['first']);
         $last     = htmlentities($_POST['last']);
+
         // are all inputs filled in
         $isFormValid = true;
         $errorMsg = '';

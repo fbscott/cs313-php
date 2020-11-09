@@ -8,6 +8,8 @@
 <body>
 <?php 
     $filler_id = $_POST['filler_id'];
+    
+    // are all inputs filled in
     $isFormValid = true;
     $errorMsg = '';
 
