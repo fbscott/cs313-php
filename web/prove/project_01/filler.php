@@ -1,17 +1,26 @@
 <?php 
     include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_db.php';
     include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_page_head.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_error_message.php';
 ?>
   <title>Query User Data</title>
 </head>
 <body>
 <?php 
     $filler_id = $_POST['filler_id'];
+    $isFormValid = true;
+    $errorMsg = '';
 
     $_SESSION['filler_id'] = $filler_id;
 
-    if (isset($_POST['submitQuery'])) {
+    if (empty($filler_id)) {
+        $isFormValid = false;
+    }
+
+    if (isset($_POST['submitQuery']) && $isFormValid) {
         header('Location: vehicle.php');
+    } else {
+        $errorMsg = $errorFillFields;
     }
 
     if (isset($_POST['back'])) {
@@ -27,6 +36,8 @@
         <h1>Select a User</h1>
       </div>
     </div>
+
+    <?php echo $errorMsg; ?>
 
     <!---------------------------------- FORM ---------------------------------->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
