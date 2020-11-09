@@ -15,7 +15,7 @@
         $isFormValid = true;
         $errorMsg = '';
 
-        if (empty($filler_id)) {
+        if (empty($vehicle_id)) {
             $isFormValid = false;
         }
 
