@@ -45,7 +45,7 @@
                 console_log($_POST['remove']);
             }
         ?>
-        <h2>Welcome back, <?php echo $rows[0]['first'] ?>!</h2>
+        <h2>Welcome, <?php echo $rows[0]['first'] ?>!</h2>
         <div class="row">
           <div class="columns large-9">
             <p>Below is the mileage tracking info for your <strong><?php echo $rows[0]['year'] . ' ' . $rows[0]['make'] . ' ' . $rows[0]['model']; ?></strong>.</p>
