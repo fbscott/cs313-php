@@ -53,7 +53,7 @@
         <div class="column">
 
           <label for="vehicle_id">Vehicle</label>
-          <select name="vehicle_id" required>
+          <select name="vehicle_id">
             <option value="" selected="true" disabled> -- </option>
             <?php 
             $query = 'SELECT DISTINCT vehicle_id, year, make, model
