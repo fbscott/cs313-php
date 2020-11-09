@@ -18,7 +18,7 @@
     }
 
     if (isset($_POST['submitQuery'])) {
-        if ($errorMsg = '';) {
+        if ($isFormValid) {
             header('Location: vehicle.php');
         } else {
             $errorMsg = $errorFillFields;
