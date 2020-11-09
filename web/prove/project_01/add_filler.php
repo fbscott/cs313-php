@@ -43,7 +43,6 @@ if (isset($_POST['submitAddFiller'])) {
         header('Location: add_vehicle.php');
     } else {
       $errorMsg = '<p class="error-msg">Error: Please enter a last name.</p>';
-      echo $errorMsg;
     }
 }
 
@@ -75,17 +74,17 @@ if (isset($_POST['submitDelete'])) {
         <div class="large-6 columns">
           <label for="first">First</label>
           <input name="first" type="text" />
-          <?php $errorMsg ?>
+          <?php echo $errorMsg; ?>
         </div>
         <div class="large-6 columns">
           <label for="last">Last</label>
           <input name="last" type="text" />
-          <?php $errorMsg ?>
+          <?php echo $errorMsg; ?>
         </div>
       </div>
       <label for="username">User Name</label>
       <input name="username" type="text" />
-      <?php $errorMsg ?>
+      <?php echo $errorMsg; ?>
       <input type="submit" value="Submit" name="submitAddFiller" />
     </form>
     <!---------------------------------- /FORM --------------------------------->
