@@ -1,6 +1,7 @@
 <?php 
     include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_db.php';
     include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_page_head.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/prove/project_01/_error_message.php';
 ?>
   <title>Add New Filler Data</title>
 </head>
@@ -42,13 +43,7 @@
 
             header('Location: add_vehicle.php');
         } else {
-          $errorMsg = '<div class="row">
-                         <div class="column">
-                           <div class="error-msg">
-                             <p><strong>Error:</strong> Please complete all fields.</p>
-                           </div>
-                         </div>
-                       </div>';
+          $errorMsg = $errorMsg;
         }
     }
 ?>
