@@ -8,7 +8,7 @@
 <body>
 <?php 
     $filler_id = $_POST['filler_id'];
-    
+
     // are all inputs filled in
     $isFormValid = true;
     $errorMsg = '';
@@ -47,7 +47,7 @@
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
       <label for="filler_id">User</label>
-      <select name="filler_id">
+      <select name="filler_id" required>
         <option value="" selected="true" disabled> -- </option>
         <?php foreach ($db->query('SELECT * FROM filler') as $row) { ?>
         <option value="<?php echo $row['id']; ?>"><?php echo $row['first']; ?> <?php echo $row['last']; ?></option>
