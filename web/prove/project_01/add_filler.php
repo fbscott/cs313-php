@@ -43,7 +43,7 @@
 
             header('Location: add_vehicle.php');
         } else {
-          $errorMsg = $errorFillFields;
+            $errorMsg = $errorFillFields;
         }
     }
 ?>
