@@ -39,11 +39,15 @@ a.button.delete {
    background-color: #fff3f3;
 }
 
-p.error-msg {
-   /*font-size: 12px;*/
-   /*height: 0;*/
-   /*margin: 0;*/
-   /*position: absolute;*/
-   /*bottom: 20px;*/
-   color: #ff0000;  
+div.error-msg {
+   margin-bottom: 2rem;
+   background-color: rgba(255, 0, 0, 0.125);
+   padding: 2rem 1rem;
+   border: 1px solid #ff0000;
+   border-radius: 5px;
+}
+
+.error-msg p {
+   color: #ff0000;
+   margin-bottom: 0;
 }
