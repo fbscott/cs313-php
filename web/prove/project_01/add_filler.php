@@ -43,8 +43,10 @@
             header('Location: add_vehicle.php');
         } else {
           $errorMsg = '<div class="row">
-                         <div class="column error-msg">
-                           <p><strong>Error:</strong> Please complete all fields.</p>
+                         <div class="column">
+                           <div class="error-msg">
+                             <p><strong>Error:</strong> Please complete all fields.</p>
+                           </div>
                          </div>
                        </div>';
         }
