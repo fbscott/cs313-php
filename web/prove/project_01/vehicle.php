@@ -15,6 +15,10 @@
         $isFormValid = true;
         $errorMsg = '';
 
+        if (empty($filler_id)) {
+            $isFormValid = false;
+        }
+
         if ($isFormValid) {
             header('Location: ledger.php');
         } else {
