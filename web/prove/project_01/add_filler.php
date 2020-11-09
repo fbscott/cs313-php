@@ -9,23 +9,42 @@
 /***************************************************************************
 * ADD NEW RECORD
 **************************************************************************/
+
 if (isset($_POST['submitAddFiller'])) {
     $username = htmlentities($_POST['username']);
     $first    = htmlentities($_POST['first']);
     $last     = htmlentities($_POST['last']);
+    // are all inputs filled in
+    $isFormValid = true;
+    $errorMsg = '';
 
-    /* filler table */
-    $stmt = $db->prepare('INSERT INTO filler(username, first, last) VALUES (:username, :first, :last);');
-    $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-    $stmt->bindValue(':first', $first, PDO::PARAM_STR);
-    $stmt->bindValue(':last', $last, PDO::PARAM_STR);
-    $stmt->execute();
+    // all of these elems should be filled in
+    $elems = array($username, $first, $last);
 
-    $filler_id = $db->lastInsertId('filler_id_seq');
+    // iterate through inputs, make sure they're all filled in
+    for ($i = 0; $i < sizeof($elems); $i++) { 
+        if (empty($elems[$i])) {
+            $isFormValid = false;
+        }
+    }
 
-    $_SESSION['filler_id'] = $filler_id;
+    if ($isFormValid) {
+        /* filler table */
+        $stmt = $db->prepare('INSERT INTO filler(username, first, last) VALUES (:username, :first, :last);');
+        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+        $stmt->bindValue(':first', $first, PDO::PARAM_STR);
+        $stmt->bindValue(':last', $last, PDO::PARAM_STR);
+        $stmt->execute();
 
-    header('Location: add_vehicle.php');
+        $filler_id = $db->lastInsertId('filler_id_seq');
+
+        $_SESSION['filler_id'] = $filler_id;
+
+        header('Location: add_vehicle.php');
+    } else {
+      $errorMsg = '<p class="error-msg">Error: Please enter a last name.</p>';
+      echo $errorMsg;
+    }
 }
 
 /***************************************************************************
@@ -55,15 +74,18 @@ if (isset($_POST['submitDelete'])) {
       <div class="row">
         <div class="large-6 columns">
           <label for="first">First</label>
-          <input name="first" type="text" required />
+          <input name="first" type="text" />
+          <?php $errorMsg ?>
         </div>
         <div class="large-6 columns">
           <label for="last">Last</label>
-          <input name="last" type="text" required />
+          <input name="last" type="text" />
+          <?php $errorMsg ?>
         </div>
       </div>
       <label for="username">User Name</label>
-      <input name="username" type="text" required />
+      <input name="username" type="text" />
+      <?php $errorMsg ?>
       <input type="submit" value="Submit" name="submitAddFiller" />
     </form>
     <!---------------------------------- /FORM --------------------------------->
