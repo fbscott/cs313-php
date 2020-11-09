@@ -17,10 +17,12 @@
         $isFormValid = false;
     }
 
-    if (isset($_POST['submitQuery']) && $isFormValid) {
-        header('Location: vehicle.php');
-    } else {
-        $errorMsg = $errorFillFields;
+    if (isset($_POST['submitQuery'])) {
+        if ($errorMsg = '';) {
+            header('Location: vehicle.php');
+        } else {
+            $errorMsg = $errorFillFields;
+        }
     }
 
     if (isset($_POST['back'])) {
